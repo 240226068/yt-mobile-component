@@ -127,6 +127,10 @@ const routes = [
   {
     path: '/swipe',
     component: () => import('./swipe')
+  },
+  {
+    path: '/tabbar',
+    component: () => import('./tabbar')
   }
 ]
 export default new Router({ routes })

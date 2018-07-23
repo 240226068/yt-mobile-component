@@ -26,6 +26,9 @@ import ScreenPanel from './screen/screenPanel'
 import ShopCart from './shopCart'
 import InlineSelect from './inlineSelect'
 import Swipe from './swipe'
+import Tabbar from './tabbar'
+import TabbarPanel from './tabbar/tabbarPanel'
+import TabbarQuick from './tabbar/tabbarQuick'
 
 export {
   View,
@@ -52,5 +55,8 @@ export {
   ScreenPanel,
   ShopCart,
   InlineSelect,
-  Swipe
+  Swipe,
+  Tabbar,
+  TabbarPanel,
+  TabbarQuick
 }
