@@ -1,0 +1,9 @@
+@name yt {
+  @b tag {
+    font-size: 14px;
+    margin-left: 2px;
+    & + .yt-tag {
+      margin-left: 5px;
+    }
+  }
+}

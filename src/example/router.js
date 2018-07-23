@@ -117,8 +117,16 @@ const routes = [
     component: () => import('./card')
   },
   {
-    path: '/header',
-    component: () => import('./header')
+    path: '/screen',
+    component: () => import('./screen')
+  },
+  {
+    path: '/inlineSelect',
+    component: () => import('./inlineSelect')
+  },
+  {
+    path: '/swipe',
+    component: () => import('./swipe')
   }
 ]
 export default new Router({ routes })

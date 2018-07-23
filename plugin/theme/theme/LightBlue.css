@@ -8,4 +8,5 @@
   --disabled_color: #d9d9d9;
   --plain_fill_color: #edf8ff;
   --plain_border_color: #b5e3ff;
+  --mask_fill_color: rgba(0, 0, 0, 0.75);
 }

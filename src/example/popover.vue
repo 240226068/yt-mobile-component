@@ -1,24 +1,23 @@
 <template>
   <yt-page :title="title" :leftData="[]" :rightData="[]">
-    <yt-cell @click="handlerClick('top')" title="从上面弹出" :ripple="true" :isLink="true"/>
-    <yt-cell @click="handlerClick('bottom')" title="从下面弹出" :ripple="true" :isLink="true"/>
-    <yt-cell @click="handlerClick('left')" title="从左面弹出" :ripple="true" :isLink="true"/>
-    <yt-cell @click="handlerClick('right')" title="从右面弹出" :ripple="true" :isLink="true"/>
-    <yt-popover pos="top" :visible.sync="top" slot="alert">
+    <yt-btn @click="handlerClick('top')">top</yt-btn>
+    <yt-btn @click="handlerClick('bottom')">bottom</yt-btn>
+    <yt-btn @click="handlerClick('left')">left</yt-btn>
+    <yt-btn @click="handlerClick('right')">right</yt-btn>
+    <yt-popover pos="top" v-model="top">
+      <yt-btn :disabled="!select.length">选择分区</yt-btn>
+    </yt-popover>
+    <yt-popover pos="bottom" v-model="bottom" slot="alert">
       <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
       <yt-btn :disabled="!select.length">选择分区</yt-btn>
     </yt-popover>
-    <yt-popover pos="bottom" :visible.sync="bottom" slot="alert">
-      <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
-      <yt-btn :disabled="!select.length">选择分区</yt-btn>
-    </yt-popover>
-    <yt-popover pos="left" :visible.sync="left" slot="alert">
+    <yt-popover pos="left" v-model="left" slot="alert">
       <yt-page class="page" :flex="true" :leftData="[]" title="选择分区">
         <yt-checkList style="flex: 1;" v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
         <yt-btn :disabled="!select.length">确认</yt-btn>
       </yt-page>
     </yt-popover>
-    <yt-popover pos="right" :visible.sync="right" slot="alert">
+    <yt-popover pos="right" v-model="right" slot="alert">
       <yt-page class="page" :flex="true" :leftData="[]" title="选择分区">
         <yt-checkList style="flex: 1;" v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
         <yt-btn :disabled="!select.length">确认</yt-btn>
@@ -29,7 +28,7 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'popover-example',
-    data () {
+    data() {
       return {
         top: false,
         bottom: false,
@@ -72,6 +71,7 @@
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .page
     width 100%

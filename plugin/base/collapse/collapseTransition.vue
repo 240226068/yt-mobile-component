@@ -1,5 +1,5 @@
 <template>
-  <transition name="collapse-fade"
+  <transition name="yt-collapse-fade"
               @before-enter="beforeEnter"
               @enter="enter"
               @after-enter="afterEnter"

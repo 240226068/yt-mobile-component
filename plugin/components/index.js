@@ -6,6 +6,7 @@ import Split from './split'
 import CheckBox from './checkBox'
 import Switch from './switch'
 import Radio from './radio'
+import Rate from './rate'
 import Count from './count'
 import Strcky from './strcky'
 import Badge from './badge'
@@ -16,6 +17,15 @@ import GridItem from './grid/gridItem'
 import Header from './header'
 import HeaderBtn from './header/headerBtn'
 import ButtonTab from './buttonTab'
+import Page from './page'
+import Form from './form'
+import TimeLine from './timeLine'
+import Popover from './popover'
+import Screen from './screen'
+import ScreenPanel from './screen/screenPanel'
+import ShopCart from './shopCart'
+import InlineSelect from './inlineSelect'
+import Swipe from './swipe'
 
 export {
   View,
@@ -23,6 +33,7 @@ export {
   CheckBox,
   Switch,
   Radio,
+  Rate,
   Count,
   Strcky,
   Badge,
@@ -32,5 +43,14 @@ export {
   GridItem,
   Header,
   HeaderBtn,
-  ButtonTab
+  ButtonTab,
+  Page,
+  Form,
+  TimeLine,
+  Popover,
+  Screen,
+  ScreenPanel,
+  ShopCart,
+  InlineSelect,
+  Swipe
 }

@@ -1,0 +1,58 @@
+@name yt {
+  @b popover {
+    @e mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: 100;
+      background: var(--mask_fill_color);
+      transition: all .3s cubic-bezier(.645, .045, .355, 1);
+
+      @when fixed {
+        position: fixed;
+      }
+    }
+
+    @e body {
+      position: absolute;
+      overflow: hidden;
+      z-index: 100;
+      background: #ffffff;
+      transition: all .3s cubic-bezier(.645, .045, .355, 1);
+      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+
+      @when fixed {
+        position: fixed;
+      }
+
+      @when bottom {
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      @when top {
+        left: 0;
+        right: 0;
+        top: 0;
+      }
+
+      @when right {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 70%
+      }
+
+      @when left {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 70%
+      }
+    }
+  }
+}

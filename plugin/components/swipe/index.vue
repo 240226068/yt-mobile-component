@@ -1,14 +1,14 @@
 <template>
-  <div class="yt-slider-row" v-clickoutside:touchstart="close" ref="wrapper">
-    <div class="yt-slider-row-center" ref="center">
+  <div class="yt-swipe" v-clickoutside:touchstart="close" ref="wrapper">
+    <div class="yt-swipe-center" ref="center">
       <!-- @slot 定制中间的内容 -->
       <slot></slot>
     </div>
-    <div @click.prevent.stop="close" class="yt-slider-row-buttons" ref="right">
+    <div @click.prevent.stop="close" class="yt-swipe-buttons" ref="right">
       <!-- @slot 定制侧滑右侧的内容 -->
       <slot name="right">
-        <div class="yt-slider-row-button" v-for="(item, index) in items" :class="`is-${item.type}`" :key="index"
-             @click="handlerClick(item)">{{item.text}}
+        <div class="yt-swipe-button" v-for="(item, index) in items" :class="`is-${item.type || 'red'}`" :key="index"
+             @click="handlerClick($event, item, index)">{{item.text}}
         </div>
       </slot>
     </div>
@@ -71,7 +71,7 @@
       close() {
         this._setMoveCell(this.$refs.right.offsetWidth, true)
       },
-      handlerClick(item) {
+      handlerClick(e, item, index) {
         if (item && item.click) {
           item.click(this.data)
         }
@@ -93,37 +93,3 @@
     }
   }
 </script>
-
-<style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
-  @import '../../style/var'
-  .yt-slider-row
-    position relative
-    &-buttons
-      display flex
-      position absolute
-      top 0
-      right 0
-      height 100%
-      transform translate3d(100%, 0, 0)
-    &-button
-      flex 1
-      display flex
-      align-items center
-      justify-content center
-      text-align center
-      height 100%
-      font-size 14px
-      min-width cellSwipe_minWidth
-      padding 0 cellSwipe_paddingHorizontal
-      color cellSwipe_color
-      &.is-primary
-        background-color cellSwipe_primary_fill
-      &.is-success
-        background-color cellSwipe_success_fill
-      &.is-warning
-        background-color cellSwipe_warning_fill
-      &.is-danger
-        background-color cellSwipe_danger_fill
-      &.is-info
-        background-color cellSwipe_info_fill
-</style>

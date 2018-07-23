@@ -1,8 +1,9 @@
 <template>
   <yt-page title="工单历史">
-    <yt-timeline :list="list"></yt-timeline>
+    <yt-timeLine :list="list"></yt-timeLine>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'time-example',

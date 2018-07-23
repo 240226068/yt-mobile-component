@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-header" :class="[`yt-header__${type}`,{ 'is-shadow': shadow }]">
+  <div class="yt-header" :class="[type ? `yt-header__${type}` : '',{ 'is-shadow': shadow }]">
     <transition name="yt-fade">
       <div class="yt-header-text" v-if="!input && !$slots.default" v-text="title"></div>
     </transition>
@@ -53,12 +53,12 @@
       leftData: {
         type: Array,
         default() {
-          return [ {
+          return [{
             font: 'iconfont icon-back',
             click: () => {
               this.$router.$back()
             }
-          } ]
+          }]
         }
       },
       /**
@@ -81,7 +81,9 @@
       /**
        * 导航中间显示的文字
        */
-      title: String,
+      title: {
+        type: String
+      },
       /**
        * 导航中input的缩放原点位置  默认缩放原点在右侧
        */
@@ -130,25 +132,21 @@
         this.key = val
       },
       'key'(val) {
-        if (!this.throttle) {
+        const fn = (val) => {
           /**
            * 搜索文字变化事件
            * @event search-change
            */
           this.$emit('search-change', val)
-          return
         }
-        if (!this._throttleInstance) {
-          const fn = (val) => {
-            /**
-             * 搜索文字变化事件
-             * @event search-change
-             */
-            this.$emit('search-change', val)
+        if (!this.throttle) {
+          fn(val)
+        } else {
+          if (!this._throttleInstance) {
+            this._throttleInstance = throttle(fn, 500, 2000)
           }
-          this._throttleInstance = throttle(fn, 500, 2000)
+          this._throttleInstance(val)
         }
-        this._throttleInstance(val)
       }
     }
   }
