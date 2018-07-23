@@ -1,0 +1,11 @@
+@import "../components/index.css";
+
+:root {
+  --gradient_color: -webkit-gradient(linear, 0 22, 100% 0, from(#6D80FD), to(#25D0FD));
+  --fill_color: #46BAFF;
+  --font_color: #46BAFF;
+  --border_color: #46BAFF;
+  --disabled_color: #d9d9d9;
+  --plain_fill_color: #edf8ff;
+  --plain_border_color: #b5e3ff;
+}

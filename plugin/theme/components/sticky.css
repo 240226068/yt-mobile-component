@@ -1,0 +1,14 @@
+@name yt {
+  @b sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    &::after {
+      content: "";
+      height: 0;
+      line-height: 0;
+      display: block;
+      visibility: hidden;
+      clear: both;
+    }
+  }
+}

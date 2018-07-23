@@ -1,0 +1,57 @@
+@name yt {
+  @b card {
+    margin: 15px;
+    border-radius: 4px;
+    background-color: #ffffff;
+
+    @when edge {
+      margin: 0;
+      border-radius: 0;
+      & + .yt-card {
+        margin-top: 20px;
+      }
+    }
+
+    @when shadow {
+      box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    }
+
+    @e header {
+      display: flex;
+      color: #000;
+      padding: 14px 10px;
+      border-bottom: 1px solid #ebeef5;
+      @when tag {
+        &::before {
+          margin-right: 10px;
+          display: inline-block;
+          vertical-align: middle;
+          content: " ";
+          height: 16px;
+          width: 6px;
+          border-radius: 5px;
+          background-color: var(--fill_color);
+        }
+      }
+    }
+
+    @e title {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @e more {
+      flex: 1;
+      text-align: right;
+    }
+
+    @e body {
+      padding: 10px 0;
+    }
+
+    @e btn {
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+}

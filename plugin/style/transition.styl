@@ -1,0 +1,69 @@
+// 从右侧出来
+.yt-slider-right-enter
+  opacity 0.1
+  transform translate3d(10%, 0, 0)
+
+.yt-slider-right-leave-active
+  transform translate3d(0%, 0, 0)
+
+// 从左侧出来
+.yt-slider-left-enter
+  opacity 0.1
+  transform translate3d(-10%, 0, 0)
+
+.yt-slider-left-leave-active
+  transform translate3d(0, 0, 0)
+
+// 渐变
+.yt-fade-enter, .yt-fade-leave-active
+  opacity 0
+
+// 缩放
+.yt-zoom-enter, .yt-zoom-leave-active
+  opacity 0
+  transform scale(1.1)
+
+//  从下面出来 偏移100%
+.yt-slider-bottom-enter, .yt-slider-bottom-leave-active
+  transform translate3d(0, 100%, 0)
+
+//  从下面出来 偏移100%
+.yt-slider-top-enter, .yt-slider-top-leave-active
+  transform translate3d(0, -100%, 0)
+
+.yt-module-enter, .yt-module-leave-active
+  opacity 0.1
+  transform translate3d(10%, 0, 0)
+
+.yt-confirm-zoom-enter
+  opacity 0
+  transform translate3d(-50%, -50%, 0) scale(0.1)
+
+.yt-confirm-zoom-leave-active
+  opacity 0
+  transform translate3d(-50%, -50%, 0)
+
+//  导航input缩放
+.yt-header-input-scale-enter, .yt-header-input-scale-leave-active
+  opacity 0
+  transform scaleX(0)
+
+.yt-page-more-enter, .yt-page-more-leave-active
+  opacity 0
+  transform scale(0)
+
+//  从下面出来 偏移100%
+.yt-pop-slider-bottom-enter, .yt-pop-slider-bottom-leave-active
+  transform translate3d(0, 100%, 0)
+
+//  从右面出来 偏移100%
+.yt-pop-slider-right-enter, .yt-pop-slider-right-leave-active
+  transform translate3d(100%, 0, 0)
+
+//  从上面面出来 偏移100%
+.yt-pop-slider-top-enter, .yt-pop-slider-top-leave-active
+  transform translate3d(0, -100%, 0)
+
+//  从左面出来 偏移100%
+.yt-pop-slider-left-enter, .yt-pop-slider-left-leave-active
+  transform translate3d(-100%, 0, 0)

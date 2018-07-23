@@ -1,0 +1,30 @@
+@name yt {
+  @b badge {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: inline-block;
+    vertical-align: super;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: normal;
+    line-height: 18px;
+    height: 18px;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 0 6px;
+    transform: translateX(-50%) translateY(-50%);
+    color: #ffffff;
+    background-color: red;
+    @when dot {
+      padding: 0;
+      border: 0;
+      top: 0;
+      left: 100%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      font-size: 0;
+    }
+  }
+}

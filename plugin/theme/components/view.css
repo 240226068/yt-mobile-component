@@ -1,0 +1,13 @@
+@name yt {
+  @b view {
+    position: relative;
+    @e ripple {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+  }
+}

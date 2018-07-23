@@ -1,0 +1,11 @@
+timeline_wrapper_variant(theme, defaultLineFill, defaultFill, fillColor)
+  .yt-timeline-wrapper__{theme}
+    &::after
+      background-color defaultLineFill
+    &::before
+      background-color defaultLineFill
+    .yt-timeline-core
+      background-color defaultFill
+      &.is-current
+        background-color fillColor
+        border-color lighten(fillColor, 60%)

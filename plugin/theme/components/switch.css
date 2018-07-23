@@ -1,0 +1,77 @@
+@name yt {
+  @b switch {
+    position: relative;
+    font-size: 0;
+    padding: 6px 15px;
+    @when block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @when inline {
+      display: inline-block;
+    }
+
+    @e label {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+      line-height: 1.5;
+      font-size: 14px;
+      color: #303133;
+    }
+
+    @e wrapper {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @e input {
+      display: none;
+      &:checked + .yt-switch-core {
+        border-color: var(--border_color);
+        background-color: var(--fill_color);
+        &::before {
+          transform: scale(0);
+        }
+        &::after {
+          transform: translateX(20px);
+        }
+      }
+    }
+
+    @e core {
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+      width: 52px;
+      height: 32px;
+      border-radius: 26px;
+      border: 1px solid #cccccc;
+      background-color: #d9d9d9;
+
+      &::after, &::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all .3s cubic-bezier(.645, .045, .355, 1);
+        border-radius: 15px;
+      }
+
+      &::after {
+        width: 30px;
+        height: 30px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+        background-color: #ffffff;
+      }
+
+      &::before {
+        width: 50px;
+        height: 30px;
+        background-color: #fdfdfd
+      }
+    }
+  }
+}

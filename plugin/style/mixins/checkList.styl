@@ -1,0 +1,16 @@
+checkBox_variant(theme, defaultFill, defaultBorderColor, selectIconFill, selectFill, selectBorderColor, disabledFill, disabledBorderColor)
+  .yt-checkBox__{theme}
+    .yt-checkBox-core
+      background-color defaultFill
+      border-color defaultBorderColor
+      &::after
+        border-color selectIconFill
+    .yt-checkBox-input
+      &:checked + .yt-checkBox-core
+        background-color selectFill
+        border-color selectBorderColor
+        &::after
+          border-color selectIconFill
+      &[disabled] + .yt-checkBox-core
+        background-color disabledFill
+        border-color disabledBorderColor

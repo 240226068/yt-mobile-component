@@ -1,0 +1,20 @@
+radio_variant(theme, defaultFill, defaultBorderColor, selectIconFill, selectFill, selectBorderColor, disabledFill, disabledBorderColor)
+  .yt-radio__{theme}
+    .yt-radio-core
+      background-color defaultFill
+      border-color defaultBorderColor
+    .yt-radio-input
+      &:checked
+        + .yt-radio-core
+          background-color selectFill
+          border-color selectBorderColor
+          &::after
+            background-color selectIconFill
+            transform scale(1)
+      &[disabled]
+        + .yt-radio-core
+          background-color disabledFill
+          border-color disabledBorderColor
+          &::after
+            background-color disabledFill
+            transform scale(1)
