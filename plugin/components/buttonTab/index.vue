@@ -2,7 +2,7 @@
   <div class="yt-buttonTab" :class="`yt-buttonTab__${Theme}`">
     <span @click="handlerClick(index)" class="yt-buttonTab-item" v-for="(bar, index) in renderList" :key="index" :class="{ 'is-active': active === index }">
       {{bar.text}}
-      <yt-badge v-if="bar && bar.badge" :badge="bar.badge"></yt-badge>
+      <yt-badge v-if="bar && bar.badge" v-bind="bar.badge"></yt-badge>
     </span>
     <span class="yt-buttonTab-mask" :style="{transform: `translate3d(${this.active}00%, 0, 0)`}"></span>
   </div>
@@ -93,38 +93,3 @@
     }
   }
 </script>
-
-<style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
-  @import '../../style/var'
-  .yt-buttonTab
-    position relative
-    display inline-block
-    text-align center
-    white-space nowrap
-    height button_tab_height
-    border-radius button_tab_borderRadius
-    box-sizing border-box
-    border-width 1px
-    border-style solid
-    &-mask
-      position absolute
-      top 0
-      left 0
-      z-index -1
-      content " "
-      width button_tab_item_width
-      height button_tab_item_height
-      line-height button_tab_item_height
-      border-radius button_tab_item_borderRadius
-      transition md_transition
-
-    &-item
-      position relative
-      display inline-block
-      width button_tab_item_width
-      height button_tab_item_height
-      line-height button_tab_item_height
-      border-radius button_tab_item_borderRadius
-      font-size buttonTab_tab_item_fontSize
-      transition color_transition
-</style>

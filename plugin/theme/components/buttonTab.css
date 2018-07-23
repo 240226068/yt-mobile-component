@@ -1,0 +1,43 @@
+@name yt {
+  @b buttonTab {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    height: 30px;
+    border-radius: 28px;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    @e mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      content: " ";
+      width: 70px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 28px;
+      background-color: #ffffff;
+      transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    }
+
+    @e item {
+      position: relative;
+      display: inline-block;
+      width: 70px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 28px;
+      font-size: 14px;
+      transition: all .3s cubic-bezier(.645, .045, .355, 1);
+      @when active {
+        color: var(--font_color);
+      }
+    }
+  }
+}

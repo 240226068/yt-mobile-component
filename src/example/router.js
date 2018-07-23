@@ -115,6 +115,10 @@ const routes = [
   {
     path: '/card',
     component: () => import('./card')
+  },
+  {
+    path: '/header',
+    component: () => import('./header')
   }
 ]
 export default new Router({ routes })

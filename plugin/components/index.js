@@ -13,6 +13,9 @@ import Btn from './btn'
 import Card from './card'
 import Grid from './grid'
 import GridItem from './grid/gridItem'
+import Header from './header'
+import HeaderBtn from './header/headerBtn'
+import ButtonTab from './buttonTab'
 
 export {
   View,
@@ -26,5 +29,8 @@ export {
   Btn,
   Card,
   Grid,
-  GridItem
+  GridItem,
+  Header,
+  HeaderBtn,
+  ButtonTab
 }
