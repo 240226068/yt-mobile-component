@@ -28,7 +28,9 @@ import InlineSelect from './inlineSelect'
 import Swipe from './swipe'
 import Tabbar from './tabbar'
 import TabbarPanel from './tabbar/tabbarPanel'
-import TabbarQuick from './tabbar/tabbarQuick'
+import TabPanles from './tabPanles'
+import Tabs from './tabs'
+import TabPanel from './tabs/tabPanel'
 
 export {
   View,
@@ -58,5 +60,7 @@ export {
   Swipe,
   Tabbar,
   TabbarPanel,
-  TabbarQuick
+  TabPanles,
+  Tabs,
+  TabPanel
 }

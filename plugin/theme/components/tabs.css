@@ -1,5 +1,5 @@
 @name yt {
-  @b tabbar {
+  @b tabs {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -16,9 +16,24 @@
       position: relative;
       display: flex;
       flex-direction: row;
-      height: 55px;
+      height: 44px;
       background-color: #ffffff;
+      overflow-x: auto;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @e line {
+      position: absolute;
+      bottom: 0;
+      z-index: 10;
+      height: 4px;
+      border-radius: 2px;
+      transition: all .3s cubic-bezier(.645, .045, .355, 1);
+      backface-visibility: hidden;
+      background-color: var(--fill_color);
     }
 
     @e panel {
@@ -35,44 +50,28 @@
     }
 
     @e item {
+      font-size: 14px;
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      flex-direction: column;
+      white-space: nowrap;
       height: 100%;
-      color: #606060;
+      padding: 0 30px;
       @when active {
         color: var(--font_color);
       }
     }
 
-    @e core {
-      position: relative;
-      padding: 5px 8px;
-    }
-
-    @e icon {
-      font-size: 20px;
-    }
-
     @e text {
-      margin-top: 4px;
-      font-size: 12px;
+      position: relative;
     }
 
-    @e quick {
-      width: 75px;
-      height: 55px;
-      line-height: 55px;
-      text-align: center;
-      background-color: var(--fill_color);
-    }
-
-    @e quickAdd {
-      font-size: 24px;
-      color: #ffffff;
+    @e badge {
+      margin-left: 12px;
+      @when dot {
+        margin-left: 4px;
+      }
     }
   }
 }

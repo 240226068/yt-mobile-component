@@ -29,7 +29,6 @@
     methods: {
       handlerClickMoreItem(key) {
         this.$router.push({path: '/tabs/' + key})
-        console.log(key)
         this.more = !this.more
       }
     }
