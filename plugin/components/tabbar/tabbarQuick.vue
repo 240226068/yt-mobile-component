@@ -1,5 +1,5 @@
 <template>
-  <yt-view @click="doClick" class="yt-tabbar-quick" :class="`yt-bg__${Theme}`">
+  <yt-view @click="doClick" class="yt-tabbar-quick">
     <i class="yt-tabbar-quickAdd iconfont icon-increase"></i>
   </yt-view>
 </template>

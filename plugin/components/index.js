@@ -20,7 +20,7 @@ import ButtonTab from './buttonTab'
 import Page from './page'
 import Form from './form'
 import TimeLine from './timeLine'
-import Popover from './popover'
+import Popup from './popup'
 import Screen from './screen'
 import ScreenPanel from './screen/screenPanel'
 import ShopCart from './shopCart'
@@ -52,7 +52,7 @@ export {
   Page,
   Form,
   TimeLine,
-  Popover,
+  Popup,
   Screen,
   ScreenPanel,
   ShopCart,
