@@ -22,7 +22,10 @@
 @import "./screen.css";
 @import "./shopCart.css";
 @import "./inlineSelect.css";
-@import "./swipe.css";
+@import "./swipeCell.css";
 @import "./tabbar.css";
 @import "./tabs.css";
 @import "./loading.css";
+@import "./file.css";
+@import "./checkList.css";
+@import "./radioList.css";

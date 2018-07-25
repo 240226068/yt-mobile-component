@@ -48,7 +48,7 @@
        */
       value: {},
       /**
-       * checkbox的显示值
+       * radio的显示值
        */
       label: {
         type: String

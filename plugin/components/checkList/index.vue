@@ -1,24 +1,16 @@
 <template>
-  <div :class="[
-    'yt-checkList',
-    { 'is-limit': max > 1 && max <= currentValue.length }
-  ]" @change="$emit('change', currentValue)">
+  <div class="yt-checkList" :class="{ 'is-limit': max > 1 && max <= currentValue.length }"
+       @change="$emit('change', currentValue)">
     <!-- @slot 标题插槽-->
     <slot name="title">
       <div class="yt-checkList-title" v-if="title">{{title}}</div>
     </slot>
-    <div class="yt-checkList-wrapper yt-scroll">
-      <label class="yt-checkList-row" v-for="(option, index) in list" :key="index">
-        <yt-checkBox v-if="align === 'left'" v-model="currentValue" :disabled="option.disabled"
-                     :name="option | securityGetVal(val) || option"/>
-        <span :class="['yt-checkList-label', `is-${align}`]">
-          <slot :data="option" :index="index">
-            {{option | securityGetVal(label) || option}}
-          </slot>
-        </span>
-        <yt-checkBox v-if="align === 'right'" v-model="currentValue" :disabled="option.disabled"
-                     :name="option | securityGetVal(val) || option"/>
-      </label>
+    <div class="yt-checkList-wrapper">
+      <yt-checkBox v-model="currentValue" v-for="(option, index) in list"
+                   :disabled="option.disabled" :name="option | securityGetVal(val) || option"
+                   :pos="pos" :simple="simple" :inline="inline" :key="index">
+        <slot v-bind="option">{{option | securityGetVal(label)}}</slot>
+      </yt-checkBox>
     </div>
   </div>
 </template>
@@ -38,7 +30,7 @@
       /**
        *  控制check按钮在左侧还是在右侧   可取值 'left' || 'right'
        */
-      align: {
+      pos: {
         type: String,
         default: 'left'
       },
@@ -46,6 +38,13 @@
        *  checkBox样式是否为简单类型
        */
       simple: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       *  checkBox样式是否为简单类型
+       */
+      inline: {
         type: Boolean,
         default: false
       },

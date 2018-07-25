@@ -125,12 +125,20 @@ const routes = [
     component: () => import('./inlineSelect')
   },
   {
-    path: '/swipe',
-    component: () => import('./swipe')
+    path: '/swipeCell',
+    component: () => import('./swipeCell')
   },
   {
     path: '/tabbar',
     component: () => import('./tabbar')
+  },
+  {
+    path: '/file',
+    component: () => import('./file')
+  },
+  {
+    path: '/radioList',
+    component: () => import('./radioList')
   }
 ]
 export default new Router({ routes })

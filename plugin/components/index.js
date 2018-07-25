@@ -3,6 +3,7 @@
  */
 import View from './view'
 import Split from './split'
+import Cell from './cell'
 import CheckBox from './checkBox'
 import Switch from './switch'
 import Radio from './radio'
@@ -25,15 +26,19 @@ import Screen from './screen'
 import ScreenPanel from './screen/screenPanel'
 import ShopCart from './shopCart'
 import InlineSelect from './inlineSelect'
-import Swipe from './swipe'
+import SwipeCell from './swipeCell'
 import Tabbar from './tabbar'
 import TabbarPanel from './tabbar/tabbarPanel'
 import TabPanles from './tabPanles'
 import Tabs from './tabs'
 import TabPanel from './tabs/tabPanel'
+import File from './file'
+import CheckList from './checkList'
+import RadioList from './radioList'
 
 export {
   View,
+  Cell,
   Split,
   CheckBox,
   Switch,
@@ -57,10 +62,13 @@ export {
   ScreenPanel,
   ShopCart,
   InlineSelect,
-  Swipe,
+  SwipeCell,
   Tabbar,
   TabbarPanel,
   TabPanles,
   Tabs,
-  TabPanel
+  TabPanel,
+  File,
+  CheckList,
+  RadioList
 }

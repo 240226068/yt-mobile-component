@@ -1,0 +1,30 @@
+@name yt {
+  @b checkList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    background-color: #ffffff;
+    @when limit {
+      .yt-checkBox-input + .yt-checkBox-core:not(:checked) {
+        background-color: var(--disabled_color);
+        border-color: var(--disabled_color);
+      }
+    }
+    @e title {
+      color: #333333;
+      line-height: 30px;
+      font-size: 14px;
+      padding: 0 10px;
+      border-bottom: 1px solid #f2f3f4;
+    }
+    @e wrapper {
+      flex: 1;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

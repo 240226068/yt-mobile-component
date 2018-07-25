@@ -17,6 +17,7 @@
     </div>
   </div>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-collapse',
@@ -99,6 +100,7 @@
     }
   }
 </script>
+
 <style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .yt-collapse
     &-item

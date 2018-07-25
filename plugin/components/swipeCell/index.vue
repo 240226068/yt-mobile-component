@@ -1,14 +1,15 @@
 <template>
-  <div class="yt-swipe" v-clickoutside:touchstart="close" ref="wrapper">
-    <div class="yt-swipe-center" ref="center">
+  <div class="yt-swipeCell" :class="wrapClassName" v-clickoutside:touchstart="close" ref="wrapper">
+    <div class="yt-swipeCell-center" ref="center">
       <!-- @slot 定制中间的内容 -->
       <slot></slot>
     </div>
-    <div @click.prevent.stop="close" class="yt-swipe-buttons" ref="right">
+    <div @click.prevent.stop="close" class="yt-swipeCell-buttons" ref="right">
       <!-- @slot 定制侧滑右侧的内容 -->
       <slot name="right">
-        <div class="yt-swipe-button" v-for="(item, index) in items" :class="`is-${item.type || 'red'}`" :key="index"
-             @click="handlerClick($event, item, index)">{{item.text}}
+        <div @click="handler($event, item, index)" :class="getClassName(item, index)"
+             v-for="(item, index) in items" :key="index">
+          {{(item.confirm && currentIndex === index) ? item.confirmText : item.text}}
         </div>
       </slot>
     </div>
@@ -16,7 +17,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { clickoutside, PackingEvent } from '../../utils'
+  import { clickoutside, PackingEvent, delayed } from '../../utils'
 
   const TRANSITION = 'transition: all .2s ease;'
   export default {
@@ -41,10 +42,29 @@
     },
     data() {
       return {
-        X: 0
+        X: 0,
+        currentIndex: -1
+      }
+    },
+    computed: {
+      wrapClassName() {
+        if (this.currentIndex === -1) return ''
+        let item = this.items[this.currentIndex]
+        return item.type ? `is-${ item.type }` : ''
       }
     },
     methods: {
+      getClassName(item, index) {
+        let type = item.type || 'red'
+        let hide = this.currentIndex !== -1 && this.currentIndex !== index
+        let show = item.confirm && this.currentIndex === index
+        return [
+          'yt-swipeCell-button',
+          `is-${type}`,
+          { 'is-hide': hide },
+          { 'is-confirm': show }
+        ]
+      },
       _move(e) {
         this._setMoveCell(e.deltaMoveX)
       },
@@ -68,12 +88,29 @@
         center.style = `transform: translate3d(${x}px, 0, 0);${isTransition ? TRANSITION : ''}`
         this.X = x
       },
-      close() {
+      async close() {
         this._setMoveCell(this.$refs.right.offsetWidth, true)
+        await delayed(200)
+        this.currentIndex = -1
       },
-      handlerClick(e, item, index) {
-        if (item && item.click) {
-          item.click(this.data)
+      handler(e, item, index) {
+        if (item.confirm) {
+          if (this.currentIndex === index) {
+            this.close()
+            item.confirm(this.data)
+          } else {
+            this.currentIndex = index
+            e.stopPropagation()
+            let el = this.$refs.right
+            let oldWidth = el.offsetWidth
+            this.$nextTick(() => {
+              this._setMoveCell(oldWidth - el.offsetWidth, true)
+            })
+          }
+        } else {
+          if (item && item.click) {
+            item.click(this.data)
+          }
         }
       }
     },

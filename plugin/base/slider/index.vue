@@ -9,8 +9,7 @@
     <!-- @slot 定制dot-->
     <slot name="dot">
       <div v-if="showDot" class="yt-slider-dots" :class="`yt-slider-dots__${Theme}`">
-        <span class="yt-slider-dot" :class="{ 'is-active': index === value}" :key="index"
-              v-for="(item, index) in data"></span>
+        <span class="yt-slider-dot" :class="{ 'is-active': index === value}" :key="index" v-for="(item, index) in data"></span>
       </div>
     </slot>
   </div>
@@ -93,6 +92,7 @@
     }
   }
 </script>
+
 <style lang="css" type="text/postcss">
   @name yt {
     @b slider {

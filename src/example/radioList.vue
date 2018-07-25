@@ -1,19 +1,19 @@
 <template>
-  <yt-page title="checkList" :leftData="[]" scroll>
-    <yt-checkList class="list" title="选择按钮左边" :list="list" label="label" val="id" v-model="selectList"/>
+  <yt-page title="radioList" :leftData="[]" scroll>
+    <yt-cell title="隐患等级">
+      <yt-radioList :list="list4" label="label" val="id" v-model="selectList4"/>
+    </yt-cell>
     <yt-split></yt-split>
-    <yt-checkList class="list" title="选择按钮右边" :list="list2" label="label" val="id" v-model="selectList2" pos="right" simple/>
+    <yt-radioList class="list" title="选择按钮左边" :list="list" label="label" val="id" v-model="selectList" :inline="false"/>
     <yt-split></yt-split>
-    <yt-checkList class="list" title="限制选一个" :list="list3" label="label" val="id" v-model="selectList3" :max="1"/>
+    <yt-radioList class="list" title="选择按钮右边" :list="list2" label="label" val="id" v-model="selectList2" pos="right" simple :inline="false"/>
     <yt-split></yt-split>
-    <yt-checkList class="list" title="限制选多个" :list="list4" label="label" val="id" v-model="selectList4" :max="2"/>
-    <yt-split></yt-split>
-    <yt-checkList class="list" :list="list5" v-model="selectList5" pos="right">
+    <yt-radioList class="list" title="自定义" :list="list3" label="label" val="id" v-model="selectList3" pos="right" :inline="false">
       <div slot-scope="data">
         <p>名称: {{data.label}}</p>
         <p>id: {{data.id}}</p>
       </div>
-    </yt-checkList>
+    </yt-radioList>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">
@@ -37,20 +37,26 @@
     }
   ]
   export default {
-    name: 'CheckList-example',
+    name: 'radioList-example',
     data() {
       return {
         selectList: [],
         selectList2: [],
         selectList3: [],
         selectList4: [],
-        selectList5: [],
-        selectList6: [],
         list: list,
         list2: list,
         list3: list,
-        list4: list,
-        list5: list
+        list4: [
+          {
+            label: '北京',
+            id: 1
+          },
+          {
+            label: '上海',
+            id: 2
+          }
+        ]
       }
     }
   }

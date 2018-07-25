@@ -5,8 +5,7 @@
       <div v-if="_disabled">{{key}}</div>
       <input v-if="!_disabled" class="yt-input-value__input" :placeholder="placeholder" :holder="holder" :type="type"
              v-model="key" ref="input"/>
-      <i v-if="!_disabled && key && clear" class="yt-input-value__clear iconfont icon-input-close"
-         @click="key = ''"></i>
+      <i v-if="!_disabled && key && clear" class="yt-input-value__clear iconfont icon-input-close" @click="key = ''"></i>
     </span>
     <!-- @slot 定制右侧的内容 -->
     <slot>
