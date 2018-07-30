@@ -1,8 +1,10 @@
 <template>
   <yt-icon @click="startRecognize" font="iconfont icon-speech"></yt-icon>
 </template>
+
 <script type="text/ecmascript-6">
   import { SpeechToText } from '../../plus'
+
   export default {
     name: 'yt-speech',
     props: {
@@ -23,8 +25,8 @@
       }
     },
     methods: {
-      startRecognize () {
-        SpeechToText(( str ) => {
+      startRecognize() {
+        SpeechToText((str) => {
           let res = str
           if (this.additional) {
             res = this.value + str

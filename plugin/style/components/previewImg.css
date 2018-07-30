@@ -1,0 +1,24 @@
+@name yt {
+  @b previewImg {
+    @e nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: transparent;
+      z-index: 100;
+    }
+
+    @e body {
+      background: #000000;
+    }
+
+    @e img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      transform: translate3d(0, -50%, 0);
+    }
+  }
+}

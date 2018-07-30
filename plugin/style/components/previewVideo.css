@@ -1,0 +1,16 @@
+@name yt {
+  @b previewVideo {
+    @e nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: transparent;
+      z-index: 100;
+    }
+
+    @e body {
+      background: #000000;
+    }
+  }
+}

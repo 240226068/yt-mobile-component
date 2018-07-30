@@ -9,6 +9,7 @@ import Switch from './switch'
 import Radio from './radio'
 import Rate from './rate'
 import Count from './count'
+import Input from './input'
 import Strcky from './strcky'
 import Badge from './badge'
 import Btn from './btn'
@@ -24,7 +25,6 @@ import TimeLine from './timeLine'
 import Popup from './popup'
 import Screen from './screen'
 import ScreenPanel from './screen/screenPanel'
-import ShopCart from './shopCart'
 import InlineSelect from './inlineSelect'
 import SwipeCell from './swipeCell'
 import Tabbar from './tabbar'
@@ -35,6 +35,9 @@ import TabPanel from './tabs/tabPanel'
 import File from './file'
 import CheckList from './checkList'
 import RadioList from './radioList'
+import Collapse from './collapse'
+import CollapseTransition from './collapse/collapseTransition'
+import Slider from './slider'
 
 export {
   View,
@@ -45,6 +48,7 @@ export {
   Radio,
   Rate,
   Count,
+  Input,
   Strcky,
   Badge,
   Btn,
@@ -60,7 +64,6 @@ export {
   Popup,
   Screen,
   ScreenPanel,
-  ShopCart,
   InlineSelect,
   SwipeCell,
   Tabbar,
@@ -70,5 +73,8 @@ export {
   TabPanel,
   File,
   CheckList,
-  RadioList
+  RadioList,
+  Collapse,
+  CollapseTransition,
+  Slider
 }

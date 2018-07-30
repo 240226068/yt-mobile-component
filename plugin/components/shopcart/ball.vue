@@ -1,7 +1,7 @@
 <template>
   <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
-    <div class="yt-cart_ball" v-show="ball.show">
-      <div class="yt-cart_ball-inner" :style="innerStyle" ref="inner"></div>
+    <div class="yt-shopCartBall" v-show="ball.show">
+      <div class="yt-shopCartBall-inner" :style="innerStyle" ref="inner"></div>
     </div>
   </transition>
 </template>
@@ -51,21 +51,3 @@
     }
   }
 </script>
-
-<style lang="css" type="text/postcss">
-  @name yt {
-    @b cart_ball {
-      position: fixed;
-      left: 32px;
-      bottom: 22px;
-      z-index: 200;
-      transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
-      @e inner {
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        transition: all 0.4s linear;
-      }
-    }
-  }
-</style>

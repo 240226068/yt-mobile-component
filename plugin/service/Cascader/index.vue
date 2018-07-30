@@ -1,29 +1,30 @@
 <template>
   <yt-popover :visible="showFlag" @update:visible="hide" pos="bottom">
-    <div v-if="!list.length" class="yt-cascaderService">
-      <yt-loading class="yt-cascaderService"></yt-loading>
+    <div v-if="!list.length" class="yt-cascader">
+      <yt-loading class="yt-cascader"></yt-loading>
     </div>
-    <div v-else class="yt-cascaderService" :class="`yt-cascaderService__${Theme}`">
-      <div class="yt-cascaderService-title">
+    <div v-else class="yt-cascader" :class="`yt-cascader__${Theme}`">
+      <div class="yt-cascader-title">
         {{title}}
-        <yt-btn v-if="changeOnSelect" @click="handlerConfirm" class="yt-cascaderService-btn" size="small"
-                :disabled="!selectList.length" :plain="!selectList.length">确认
+        <yt-btn v-if="changeOnSelect" @click="handlerConfirm" class="yt-cascader-btn"
+                size="small" :disabled="!selectList.length" :plain="!selectList.length">
+          确认
         </yt-btn>
       </div>
-      <div class="yt-cascaderService-select">
-        <span class="yt-cascaderService-item" :class="{ 'is-active': lineIndex === index }"
+      <div class="yt-cascader-select">
+        <span class="yt-cascader-item" :class="{ 'is-active': lineIndex === index }"
               @click="handlerClickItem(index)" v-for="(item, index) in selectList" ref="tab">{{item[label]}}</span>
-        <span class="yt-cascaderService-item" :class="{ 'is-active': lineIndex === -1 }"
+        <span class="yt-cascader-item" :class="{ 'is-active': lineIndex === -1 }"
               @click="handlerClickTool(-1)" v-if="showTool" ref="tool">请选择</span>
-        <span class="yt-cascaderService-line" ref="line"></span>
+        <span class="yt-cascader-line" ref="line"></span>
       </div>
-      <div class="yt-cascaderService-panel yt-scroll" v-if="active === -1">
-        <p class="yt-cascaderService-row" :class="{'is-select': selectList.indexOf(child) > -1}"
+      <div class="yt-cascader-panel yt-scroll" v-if="active === -1">
+        <p class="yt-cascader-row" :class="{'is-select': selectList.indexOf(child) > -1}"
            @click="handlerSelect(child, -1)" v-for="(child, index) in list" :key="index">{{child[label]}}</p>
       </div>
-      <div class="yt-cascaderService-panel yt-scroll" v-if="active === index" v-for="(item, index) in selectList"
+      <div class="yt-cascader-panel yt-scroll" v-if="active === index" v-for="(item, index) in selectList"
            :key="index">
-        <p class="yt-cascaderService-row" :class="{'is-select': selectList.indexOf(child) > -1}"
+        <p class="yt-cascader-row" :class="{'is-select': selectList.indexOf(child) > -1}"
            @click="handlerSelect(child, index)" v-for="(child, index2) in item[children]" :key="index2">
           {{child[label]}}</p>
       </div>
@@ -32,11 +33,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { listenModule } from '../../mixins/listenModule'
-
   export default {
-    name: 'yt-cascader-service',
-    mixins: [listenModule],
+    name: 'yt-cascader',
     computed: {
       showTool() {
         if (this.selectList.length === 0) return true
@@ -176,68 +174,3 @@
     }
   }
 </script>
-
-<style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
-  .yt-cascaderService
-    display flex
-    flex-direction column
-    height 300px
-    &-title
-      position relative
-      text-align center
-      line-height 42px
-      font-size 14px
-      color #333333
-
-      .yt-cascaderService-btn
-        position absolute
-        top 50%
-        right 10px
-        transform translate3d(0, -50%, 0)
-
-    &-select
-      position relative
-      font-size 14px
-      color #333333
-      white-space nowrap
-      overflow-y hidden
-      overflow-x auto
-      border-top 1px solid #f1f1f1
-      border-bottom 1px solid #f1f1f1
-      &::-webkit-scrollbar
-        display none
-
-    &-item
-      display inline-block
-      padding 13px 10px
-
-    &-line
-      position absolute
-      bottom 0
-      left 0
-      right 0
-      height 2px
-      border-radius 2px
-      transition all .3s ease
-
-    &-row
-      padding 10px
-      font-size 14px
-      &.is-select
-        &::after
-          position relative
-          top -4px
-          display inline-block
-          vertical-align middle
-          margin-left 15px
-          content " "
-          width 6px
-          height 12px
-          border-style solid
-          border-width 0 2px 2px 0
-          border-color currentColor
-          transform rotate(45deg)
-          transition transform .2s
-    &-panel
-      flex 1
-</style>

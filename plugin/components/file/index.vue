@@ -1,8 +1,9 @@
 <template>
   <div class="yt-file">
     <div class="yt-file-item" @click="handlerTap(file)" v-for="(file, index) in fileList" :key="index">
-      <img class="yt-file-img" :src="getPreviewUrl(file)">
-      <span class="yt-file-remove" @click="handlerRemove(index)" v-if="!disabled"><i class="iconfont icon-close"></i></span>
+      <img class="yt-file-img" :src="file.url">
+      <span class="yt-file-remove" @click="handlerRemove(index)" v-if="!disabled"><i
+        class="iconfont icon-close"></i></span>
     </div>
     <div class="yt-file-upload" v-if="!disabled">
       <input class="yt-file-input" type="file" @change="handlerChange" v-if="fileList.length < max" ref="input">
@@ -77,17 +78,6 @@
         } else {
           PreviewFile({ title: file.name, url: file.url })
         }
-      },
-      getPreviewUrl(file) {
-        let src = ''
-        if (isImg(file.name)) {
-          src = file.url
-        } else if (isVideo(file.name)) {
-          src = require('./video.png')
-        } else {
-          src = require('./file.png')
-        }
-        return src
       },
       handlerToast() {
         if (this.fileList.length >= this.max) {

@@ -1,7 +1,14 @@
 /**
  * Created by mas on 2017/9/18.
  */
-import {parseTimeToString, array2String, formatTime, friendlyFileSize, friendlyTime, securityGetVal} from './utils/index'
+import {
+  parseTimeToString,
+  array2String,
+  formatTime,
+  friendlyFileSize,
+  friendlyTime,
+  securityGetVal
+} from './utils/index'
 
 const directives = {
   array2String,
@@ -13,7 +20,7 @@ const directives = {
 }
 
 export default {
-  install (Vue) {
+  install(Vue) {
     for (let key in directives) {
       Vue.filter(key, directives[key])
     }

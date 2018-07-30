@@ -1,5 +1,8 @@
 <template>
-  <yt-page :input="input" :leftData="leftData" :rightData="rightData">
+  <yt-page :more.sync="more" :leftData="leftData" :rightData="rightData">
+    <ul class="ul" slot="more">
+      <li @click="handler(tab)" v-for="tab in TABS" :key="tab">{{tab}}</li>
+    </ul>
     <yt-buttonTab :list="list" slot="title"></yt-buttonTab>
     <yt-form>
       <yt-btn slot="btn">提交</yt-btn>
@@ -7,9 +10,15 @@
   </yt-page>
 </template>
 <script type="text/ecmascript-6">
+  const TABS = {
+    manage: '知识库管理',
+    video: '视频学习库',
+    statics: '知识库统计'
+  }
   export default {
     data() {
       return {
+        TABS,
         list: [
           {
             text: '推荐'
@@ -24,6 +33,7 @@
           }
         ],
         input: false,
+        more: false,
         leftData: [
           {
             avatar: require('../img/avatar.jpg'),
@@ -34,12 +44,18 @@
         ],
         rightData: [
           {
-            font: 'iconfont icon-search',
+            font: 'iconfont icon-more',
             click: () => {
-              this.input = !this.input
+              this.more = !this.more
             }
           }
         ]
+      }
+    },
+    methods: {
+      handler(tab) {
+        console.log('点击了', tab)
+        this.more = false
       }
     }
   }
@@ -49,4 +65,24 @@
     width: 100%;
     height: 100%;
   }
+</style>
+
+<style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
+  .wrap
+    flex 1
+  .ul
+    min-width 120px
+    li
+      padding 0 15px
+      color #333333
+      font-size 14px
+      height 40px
+      line-height 40px
+      text-align center
+      box-sizing border-box
+      border-bottom 1px solid #f1f1f1
+      &:last-child
+        border-bottom 0
+      &:active
+        background-color #f5f5f5
 </style>

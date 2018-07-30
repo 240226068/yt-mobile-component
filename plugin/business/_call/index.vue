@@ -1,6 +1,7 @@
 <template>
   <span class="yt-phone" @click.stop.prevent="callPhone">{{tel}}</span>
 </template>
+
 <script type="text/ecmascript-6">
   import { Actionsheet } from '../../service/index'
   import { CallPhone } from '../../plus'
@@ -25,6 +26,7 @@
     }
   }
 </script>
+
 <style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .yt-phone
     font-size: 13px

@@ -139,4 +139,3 @@ export function ListenResume() {
     bus.$emit('onResume')
   })
 }
-

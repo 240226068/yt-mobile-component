@@ -22,10 +22,11 @@
     </div>
   </yt-popover>
 </template>
+
 <script type="text/ecmascript-6">
   import picker from './picker.vue'
-  import {listenModule} from '../../mixins/listenModule'
-  import {formatTime} from '../../utils/formatTime'
+  import { formatTime } from '../../utils/formatTime'
+
   const TEMPLATE = {
     year: '年',
     month: '月',
@@ -35,7 +36,6 @@
   }
   export default {
     name: 'yt-picker',
-    mixins: [listenModule],
     components: {
       picker
     },
@@ -92,11 +92,11 @@
         return true
       },
       GetListFromSection(section, key) {
-        return Array.from({length: section[1] - section[0] + 1}, (value, index) => section[0] + index + key)
+        return Array.from({ length: section[1] - section[0] + 1 }, (value, index) => section[0] + index + key)
       },
       show(options = {}) {
         this.showFlag = true
-        let {format, current, confirm, showTemplate, title} = options
+        let { format, current, confirm, showTemplate, title } = options
         this.title = title
         this.showTemplate = showTemplate
         let date = new Date(Date.now())
@@ -128,19 +128,3 @@
     }
   }
 </script>
-<style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
-  .yt-picker-header
-    position relative
-    text-align center
-    line-height 42px
-    font-size 14px
-    color #333333
-    .yt-picker-btn
-      position absolute
-      right 10px
-      top 50%
-      transform translate3d(0, -50%, 0)
-
-  .yt-picker-wrapper
-    display flex
-</style>

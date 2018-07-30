@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-count" :class="`yt-count__${Theme}`">
+  <div class="yt-count">
     <transition name="yt-count-anim">
       <span class="yt-count-reduce" @click="doReduce" v-if="num !== min">
         <yt-view class="yt-count-icon" centerRipple>
@@ -15,6 +15,7 @@
     </span>
   </div>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-count',

@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-header" :class="[type ? `yt-header__${type}` : '',{ 'is-shadow': shadow }]">
+  <div class="yt-header" :class="[theme ? `yt-header__${theme}` : '',{ 'is-shadow': shadow }]">
     <transition name="yt-fade">
       <div class="yt-header-text" v-if="!input && !$slots.default" v-text="title"></div>
     </transition>
@@ -16,11 +16,10 @@
             <slot></slot>
           </div>
         </transition>
-        <transition name="yt-headerInput">
-          <div v-if="input" class="yt-headerInput" :class="`is-origin-${origin}`">
-            <input v-model="key" placeholder="搜索" type="text" ref="input">
-            <i class="yt-headerInput-clear iconfont icon-input-close" @click="key = ''" v-if="key"></i>
-          </div>
+        <transition name="yt-header-input">
+          <yt-input @change="change" class="yt-header-input" :class="`is-origin-${origin}`" v-if="input" v-model="key" ref="input"
+                    :placeholder="placeholder" :fillColor="fillColor" :theme="inputTheme" :border="border" :throttle="throttle">
+          </yt-input>
         </transition>
       </div>
       <div v-if="(rightData && rightData.length) || $slots.right">
@@ -31,20 +30,13 @@
     </div>
   </div>
 </template>
+
 <script type="text/ecmascript-6">
-  import { throttle } from '../../utils'
   import headerBtn from './headerBtn'
 
   export default {
     name: 'yt-header',
-    components: {
-      headerBtn
-    },
-    data() {
-      return {
-        key: this.search
-      }
-    },
+    components: { headerBtn },
     props: {
       /**
        * 导航左侧的按钮
@@ -85,25 +77,53 @@
         type: String
       },
       /**
-       * 导航中input的缩放原点位置  默认缩放原点在右侧
+       *  控制导航中input的显示与否
+       */
+      input: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       *  风格
+       */
+      theme: {
+        type: String,
+        default: null
+      },
+      /**
+       *  transform 的原点  取值  left || right
        */
       origin: {
         type: String,
         default: 'right'
       },
       /**
-       *  导航中搜索框默认文字
+       *  placeholder的文字
        */
-      search: {
+      placeholder: {
         type: String,
-        default: ''
+        default: '请输入...'
       },
       /**
-       *  控制导航中input的显示与否
+       *  背景色
        */
-      input: {
+      fillColor: {
+        type: String,
+        default: 'transparent'
+      },
+      /**
+       *  风格  dark  light
+       */
+      inputTheme: {
+        type: String,
+        default: 'light'
+      },
+      /**
+       *  是否x显示border
+       */
+      border: {
         type: Boolean,
-        default: false
+        default: true
       },
       /**
        * 是否开启截流
@@ -113,11 +133,26 @@
         default: true
       },
       /**
-       * 风格
+       * 搜索框的值
        */
-      type: {
-        type: String,
-        default: null
+      value: {
+        type: [String, Number],
+        default: ''
+      }
+    },
+    computed: {
+      key: {
+        get() {
+          return this.value
+        },
+        set(val) {
+          this.$emit('input', val)
+        }
+      }
+    },
+    methods: {
+      change(val) {
+        this.$emit('change', val)
       }
     },
     watch: {
@@ -126,26 +161,6 @@
           this.$nextTick(() => {
             this.$refs.input.focus()
           })
-        }
-      },
-      'search'(val) {
-        this.key = val
-      },
-      'key'(val) {
-        const fn = (val) => {
-          /**
-           * 搜索文字变化事件
-           * @event search-change
-           */
-          this.$emit('search-change', val)
-        }
-        if (!this.throttle) {
-          fn(val)
-        } else {
-          if (!this._throttleInstance) {
-            this._throttleInstance = throttle(fn, 500, 2000)
-          }
-          this._throttleInstance(val)
         }
       }
     }

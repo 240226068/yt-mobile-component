@@ -4,30 +4,30 @@
     <yt-btn @click="handlerClick('bottom')">bottom</yt-btn>
     <yt-btn @click="handlerClick('left')">left</yt-btn>
     <yt-btn @click="handlerClick('right')">right</yt-btn>
-    <yt-popover pos="top" v-model="top">
+    <yt-popup pos="top" v-model="top">
       <yt-btn :disabled="!select.length">选择分区</yt-btn>
-    </yt-popover>
-    <yt-popover pos="bottom" v-model="bottom" slot="alert">
+    </yt-popup>
+    <yt-popup pos="bottom" v-model="bottom" slot="alert">
       <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
       <yt-btn :disabled="!select.length">选择分区</yt-btn>
-    </yt-popover>
-    <yt-popover pos="left" v-model="left" slot="alert">
+    </yt-popup>
+    <yt-popup pos="left" v-model="left" slot="alert">
       <yt-page class="page" :flex="true" :leftData="[]" title="选择分区">
         <yt-checkList style="flex: 1;" v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
         <yt-btn :disabled="!select.length">确认</yt-btn>
       </yt-page>
-    </yt-popover>
-    <yt-popover pos="right" v-model="right" slot="alert">
+    </yt-popup>
+    <yt-popup pos="right" v-model="right" slot="alert">
       <yt-page class="page" :flex="true" :leftData="[]" title="选择分区">
         <yt-checkList style="flex: 1;" v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
         <yt-btn :disabled="!select.length">确认</yt-btn>
       </yt-page>
-    </yt-popover>
+    </yt-popup>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">
   export default {
-    name: 'popover-example',
+    name: 'popup-example',
     data() {
       return {
         top: false,

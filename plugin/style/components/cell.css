@@ -1,0 +1,43 @@
+@name yt {
+  @b cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    background-color: #ffffff;
+
+    @e icon {
+      margin: 0 12px 0 5px;
+      width: 29px;
+      height: 29px;
+    }
+
+    @e font {
+      margin: 0 15px 0 5px;
+      font-size: 29px;
+    }
+
+    @e label {
+      display: inline-block;
+      color: #303133;
+      font-size: 14px;
+      padding: 8px 0;
+      line-height: 30px;
+      margin-right: 20px;
+    }
+
+    @e value {
+      text-align: right;
+      flex: 1;
+      line-height: 25px;
+      font-size: 14px;
+      color: #666666;
+    }
+
+    @e link {
+      margin: 0 4px;
+      color: #909399;
+      font-size: 12px;
+    }
+  }
+}

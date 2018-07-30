@@ -2,7 +2,7 @@
   <div class="yt-page" :style="pageStyle">
     <!-- @slot page 的 header-->
     <slot name="header">
-      <yt-header @search-change="searchChange" v-bind="$attrs">
+      <yt-header @change="change" v-bind="$attrs" v-model="key">
         <!-- @slot header title -->
         <slot name="title" v-if="$slots.title"></slot>
         <!-- @slot header right -->
@@ -11,12 +11,25 @@
         <slot name="left" v-if="$slots.left" slot="left"></slot>
       </yt-header>
     </slot>
+
     <div class="yt-page-container" :class="{ 'is-scroll': scroll, 'is-flex': flex }">
       <!-- @slot 页面的内容层-->
       <slot></slot>
     </div>
+
     <!-- @slot 页面中弹出层层 -->
     <slot name="alert"></slot>
+
+    <transition name="yt-fade">
+      <div class="yt-page-mask" @click="_more = false" v-if="_more"></div>
+    </transition>
+
+    <transition name="yt-page-more">
+      <div class="yt-page-more" v-if="_more">
+        <!-- @slot 页面中more层  与more属性配合使用-->
+        <slot name="more"></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -44,6 +57,20 @@
       scroll: {
         type: Boolean,
         default: false
+      },
+      /**
+       * 控制弹出层页面的使用   该属性配合 slot=more一起使用
+       */
+      more: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * 搜索框的值
+       */
+      value: {
+        type: [String, Number],
+        default: ''
       }
     },
     computed: {
@@ -51,17 +78,33 @@
         return {
           backgroundColor: this.fillColor
         }
+      },
+      key: {
+        get() {
+          return this.value
+        },
+        set(val) {
+          this.$emit('input', val)
+        }
+      },
+      _more: {
+        get() {
+          return this.more
+        },
+        set(val) {
+          this.$emit('update:more', val)
+        }
       }
     },
     methods: {
-      searchChange(key) {
+      change(key) {
         /**
          * 搜索文字变化事件
          *
-         * @event search-change
+         * @event change
          * @type {string} 关键字
          */
-        this.$emit('search-change', key)
+        this.$emit('change', key)
       }
     }
   }

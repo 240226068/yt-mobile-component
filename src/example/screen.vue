@@ -11,7 +11,8 @@
         价格
       </yt-screen-panel>
     </yt-screen>
-    <yt-shopCart :count="totalCount" :active="!!totalCategory" ref="cart">
+    <yt-cell title="锚杆"><yt-count v-model="count"></yt-count></yt-cell>
+    <!--<yt-shopCart :count="totalCount" :active="!!totalCategory" ref="cart">
       <div class="logo-content">
         <div class="logo-desc">
           共添加<span class="logo-num" :class="totalCategory ? 'is-highlight' : ''">{{totalCategory}}</span>类耗材
@@ -29,15 +30,23 @@
           <yt-count @change="changeList(item)" @add="doStart" :max="item.total" v-model="item.use"></yt-count>
         </div>
       </div>
-    </yt-shopCart>
+    </yt-shopCart>-->
   </yt-page>
 </template>
 <script type="text/ecmascript-6">
   export default {
-    data: () => ({
-      totalCount: 20,
-      totalCategory: 3
-    })
+    data() {
+      return {
+        count: 1,
+        totalCount: 20,
+        totalCategory: 3
+      }
+    },
+    methods: {
+      add(e) {
+        this.$refs.cart.start(e.target)
+      }
+    }
   }
 </script>
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">

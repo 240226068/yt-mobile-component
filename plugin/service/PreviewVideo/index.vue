@@ -12,13 +12,10 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {PreviewImg} from '../../plus'
-  import {listenModule} from '../../mixins/listenModule'
   export default {
     name: 'previewVideo',
-    mixins: [listenModule],
     computed: {
-      barTitle () {
+      barTitle() {
         return `${this.current + 1} / ${this.list.length}`
       }
     },
@@ -36,29 +33,15 @@
       }
     },
     methods: {
-      show ({list, current}) {
+      show({ list, current }) {
         this.showFlag = true
         this.list = [].concat(list)
         this.current = current
       },
-      hide () {
+      hide() {
         this.showFlag = false
       }
     }
   }
 </script>
 
-<style lang="stylus" type="text/stylus" rel="stylesheet/stylus">
-  .yt-module-page
-    .yt-previewVideo
-      &-nav
-        position absolute
-        top 0
-        left 0
-        right 0
-        background transparent
-        z-index 100
-
-      &-body
-        background #000000
-</style>

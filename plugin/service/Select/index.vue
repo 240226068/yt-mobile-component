@@ -6,16 +6,13 @@
               :disabled="currentValue.length < min" :plain="currentValue.length < min">确认
       </yt-btn>
     </div>
-    <yt-checkList class="yt-select-container" @input="handlerChange" :value="currentValue"
-                  :max="max" :val="val" :label="label" :list="list"/>
+    <yt-checkList class="yt-select-container" @input="handlerChange" :value="currentValue" :max="max" :val="val" :label="label" :list="list"/>
   </yt-popover>
 </template>
-<script type="text/ecmascript-6">
-  import { listenModule } from '../../mixins/listenModule'
 
+<script type="text/ecmascript-6">
   export default {
-    name: 'yt-select-service',
-    mixins: [listenModule],
+    name: 'yt-select',
     data() {
       return {
         showFlag: false,
@@ -57,28 +54,3 @@
     }
   }
 </script>
-
-<style type="text/pcss" lang="postcss">
-  @name yt {
-    @b select {
-      @e header {
-        position: relative;
-        text-align: center;
-        line-height: 42px;
-        font-size: 14px;
-        color: #333333;
-      }
-      @e btn {
-        position: absolute !important;
-        right: 10px;
-        top: 50%;
-        transform: translate3d(0, -50%, 0);
-      }
-      @e container {
-        text-align: left;
-        height: 220px;
-        box-sizing: border-box;
-      }
-    }
-  }
-</style>

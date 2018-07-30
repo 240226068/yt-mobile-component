@@ -1,0 +1,48 @@
+@name yt {
+  @b toast {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    z-index: 1000;
+    padding-top: 22px;
+    font-size: 15px;
+    background-color: #ffffff;
+    box-shadow: 1px 0px 3px #eee;
+    transition: transform .2s ease;
+
+    @e icon {
+      height: 44px;
+
+      @when success {
+        color: rgba(41, 240, 144, 1);
+      }
+
+      @when error {
+        color: rgba(216, 30, 6, 1);
+      }
+
+      @when tool {
+        color: rgba(18, 183, 245, 1);
+      }
+    }
+
+    @e text {
+      flex: 1;
+    }
+
+    @e opacity {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 22px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}

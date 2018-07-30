@@ -1,18 +1,14 @@
 <template>
   <yt-popover :visible="showFlag" @update:visible="hide" pos="bottom">
-    <yt-view @click="handlerClick(item)" class="yt-actionsheet_item" v-for="(item, index) in list" :key="index">
-      {{item.text}}
-    </yt-view>
+    <yt-view @click="handlerClick(item)" class="yt-actionsheet-item" v-for="(item, index) in list" :key="index">{{item.text}}</yt-view>
     <yt-split v-if="cancel"/>
-    <yt-view @click="hide" v-if="cancel" class="yt-actionsheet_item">取消</yt-view>
+    <yt-view @click="hide" v-if="cancel" class="yt-actionsheet-item">取消</yt-view>
   </yt-popover>
 </template>
-<script type="text/ecmascript-6">
-  import { listenModule } from '../../mixins/listenModule'
 
+<script type="text/ecmascript-6">
   export default {
-    name: 'yt-actionsheet',
-    mixins: [listenModule],
+    name: 'yt-actionSheet',
     data() {
       return {
         showFlag: false,
@@ -41,9 +37,3 @@
     }
   }
 </script>
-<style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
-  .yt-actionsheet
-    &_item
-      text-align center
-      line-height 50px
-</style>

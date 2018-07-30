@@ -1,0 +1,8 @@
+@name yt {
+  @b actionSheet {
+    @e item {
+      text-align: center;
+      line-height: 50px;
+    }
+  }
+}

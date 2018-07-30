@@ -3,7 +3,9 @@
     <yt-tabbar :slider="false" @quick-click="handler" v-model="page" :quick="2">
       <yt-tabbar-panel text="首页" font="iconfont icon-main">
         <yt-tabs v-model="page2">
-          <yt-tab-panel text="待签收" :badge="{value: 15}">待签收</yt-tab-panel>
+          <yt-tab-panel text="待签收" :badge="{value: 15}">
+            <yt-noInfo></yt-noInfo>
+          </yt-tab-panel>
           <yt-tab-panel text="巡检中">巡检中</yt-tab-panel>
           <yt-tab-panel text="已巡检" :badge="{isDot: true}">已巡检</yt-tab-panel>
         </yt-tabs>

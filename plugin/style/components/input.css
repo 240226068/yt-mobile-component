@@ -1,0 +1,69 @@
+@define-mixin InputReset {
+  border: 0;
+  outline: 0;
+  resize: none;
+  background-color: transparent;
+}
+
+@define-mixin InputTheme $color, $borderColor {
+  border-bottom: 1px solid $(borderColor);
+  input {
+    color: $(color);
+    &::-webkit-input-placeholder {
+      color: $(color);
+    }
+  }
+
+  .yt-input-clear {
+    color: $(color);
+  }
+}
+
+@name yt {
+  @b input {
+    position: relative;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    padding: 4px 0;
+    @m dark {
+      @mixin InputTheme #808080, #000000;
+    }
+
+    @m light {
+      @mixin InputTheme #ffffff, #ffffff;
+    }
+
+    @when noBorder {
+      border-bottom: 0;
+    }
+
+    input {
+      padding-right: 20px;
+      flex: 1;
+      height: 100%;
+      font-size: 14px;
+      color: #808080;
+      @mixin InputReset;
+      &::-webkit-input-placeholder {
+        font-size: 14px;
+      }
+      &:focus {
+        @mixin InputReset;
+      }
+      &:disabled {
+        @mixin InputReset;
+      }
+    }
+
+    @e clear {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      font-size: 14px;
+      padding: 5px;
+      color: #bbbbbb;
+      transform: translate3d(0, -50%, 0);
+    }
+  }
+}

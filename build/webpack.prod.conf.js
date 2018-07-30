@@ -27,6 +27,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  externals: {
+    'vue': 'vue',
+    'vue-router': 'vue-router'
+  },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({

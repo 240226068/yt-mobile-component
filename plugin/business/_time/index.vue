@@ -4,8 +4,10 @@
     <yt-tag v-if="value">{{value | formatTime(format)}}</yt-tag>
   </span>
 </template>
+
 <script type="text/ecmascript-6">
   import { Picker } from '../../service/index'
+
   export default {
     name: 'yt-time',
     inject: {
@@ -26,7 +28,7 @@
        * @model
        */
       value: {
-        type: [ String, Date, Number ]
+        type: [String, Date, Number]
       },
       /**
        * 时间格式  YYYY-MM-DD HH:mm
@@ -49,14 +51,14 @@
       }
     },
     methods: {
-      pickTime () {
+      pickTime() {
         if (this._disabled) return
         Picker({
           title: '请选择时间',
           showTemplate: false,
           format: this.format,
           current: this.value,
-          confirm: ( res ) => {
+          confirm: (res) => {
             if (this.outType) {
               res = this.outType === 'number' ? Date.parse(res) : this.outType === 'date' ? new Date(res) : res
             } else {
@@ -69,6 +71,7 @@
     }
   }
 </script>
+
 <style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .yt-time
     font-size 14px

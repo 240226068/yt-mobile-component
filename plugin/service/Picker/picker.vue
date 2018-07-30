@@ -15,6 +15,7 @@
     </ul>
   </div>
 </template>
+
 <script type="text/ecmascript-6">
   export default{
     name: 'yt-picker-item',
@@ -219,74 +220,3 @@
     }
   }
 </script>
-<style lang="stylus" type="text/stylus" rel="stylesheet/stylus">
-  $color-background = #fff
-  $color-checked = #cccccc
-  $color-text-main = #333
-  $color-text-second = #a8a8a8
-  .yt-picker
-    &-select
-      &-item
-        overflow hidden
-        width 100%
-        text-align center
-        height 220px
-        background $color-background
-        position relative
-      &-ul
-        position: relative
-      &-line, &-list, &-wheel
-        position absolute
-        left 0
-        right 0
-        top 93px
-      &-line
-        z-index 3
-      &-list
-        z-index 2
-        background $color-background
-      &-wheel
-        z-index 1
-      &-line
-        &:after, &:before
-          position absolute
-          top 0
-          content ''
-          display table
-          background $color-checked
-          width 100%
-          height 2px
-          -webkit-transform scaleY(0.5)
-          transform scaleY(0.5)
-          -webkit-transform-origin 0 0
-          transform-origin 0 0
-        &:before
-          bottom -1px
-          top auto
-      &-line, &-list
-        height 34px
-        transform translate3d(0px, 0px, 110px)
-      &-list
-        overflow hidden
-      &-list-item
-        text-shadow 0 1px 1px rgba(102, 102, 102, 0.6)
-      &-list-item, &-wheel-item
-        white-space nowrap
-        overflow hidden
-        text-overflow ellipsis
-        line-height 34px
-        font-size 18px
-        color $color-text-main
-        &.hidden
-          visibility hidden
-          opacity 0
-      &-wheel
-        transform-style preserve-3d
-        height 34px
-        &-item
-          backface-visibility hidden
-          position absolute
-          top 0
-          width 100%
-          color $color-text-second
-</style>

@@ -1,34 +1,28 @@
 <template>
-  <yt-page title="Cell">
-    <div class="yt-scroll">
-      <yt-cell border="half" title="有border-bottom(非全)" :isLink="true"/>
-      <yt-cell border="all" title="有border-bottom" :isLink="true"/>
-      <yt-cell border="none" title="没有border-bottom" :isLink="true"/>
-      <p class="title">左右文字</p>
-      <yt-cell border="none" title="巡检时间">
-        <yt-time v-model="time"></yt-time>
-      </yt-cell>
-      <p class="title">左文字+右自定义</p>
-      <yt-cell border="none" title="巡检任务" value="管廊日常巡检任务"/>
-      <p class="title">左右文字+描述文字</p>
-      <yt-cell border="none" title="巡检任务" inline="李四,王五，张三，巡检员" value="管廊日常巡检任务"/>
-      <p class="title">左右文字+左图标+右角标+点击阴影</p>
-      <yt-cell border="none" :ripple="true" :icon="icon" title="专家列表" value="更多" :isLink="true"/>
-      <p class="title">左标题自定义</p>
-      <yt-cell border="none" :isLink="true">
-        <span slot="title" style="position: relative;padding-right: 10px;">待办事项<yt-badge slot="title" :num="3"/></span>
-      </yt-cell>
-      <p class="title">左图标自定义</p>
-      <yt-cell border="none" title="检查通风扇是否打开" :isLink="true">
-        <span class="icon" success slot="icon"></span>
-      </yt-cell>
-      <yt-cell border="none" title="检查防火窗是否关闭" :isLink="true">
-        <span class="icon" error slot="icon"></span>
-      </yt-cell>
-      <yt-cell border="none" title="检查舱内是否漏水" :isLink="true">
-        <span class="icon" slot="icon"></span>
-      </yt-cell>
-    </div>
+  <yt-page title="Cell" scroll>
+    <yt-cell border="half" label="有border-bottom(非全)" isLink/>
+    <yt-cell border="all" label="有border-bottom" isLink/>
+    <yt-cell border="none" label="没有border-bottom" isLink/>
+    <p class="title">左右文字</p>
+    <yt-cell border="none" label="任务名称">
+      <yt-input></yt-input>
+    </yt-cell>
+    <p class="title">左文字+右自定义</p>
+    <yt-cell border="none" label="巡检任务" value="管廊日常巡检任务"/>
+    <p class="title">左右文字+描述文字</p>
+    <yt-cell border="none" label="巡检任务" inline="李四,王五，张三，巡检员" value="管廊日常巡检任务"/>
+    <p class="title">左右文字+左图标+右角标+点击阴影</p>
+    <yt-cell border="none" :ripple="true" :icon="icon" label="专家列表" value="更多" isLink/>
+    <p class="title">左图标自定义</p>
+    <yt-cell border="none" label="检查通风扇是否打开" isLink>
+      <span class="icon" success slot="icon"></span>
+    </yt-cell>
+    <yt-cell border="none" label="检查防火窗是否关闭" isLink>
+      <span class="icon" error slot="icon"></span>
+    </yt-cell>
+    <yt-cell border="none" label="检查舱内是否漏水" isLink>
+      <span class="icon" slot="icon"></span>
+    </yt-cell>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">
@@ -36,7 +30,7 @@
     name: 'Cell-example',
     data() {
       return {
-        icon: './img/expert.png',
+        icon: require('../img/avatar.jpg'),
         time: ''
       }
     }

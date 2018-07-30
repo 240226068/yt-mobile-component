@@ -10,8 +10,10 @@
     </span>
   </span>
 </template>
+
 <script type="text/ecmascript-6">
   import { Select } from '../../service/index'
+
   export default {
     name: 'yt-select',
     inject: {
@@ -64,7 +66,7 @@
        * 当max大于1时， 当前值类型为Array； 当max为1  当前值可为String, Number, Array, Object
        */
       value: {
-        type: [ String, Number, Array, Object ],
+        type: [String, Number, Array, Object],
         default() {
           return []
         }
@@ -77,14 +79,14 @@
             return this.value
           } else {
             if (this.max === 1) {
-              return this.value ? [ this.value ] : []
+              return this.value ? [this.value] : []
             }
             return this.value
           }
         },
-        set( val ) {
+        set(val) {
           if (this.max === 1) {
-            val = (val && val.length) ? val[ 0 ] : null
+            val = (val && val.length) ? val[0] : null
           }
           this.$emit('input', val)
         }
@@ -95,7 +97,7 @@
       selectList() {
         let results = []
         this._value.forEach(item => {
-          let child = this.list.find(child => item === child[ this.val ])
+          let child = this.list.find(child => item === child[this.val])
           !child || results.push(child)
         })
         return results
@@ -106,7 +108,7 @@
         if (this._disabled) return
         Select(this)
       },
-      Confirm( val ) {
+      Confirm(val) {
         if (this._disabled) return
         this._value = val
       }

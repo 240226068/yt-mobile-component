@@ -1,0 +1,49 @@
+@name yt {
+  @b collapse {
+    background-color: #fff;
+    @e item {
+      @when active {
+        .yt-collapse-icon {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    @e title {
+      position: relative;
+      text-align: left;
+      color: #48576a;
+      cursor: pointer;
+      line-height: 1.5;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 10px;
+    }
+    @e text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+    @e icon {
+      position: relative;
+      top: 2px;
+      display: inline-block;
+      font-size: 12px;
+      transition: transform .3s ease;
+      @when left {
+        margin-right: 8px;
+        float: left;
+      }
+      @when right {
+        float: right;
+      }
+    }
+    @e content {
+      background-color: #fbfdff;
+      color: #1f2d3d;
+      padding: 10px 0;
+      font-size: 14px;
+      line-height: 35px;
+    }
+  }
+}

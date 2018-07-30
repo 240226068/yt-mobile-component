@@ -1,0 +1,117 @@
+@name yt {
+  @b picker {
+    @e header {
+      position: relative;
+      text-align: center;
+      line-height: 42px;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    @e btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translate3d(0, -50%, 0)
+    }
+
+    @e wrapper {
+      display: flex;
+    }
+  }
+
+  @b picker-select {
+    @e item {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      text-align: center;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    @e ul {
+      position: relative;
+    }
+
+    @e line, list, wheel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 93px;
+    }
+
+    @e line {
+      z-index: 3;
+    }
+
+    @e list {
+      z-index: 2;
+      background: #fff;
+    }
+
+    @e wheel {
+      z-index: 1;
+    }
+
+    @e line {
+      &:after, &:before {
+        position: absolute;
+        top: 0;
+        content: '';
+        display: table;
+        background: #cccccc;
+        width: 100%;
+        height: 2px;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+      }
+
+      &:before {
+        bottom: -1px;
+        top: auto;
+      }
+    }
+
+    @e line, list {
+      height: 34px;
+      transform: translate3d(0px, 0px, 110px);
+    }
+
+    @e list {
+      overflow: hidden;
+    }
+
+    @e list-item {
+      color: #333333;
+      text-shadow: 0 1px 1px rgba(102, 102, 102, 0.6);
+    }
+
+    @e list-item, wheel-item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 34px;
+      font-size: 18px;
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+
+    @e wheel {
+      transform-style: preserve-3d;
+      height: 34px;
+    }
+
+    @e wheel-item {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      color: #a8a8a8;
+    }
+  }
+}
