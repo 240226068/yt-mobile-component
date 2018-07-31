@@ -1,14 +1,10 @@
 <template>
   <yt-page title="badge">
-    <yt-split></yt-split>
-    <p class="row" v-for="(item, index) in list" :key="index">
-      <label>{{item.label}}</label>
+    <yt-cell v-for="(item, index) in list" :key="index" :label="item.label">
       <span style="position: relative;margin-right: 20px;">
         测试<yt-badge :value="item.value" :max="item.max" :isDot="item.isDot"/>
       </span>
-    </p>
-    <yt-split></yt-split>
-
+    </yt-cell>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">

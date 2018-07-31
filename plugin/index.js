@@ -21,6 +21,5 @@ export default {
     Vue.use(filters)
     Vue.use(service)
     Vue.use(components)
-    Vue.use(Router)
   }
 }

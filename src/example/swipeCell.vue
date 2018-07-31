@@ -7,18 +7,20 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
-    data: () => ({
-      items: [
-        {
-          type: "red",
-          text: "删除",
-          confirmText: '确定删除',
-          confirm: (data) => {
-            console.log(data, 'confirm')
+    data() {
+      return {
+        items: [
+          {
+            type: 'red',
+            text: '删除',
+            confirmText: '确定删除',
+            confirm: (data) => {
+              console.log(data, 'confirm')
+            }
           }
-        }
-      ]
-    })
+        ]
+      }
+    }
   }
 </script>
 <style scoped>

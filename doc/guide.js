@@ -5,23 +5,49 @@
 module.exports = {
   sections: [
     {
-      name: 'page',
-      path: '/page',
+      name: 'cell',
+      path: '/cell',
       options: [
-        'plugin/components/page/index.vue',
-        'plugin/components/header/index.vue'
+        'plugin/components/cell/index.vue'
       ],
       contents: [
-        'doc/md/page.md'
+        'doc/md/cell.md'
       ],
       examples: [
         {
           text: 'demo源码',
-          path: 'doc/example/page.vue'
+          path: 'src/example/cell.vue'
         }
+      ]
+    },
+    {
+      name: 'swipeCell',
+      path: '/swipeCell',
+      options: [
+        'plugin/components/swipeCell/index.vue'
       ],
-      children: [
-
+      contents: [],
+      examples: [
+        {
+          text: 'demo源码',
+          path: 'src/example/swipeCell.vue'
+        }
+      ]
+    },
+    {
+      name: 'badge',
+      path: '/badge',
+      options: [
+        'plugin/components/badge/index.vue'
+      ],
+      contents: [
+        'doc/md/badge.md'
+      ],
+      examples: [
+        {
+          text: 'demo源码',
+          path: 'src/example/badge.vue'
+        }
       ]
     }
   ]

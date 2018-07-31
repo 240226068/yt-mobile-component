@@ -40,7 +40,7 @@
        */
       isLink: Boolean,
       /**
-       * border  取值 none | half | normal
+       * border  取值 none | half | all
        */
       border: {
         type: String,

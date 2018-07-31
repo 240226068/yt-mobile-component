@@ -18,6 +18,7 @@ const createLintingRule = () => ({
     emitWarning: !config.dev.showEslintErrorsInOverlay
   }
 })
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: process.env.NODE_ENV === 'production'
@@ -38,7 +39,6 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'mmbs': path.join(resolve('static'), 'js', 'mmbs.js'),
       'yt': resolve('plugin')
     }
   },

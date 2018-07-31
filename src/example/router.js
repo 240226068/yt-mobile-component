@@ -14,6 +14,14 @@ const routes = [
   {
     path: '/cell',
     component: () => import('./cell')
+  },
+  {
+    path: '/swipeCell',
+    component: () => import('./swipeCell')
+  },
+  {
+    path: '/badge',
+    component: () => import('./badge')
   }
 ]
 export default new Router({ routes })
