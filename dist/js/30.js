@@ -1,0 +1,2 @@
+webpackJsonp([30],{Dymx:function(t,e){},kC6M:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){var t=this.$createElement,e=this._self._c||t;return e("yt-page",{attrs:{title:"form表单"}},[e("yt-form")],1)},staticRenderFns:[]};var a=n("VU/8")({},r,!1,function(t){n("Dymx")},"data-v-074d8456",null);e.default=a.exports}});
+//# sourceMappingURL=30.js.map
