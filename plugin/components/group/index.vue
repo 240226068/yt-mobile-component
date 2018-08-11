@@ -1,18 +1,20 @@
 <template>
-  <yt-pull :top-load-method="topLoadMethod ? pullDown : null" :bottom-load-method="bottomLoadMethod ? pullUp : null"
-           :name="name" class="yt-group">
+  <yt-pull class="yt-group" :name="name"
+           :top-load-method="topLoadMethod ? pullDown : null"
+           :bottom-load-method="bottomLoadMethod ? pullUp : null">
     <!-- @slot header-->
     <slot name="header"></slot>
     <p class="yt-group-title" v-if="title">{{title}}</p>
-    <yt-noInfo :size="noInfoSize" :text="noInfoText" v-if="!list || !list.length"></yt-noInfo>
     <div class="yt-group-item" :split="split" v-for="(item, index) in groupList" :key="index">
       <p class="yt-group-item_title" v-if="item._tag">{{item._tag}}</p>
+      <!-- @slot 模块内容-->
       <slot :data="item" :index="index"></slot>
     </div>
     <!-- @slot footer-->
     <slot name="footer"></slot>
   </yt-pull>
 </template>
+
 <script type="text/ecmascript-6">
   import { groupDataByTime } from '../../utils'
 
@@ -38,7 +40,7 @@
       /**
        * 外部调用时传进来的name   在topLoadMethod和bottomLoadMethod函数中  会回传出去，用于用户判断是哪个group,此情形在多tab中常见
        */
-      name: [ Object, String, Number ],
+      name: [Object, String, Number],
       /**
        * item项目之间的分割线 具体取值有   'normal' || 'bold' || 'none'
        */
@@ -106,6 +108,7 @@
     }
   }
 </script>
+
 <style type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .yt-group
     background transparent

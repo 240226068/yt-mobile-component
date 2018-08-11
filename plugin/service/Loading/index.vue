@@ -14,25 +14,25 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-loading',
-    data () {
+    data() {
       return {
         showFlag: false,
         text: '请稍后...'
       }
     },
     methods: {
-      show () {
+      show() {
         this.timeout = setTimeout(() => {
           this.showFlag = true
         }, 500)
       },
-      hide () {
+      hide() {
         if (this.timeout) {
           clearTimeout(this.timeout)
         }
         this.showFlag = false
       },
-      load( options ) {
+      load(options) {
         this.show()
         const success = results => {
           this.hide()

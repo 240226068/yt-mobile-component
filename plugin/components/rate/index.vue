@@ -2,7 +2,7 @@
   <div class="yt-rate">
     <span
       v-for="(item, index) in max"
-      class="yt-rate__item"
+      class="yt-rate-item"
       @mousemove="setCurrentValue(item, $event)"
       @mouseleave="resetCurrentValue"
       @click="selectValue(item)"
@@ -10,17 +10,17 @@
       :key="index">
       <i
         :class="[classes[item - 1], { 'hover': hoverIndex === item }]"
-        class="iconfont yt-rate__icon"
+        class="iconfont yt-rate-icon"
         :style="getIconStyle(item)">
         <i
           v-if="showDecimalIcon(item)"
           :class="decimalIconClass"
           :style="decimalStyle"
-          class="iconfont yt-rate__decimal">
+          class="iconfont yt-rate-decimal">
         </i>
       </i>
     </span>
-    <span v-if="showText" class="yt-rate__text" :style="{ color: textColor }">{{ text }}</span>
+    <span v-if="showText" class="yt-rate-text" :style="{ color: textColor }">{{ text }}</span>
   </div>
 </template>
 

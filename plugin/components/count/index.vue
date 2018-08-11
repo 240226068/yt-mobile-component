@@ -70,13 +70,28 @@
       doAdd(e) {
         if (this.num === this.max) return
         this.num = this.num + this.step
+        /**
+         * @event add
+         * @description 数据增加时
+         * @type {event}
+         */
         this.$emit('add', e)
+        /**
+         * @event change
+         * @description 数据改变时
+         * @type {event}
+         */
         this.$emit('change', e)
       },
 
       doReduce(e) {
         if (this.num === this.min) return
         this.num = this.num - this.step
+        /**
+         * @event reduce
+         * @description 数据减少时
+         * @type {event}
+         */
         this.$emit('reduce', e)
         this.$emit('change', e)
       }

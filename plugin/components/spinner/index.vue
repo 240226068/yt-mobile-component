@@ -1,29 +1,37 @@
 <template>
-  <div class="yt-spinner">
-    <span>
-      <img class="yt-spinner-img" :src="src" alt="loading">
-      <p class="yt-spinner-text">{{text}}</p>
-    </span>
-  </div>
+  <span class="yt-spinner" :class="[`yt-spinner__${type}`]" :style="styles"></span>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
+  import Spinner from './spinner'
+
   export default {
     name: 'yt-spinner',
+    mounted() {
+      Spinner(this.$el, this.type, this.size)
+    },
     props: {
       /**
-       * loading显示的文字
+       * spinner的类型  取值有 'android', 'ios', 'ios-small', 'bubbles', 'circles', 'crescent', 'dots', 'lines', 'ripple', 'spiral'
        */
-      text: {
+      type: {
         type: String,
-        default: '正在加载'
+        default: 'ios'
       },
       /**
-       * loading的gif图片
+       * spinner的大小
        */
-      src: {
+      size: {
         type: String,
-        default: require('./spinner.gif')
+        default: '28px'
+      }
+    },
+    computed: {
+      styles() {
+        return {
+          width: this.size,
+          height: this.size
+        }
       }
     }
   }

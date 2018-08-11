@@ -2,7 +2,7 @@
   <yt-view
     class="yt-button" @click="handlerClick" :ripple="ripple"
     :class="[
-      type ? 'yt-button__' + type : '',
+      theme ? 'yt-button__' + theme : '',
       size ? 'yt-button__' + size : '',
       {
         'is-plain': plain,
@@ -32,9 +32,9 @@
     },
     props: {
       /**
-       * btn类型 // white || blue || red || green || black
+       * btn风格类型  white || blue || red || green || black
        */
-      type: {
+      theme: {
         type: String,
         default: 'blue'
       },
@@ -48,7 +48,10 @@
       /**
        * 是否禁用btn
        */
-      disabled: Boolean,
+      disabled: {
+        type: Boolean,
+        default: false
+      },
       /**
        * loading时执行的函数
        */
@@ -114,8 +117,9 @@
       async handlerClick(e) {
         if (!this.loading) {
           /**
-           * 点击事件
+           * @description 点击事件
            * @event click
+           * @type {event}
            */
           this.$emit('click', e)
           return

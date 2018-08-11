@@ -3,11 +3,11 @@
     <!-- @slot page 的 header-->
     <slot name="header">
       <yt-header @change="change" v-bind="$attrs" v-model="key">
-        <!-- @slot header title -->
+        <!-- @slot 自定义header标题位置的内容 -->
         <slot name="title" v-if="$slots.title"></slot>
-        <!-- @slot header right -->
+        <!-- @slot 自定义header右侧的内容 -->
         <slot name="right" v-if="$slots.right" slot="right"></slot>
-        <!-- @slot header left -->
+        <!-- @slot 自定义header左侧的内容 -->
         <slot name="left" v-if="$slots.left" slot="left"></slot>
       </yt-header>
     </slot>
@@ -66,7 +66,8 @@
         default: false
       },
       /**
-       * 搜索框的值
+       * @model
+       * @description 搜索框的值
        */
       value: {
         type: [String, Number],
@@ -84,6 +85,12 @@
           return this.value
         },
         set(val) {
+          /**
+           * 搜索文字变化事件
+           *
+           * @event input
+           * @type {string} 关键字
+           */
           this.$emit('input', val)
         }
       },
@@ -92,6 +99,12 @@
           return this.more
         },
         set(val) {
+          /**
+           * 关闭more层
+           *
+           * @event update:more
+           * @type {string} 关键字
+           */
           this.$emit('update:more', val)
         }
       }
@@ -99,7 +112,7 @@
     methods: {
       change(key) {
         /**
-         * 搜索文字变化事件
+         * 搜索文字变化事件 当截流开启时，该事件将截流派发
          *
          * @event change
          * @type {string} 关键字

@@ -47,7 +47,7 @@
 
     @e item {
       flex: 1;
-      color: #333333;
+      color: #666666;
       @when active {
         color: #000000;
       }
@@ -57,9 +57,11 @@
       display: inline-block;
       margin-left: 5px;
       font-size: 12px;
+      color: #666666;
       transition: transform .3s cubic-bezier(0.23, 1, 0.32, 1);
       @when active {
         position: relative;
+        color: #000000;
         top: -2px;
         transform: rotate(180deg);
       }

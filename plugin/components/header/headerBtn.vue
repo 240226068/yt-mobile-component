@@ -11,20 +11,42 @@
   export default {
     name: 'yt-headerBtn',
     props: {
+      /**
+       * btn 头像时的路径
+       */
       avatar: {
         type: String
       },
+      /**
+       * btn 为字体时候的class名称
+       */
       font: {
         type: String
       },
+      /**
+       * btn 为图片时候的src路径
+       */
       src: {
         type: String
       },
+      /**
+       * btn 的文字
+       */
       text: {
         type: String
       },
-      click: {},
-      badge: {}
+      /**
+       * btn的点击事件
+       */
+      click: {
+        type: Function
+      },
+      /**
+       * btn的角标属性
+       */
+      badge: {
+        type: Object
+      }
     },
     methods: {
       handlerClick(e) {

@@ -1,11 +1,11 @@
 <template>
   <div class="yt-tabs">
     <div class="yt-tabs-header" ref="header">
-      <tab-item @click="active = index" v-for="(panel, index) in panels" :key="index" :panel="panel"
-                :active="active === index"></tab-item>
+      <tab-item @click="active = index" v-for="(panel, index) in panels" :key="index" :panel="panel" :active="active === index"></tab-item>
       <div class="yt-tabs-line" ref="line"></div>
     </div>
     <yt-tab-panles class="yt-tabs-container" @move="_moveLine" @reset="_resetLine" v-model="active" :panels="panels" :slider="slider" listen>
+      <!-- @slot 包裹yt-tab-panel组件-->
       <slot></slot>
     </yt-tab-panles>
   </div>
@@ -16,6 +16,7 @@
   import { requestAnimationFrame } from '../../utils'
 
   export default {
+    name: 'yt-tabs',
     provide() {
       return {
         ytTabs: this

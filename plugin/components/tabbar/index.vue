@@ -1,10 +1,11 @@
 <template>
   <div class="yt-tabbar">
     <yt-tab-panles class="yt-tabbar-container" v-model="active" :panels="panels" :slider="slider">
+      <!-- @slot 包裹tabbar-panel组件-->
       <slot></slot>
     </yt-tab-panles>
     <div class="yt-tabbar-header">
-      <component :is="getOptions(i).name" :tabIndex="getOptions(i).tabIndex" :panel="getOptions(i).panel" v-for="i in len" :key="i"></component>
+      <component :is="getOptions(i).name" :active="getOptions(i).active" :tabIndex="getOptions(i).tabIndex" :panel="getOptions(i).panel" v-for="i in len" :key="i"></component>
     </div>
   </div>
 </template>
@@ -13,6 +14,7 @@
   import tabbarItem from './tabbarItem'
   import tabbarQuick from './tabbarQuick'
   export default {
+    name: 'yt-tabbar',
     provide() {
       return {
         ytTabbar: this
@@ -34,7 +36,7 @@
         default: null
       },
       /**
-       * 是否禁用slider
+       * 是否可以左右滑动
        */
       slider: {
         type: Boolean,
@@ -85,7 +87,7 @@
             panel = this.panels[index - 1]
             tabIndex = index - 1
           }
-          return { name, panel, tabIndex }
+          return { name, panel, tabIndex, active: tabIndex === this.active }
         }
       },
       /**

@@ -8,6 +8,11 @@
     @e wrapper {
       flex: 1;
       background-color: transparent;
+      overflow-x: hidden;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }

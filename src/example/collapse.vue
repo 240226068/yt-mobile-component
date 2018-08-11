@@ -1,45 +1,44 @@
 <template>
-  <yt-page title="collapse" :leftData="[]">
-    <div class="yt-scroll">
-      <p class="title">icon左边</p>
-      <yt-collapse align="left" :active.sync="active0" :list="list0">
-        <div slot-scope="props">
-          {{props.data.body}}
-        </div>
-      </yt-collapse>
-      <p class="title">单个</p>
-      <yt-collapse :active.sync="active" :list="list">
-        <div slot-scope="props">
-          {{props.data.body}}
-        </div>
-      </yt-collapse>
-      <p class="title">多个(手风琴模式)</p>
-      <yt-collapse :active.sync="active2" :list="list2">
-        <div slot-scope="props">
-          {{props.data.body}}
-        </div>
-      </yt-collapse>
-      <p class="title">多个</p>
-      <yt-collapse :accordion="false" :active.sync="active3" :list="list3">
-        <div slot-scope="props">
-          {{props.data.body}}
-        </div>
-      </yt-collapse>
-      <p class="title">多个(默认打开, 按照索引)</p>
-      <yt-collapse :accordion="false" :active.sync="active4" :list="list4">
-        <div slot-scope="props">
-          {{props.data.body}}
-        </div>
-      </yt-collapse>
-      <p class="title">多个(默认打开, 按照指定的name)</p>
-      <yt-collapse :accordion="false" name="title" :active.sync="active5" :list="list5">
-        <div slot-scope="props">
-          {{props.data.body}}
-        </div>
-      </yt-collapse>
-    </div>
+  <yt-page title="collapse" scroll>
+    <p class="title">icon左边</p>
+    <yt-collapse align="left" v-model="active0" :list="list0">
+      <div slot-scope="props">
+        {{props.body}}
+      </div>
+    </yt-collapse>
+    <p class="title">单个</p>
+    <yt-collapse v-model="active" :list="list">
+      <div slot-scope="props">
+        {{props.body}}
+      </div>
+    </yt-collapse>
+    <p class="title">多个(手风琴模式)</p>
+    <yt-collapse v-model="active2" :list="list2">
+      <div slot-scope="props">
+        {{props.body}}
+      </div>
+    </yt-collapse>
+    <p class="title">多个</p>
+    <yt-collapse :accordion="false" v-model="active3" :list="list3">
+      <div slot-scope="props">
+        {{props.body}}
+      </div>
+    </yt-collapse>
+    <p class="title">多个(默认打开, 按照索引)</p>
+    <yt-collapse :accordion="false" v-model="active4" :list="list4">
+      <div slot-scope="props">
+        {{props.body}}
+      </div>
+    </yt-collapse>
+    <p class="title">多个(默认打开, 按照指定的name)</p>
+    <yt-collapse :accordion="false" name="title" v-model="active5" :list="list5">
+      <div slot-scope="props">
+        {{props.body}}
+      </div>
+    </yt-collapse>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'collapse-example',
@@ -155,6 +154,7 @@
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .title
     padding 0 10px

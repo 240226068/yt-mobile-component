@@ -5,14 +5,14 @@
     </transition>
     <div class="yt-header-wrapper">
       <div v-if="(leftData && leftData.length) || $slots.left">
-        <!--@slot head-left-->
+        <!--@slot head 左边-->
         <slot name="left"></slot>
         <header-btn v-for="(item, index) in leftData" v-bind="item" :key="index"></header-btn>
       </div>
       <div class="yt-header-center">
         <transition name="yt-fade">
           <div class="yt-header-bar" v-show="!input && $slots.default">
-            <!-- @slot titlebar -->
+            <!-- @slot 中间 -->
             <slot></slot>
           </div>
         </transition>
@@ -23,7 +23,7 @@
         </transition>
       </div>
       <div v-if="(rightData && rightData.length) || $slots.right">
-        <!--@slot head-right-->
+        <!--@slot  head 右边-->
         <slot name="right"></slot>
         <header-btn v-for="(item, index) in rightData" v-bind="item" :key="index"></header-btn>
       </div>
@@ -39,7 +39,7 @@
     components: { headerBtn },
     props: {
       /**
-       * 导航左侧的按钮
+       * 导航左侧的按钮 数据类型为headerBtn的参数
        * 例如 [{ font: 'iconfont icon-back', text: '返回',  click: () => {}}]
        */
       leftData: {
@@ -54,7 +54,7 @@
         }
       },
       /**
-       * 导航左侧的按钮
+       * 导航左侧的按钮 数据类型为headerBtn的参数
        * 例如 [{ font: 'iconfont icon-search',  click: () => {}}]
        */
       rightData: {
@@ -84,7 +84,7 @@
         default: false
       },
       /**
-       *  风格
+       *  风格 取值 white || transparent
        */
       theme: {
         type: String,
@@ -112,7 +112,7 @@
         default: 'transparent'
       },
       /**
-       *  风格  dark  light
+       *  输入框的风格  dark || light
        */
       inputTheme: {
         type: String,

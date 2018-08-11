@@ -19,6 +19,7 @@
 
 <script type='text/ecmascript-6'>
   export default {
+    name: 'yt-collapseTransition',
     methods: {
       beforeEnter (el) {
         if (!el.dataset) el.dataset = {}

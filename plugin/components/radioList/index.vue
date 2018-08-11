@@ -8,6 +8,7 @@
       <yt-radio v-model="currentValue" v-for="(option, index) in list"
                 :disabled="option.disabled" :name="option | securityGetVal(val) || option"
                 :pos="pos" :inline="inline" :key="index">
+        <!--@slot 自定义label的内容-->
         <slot v-bind="option">{{option | securityGetVal(label)}}</slot>
       </yt-radio>
     </div>

@@ -1,27 +1,19 @@
 <template>
-  <div class="yt-pull-wrapper"
-       :style="{ height: wrapperHeight, transform: `translate3d(0, ${diff}px, 0)` }">
-    <div v-if="topLoadMethod"
-         :style="{ height: `${topBlockHeight}px`, marginTop: `${-topBlockHeight}px` }"
-         class="yt-pull-action">
-      <slot name="top-block"
-            :state="state"
-            :state-text="topText">
-        <p class="yt-pull-action_text"><img :class="{'is-down': state === 'pull', 'is-up': state === 'trigger'}"
-                                            class="yt-pull-action_src" :src="stateSrc">{{ topText }}</p>
+  <div class="yt-pull" :style="{ height: wrapperHeight, transform: `translate3d(0, ${diff}px, 0)` }">
+    <div v-if="topLoadMethod" class="yt-pull-action" :style="{ height: `${topBlockHeight}px`, marginTop: `${-topBlockHeight}px` }">
+      <!--@slot 自定义下拉刷新的内容-->
+      <slot name="top-block" :state="state" :state-text="topText">
+        <p class="yt-pull-text"><img :class="{'is-down': state === 'pull', 'is-up': state === 'trigger'}" class="yt-pull-icon" :src="stateSrc">{{ topText }}</p>
       </slot>
     </div>
-    <div class="yt-pull-scroll yt-scroll" ref="scroll">
+    <div class="yt-pull-scroll" ref="scroll">
+      <!-- @slot 中间的内容 -->
       <slot></slot>
     </div>
-    <div v-if="bottomLoadMethod"
-         :style="{ height: `${bottomBlockHeight}px`, marginBottom: `${-bottomBlockHeight}px` }"
-         class="yt-pull-action">
-      <slot name="bottom-block"
-            :state="state"
-            :state-text="bottomText">
-        <p class="yt-pull-action_text"><img :class="{'is-down': state === 'trigger', 'is-up': state === 'pull'}"
-                                            class="yt-pull-action_src" :src="stateSrc">{{ bottomText }}</p>
+    <div v-if="bottomLoadMethod" class="yt-pull-action" :style="{ height: `${bottomBlockHeight}px`, marginBottom: `${-bottomBlockHeight}px` }">
+      <!--@slot 自定义上啦加载的内容-->
+      <slot name="bottom-block" :state="state" :state-text="bottomText">
+        <p class="yt-pull-text"><img :class="{'is-down': state === 'trigger', 'is-up': state === 'pull'}" class="yt-pull-icon" :src="stateSrc">{{ bottomText }}</p>
       </slot>
     </div>
   </div>
@@ -29,6 +21,7 @@
 
 <script type="text/babel">
   import { throttle, delayed, PackingEvent } from '../../utils'
+
   const TOP_DEFAULT_CONFIG = {
     pullText: '下拉刷新',
     triggerText: '释放更新',
@@ -62,14 +55,23 @@
         type: Number,
         default: 2
       },
+      /**
+       * 下拉刷新包裹层的高度
+       */
       topBlockHeight: {
         type: Number,
         default: 50
       },
+      /**
+       * 上啦加载包裹层的高度
+       */
       bottomBlockHeight: {
         type: Number,
         default: 50
       },
+      /**
+       * pull的高度
+       */
       wrapperHeight: {
         type: String,
         default: '100%'
@@ -86,19 +88,17 @@
       bottomLoadMethod: {
         type: Function
       },
+      /**
+       *  下拉刷新使用截流
+       */
       isThrottleTopPull: {
         type: Boolean,
         default: true
       },
+      /**
+       *  上拉加载使用截流
+       */
       isThrottleBottomPull: {
-        type: Boolean,
-        default: true
-      },
-      isTopBounce: {
-        type: Boolean,
-        default: true
-      },
-      isBottomBounce: {
         type: Boolean,
         default: true
       },
@@ -108,7 +108,7 @@
       topConfig: {
         type: Object,
         default: () => {
-          return {};
+          return {}
         }
       },
       /**
@@ -117,7 +117,7 @@
       bottomConfig: {
         type: Object,
         default: () => {
-          return {};
+          return {}
         }
       }
     },
@@ -135,10 +135,10 @@
         bottomReached: false,
         throttleEmitTopPull: null,
         throttleEmitBottomPull: null
-      };
+      }
     },
     computed: {
-      stateSrc: function () {
+      stateSrc() {
         if (this.state === 'pull' || this.state === 'trigger') {
           return require('./arrow.png')
         } else if (this.state === 'loading') {
@@ -147,18 +147,28 @@
           return require('./success.png')
         }
       },
-      _topConfig: function () {
-        return Object.assign({}, TOP_DEFAULT_CONFIG, this.topConfig)
+      _topConfig() {
+        return { ...TOP_DEFAULT_CONFIG, ...this.topConfig }
       },
-      _bottomConfig: function () {
-        return Object.assign({}, BOTTOM_DEFAULT_CONFIG, this.bottomConfig)
+      _bottomConfig() {
+        return { ...BOTTOM_DEFAULT_CONFIG, ...this.bottomConfig }
       }
     },
     watch: {
       state(val) {
         if (this.direction === 'down') {
-          this.$emit('top-state-change', val);
+          /**
+           * @event top-state-change
+           * @description 下拉刷新的状态改变
+           * @type {string}
+           */
+          this.$emit('top-state-change', val)
         } else {
+          /**
+           * @event bottom-state-change
+           * @description 上拉加载的状态改变
+           * @type {string}
+           */
           this.$emit('bottom-state-change', val)
         }
       }
@@ -192,7 +202,7 @@
       },
       async actionLoaded(loadState = 'done') {
         this.state = `loaded-${loadState}`
-        let loadedStayTime;
+        let loadedStayTime
         if (this.direction === 'down') {
           this.topText = loadState === 'done'
             ? this._topConfig.doneText
@@ -228,7 +238,7 @@
       handleTouchMove(e) {
         this.distance = e.deltaY / this.distanceIndex + this.beforeDiff
         this.direction = this.distance > 0 ? 'down' : 'up'
-        if (this.startScrollTop === 0 && this.direction === 'down' && this.isTopBounce) {
+        if (this.startScrollTop === 0 && this.direction === 'down') {
           this.diff = this.distance
           this.isThrottleTopPull ? this.throttleEmitTopPull(this.diff) : this.$emit('top-pull', this.diff)
           if (typeof this.topLoadMethod !== 'function') return
@@ -239,7 +249,7 @@
             this.state !== 'trigger' && this.state !== 'loading') {
             this.actionTrigger()
           }
-        } else if (this.bottomReached && this.direction === 'up' && this.isBottomBounce) {
+        } else if (this.bottomReached && this.direction === 'up') {
           this.diff = this.distance
           this.isThrottleBottomPull ? this.throttleEmitBottomPull(this.diff) : this.$emit('bottom-pull', this.diff)
           if (typeof this.bottomLoadMethod !== 'function') return
@@ -256,9 +266,8 @@
         if (this.diff !== 0) {
           if (this.state === 'trigger') {
             this.actionLoading()
-            return;
+            return
           }
-          // pull cancel
           this.scrollTo(0)
         }
       },
@@ -271,7 +280,17 @@
         return throttle(throttleMethod, delay, mustRunDelay)
       },
       init() {
+        /**
+         * @event top-pull
+         * @description 下拉刷新事件
+         * @type {Number}
+         */
         this.throttleEmitTopPull = this.throttleEmit(200, 300, 'top-pull')
+        /**
+         * @event bottom-pull
+         * @description 上拉加载事件
+         * @type {Number}
+         */
         this.throttleEmitBottomPull = this.throttleEmit(200, 300, 'bottom-pull')
         this.scrollEl = this.$refs.scroll
         this.packingEvent = new PackingEvent({
@@ -290,35 +309,3 @@
     }
   }
 </script>
-
-<style lang="stylus" type="text/stylus" rel="stylesheet/stylus">
-  .yt-pull-wrapper
-    display flex
-    flex-direction column
-    height 100%
-
-  .yt-pull-scroll
-    flex 1
-    -webkit-overflow-scrolling touch
-    will-change transform
-    contain layout
-
-  .yt-pull-action
-    position: relative
-    width: 100%
-    &_src
-      display inline-block
-      vertical-align middle
-      margin-right 10px
-      width 24px
-      height 24px
-      transition .2s
-      &.is-down
-        transform rotate(-180deg)
-      &.is-up
-        transform rotate(0deg)
-    &_text
-      height 100%
-      line-height 50px
-      text-align center
-</style>

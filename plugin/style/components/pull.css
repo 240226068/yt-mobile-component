@@ -1,0 +1,44 @@
+@name yt {
+  @b pull {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @e scroll {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      will-change: transform;
+      contain: layout;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @e action {
+      position: relative;
+      width: 100%;
+    }
+
+    @e icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+      transition: .2s;
+      @when down {
+        transform: rotate(-180deg);
+      }
+      @when up {
+        transform: rotate(0deg);
+      }
+    }
+
+    @e text {
+      height: 100%;
+      line-height: 50px;
+      text-align: center;
+    }
+  }
+}

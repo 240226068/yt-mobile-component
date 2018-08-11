@@ -4,6 +4,7 @@
     display: inline-block;
     padding: 0 44px;
     font-size: 0;
+    line-height: 1;
     @e reduce, add {
       position: absolute;
       display: inline-block;

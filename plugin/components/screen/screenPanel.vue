@@ -6,14 +6,16 @@
 
 <script type="text/ecmascript-6">
   export default {
+    name: 'yt-screenPanel',
     inject: {
       ytScreen: {
-        default: () => {
-          return {}
-        }
+        default: () => ({})
       }
     },
     props: {
+      /**
+       * screenPanel的label值
+       */
       label: {
         type: String
       }

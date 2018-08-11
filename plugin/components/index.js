@@ -10,34 +10,42 @@ import Radio from './radio'
 import Rate from './rate'
 import Count from './count'
 import Input from './input'
-import Strcky from './strcky'
+import Sticky from './sticky'
 import Badge from './badge'
 import Btn from './btn'
+import Tag from './tag'
 import Card from './card'
 import Grid from './grid'
 import GridItem from './grid/gridItem'
 import Header from './header'
 import HeaderBtn from './header/headerBtn'
-import ButtonTab from './buttonTab'
 import Page from './page'
-import Form from './form'
 import TimeLine from './timeLine'
 import Popup from './popup'
 import Screen from './screen'
 import ScreenPanel from './screen/screenPanel'
-import InlineSelect from './inlineSelect'
-import SwipeCell from './swipeCell'
+import CellSwipe from './cellSwipe'
 import Tabbar from './tabbar'
 import TabbarPanel from './tabbar/tabbarPanel'
 import TabPanles from './tabPanles'
 import Tabs from './tabs'
 import TabPanel from './tabs/tabPanel'
-import File from './file'
 import CheckList from './checkList'
 import RadioList from './radioList'
 import Collapse from './collapse'
 import CollapseTransition from './collapse/collapseTransition'
-import Slider from './slider'
+import Pull from './pull'
+import Spinner from './spinner'
+import ButtonTab from './buttonTab' //
+import Form from './form' //
+import Slider from './slider' //
+import File from './file' //
+import InlineSelect from './inlineSelect' //
+import Group from './group' //
+import Recycler from './recycler' //
+import Progress from './progress' //
+import Shopcart from './shopcart' //
+import Textarea from './textarea' //
 
 export {
   View,
@@ -49,9 +57,10 @@ export {
   Rate,
   Count,
   Input,
-  Strcky,
+  Sticky,
   Badge,
   Btn,
+  Tag,
   Card,
   Grid,
   GridItem,
@@ -65,7 +74,7 @@ export {
   Screen,
   ScreenPanel,
   InlineSelect,
-  SwipeCell,
+  CellSwipe,
   Tabbar,
   TabbarPanel,
   TabPanles,
@@ -76,5 +85,9 @@ export {
   RadioList,
   Collapse,
   CollapseTransition,
-  Slider
+  Slider,
+  Pull,
+  Group,
+  Recycler,
+  Spinner
 }

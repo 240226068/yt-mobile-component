@@ -12,7 +12,7 @@ var md = require('markdown-it')({
     }
     return ''
   }
-});
+})
 var path = require('path')
 
 function resolve(dir) {
@@ -73,16 +73,16 @@ function requireExamples(list) {
 
 function requireSection(section) {
   return new Promise((resolve, reject) => {
-    let optionPromise = requireList.call(this, section.options)
-    let contentPromise = requireList.call(this, section.contents)
-    let examplePromise = requireExamples.call(this, section.examples)
+    let optionPromise = requireList.call(this, section.options || [])
+    let contentPromise = requireList.call(this, section.contents || [])
+    let examplePromise = requireExamples.call(this, section.examples || [])
     Promise.all([optionPromise, contentPromise, examplePromise])
-      .then((result) => {
-        section.options = result[0]
-        section.contents = result[1]
-        section.examples = result[2]
-        resolve(section)
-      }, reject)
+           .then((result) => {
+             section.options = result[0]
+             section.contents = result[1]
+             section.examples = result[2]
+             resolve(section)
+           }, reject)
   })
 }
 
@@ -90,11 +90,11 @@ module.exports = function (source) {
   this.cacheable && this.cacheable(true)
   let callback = this.async()
   let config = this.exec(source, this.resourcePath)
-  let {sections} = config
+  let { sections } = config
   sections = sections.map(section => requireSection.call(this, section))
   Promise.all(sections)
-    .then((result) => {
-      config.sections = result
-      callback(null, `module.exports = ${JSON.stringify(config)}`)
-    })
+         .then((result) => {
+           config.sections = result
+           callback(null, `module.exports = ${JSON.stringify(config)}`)
+         })
 }

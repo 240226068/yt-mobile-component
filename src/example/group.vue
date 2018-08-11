@@ -5,11 +5,13 @@
     </yt-group>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
-  import {delayed} from 'yt'
+  import { delayed } from 'yt'
+
   export default {
     name: 'group-example',
-    data () {
+    data() {
       return {
         title: '列表+按时间分组',
         list: this.mock(Date.now())
@@ -54,6 +56,7 @@
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .row
     padding 0 10px

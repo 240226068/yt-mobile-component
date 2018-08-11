@@ -1,14 +1,13 @@
 <template>
-  <div class="yt-checkList" :class="{ 'is-limit': max > 1 && max <= currentValue.length }"
-       @change="$emit('change', currentValue)">
+  <div class="yt-checkList" :class="{ 'is-limit': max > 1 && max <= currentValue.length }" @change="$emit('change', currentValue)">
     <!-- @slot 标题插槽-->
     <slot name="title">
       <div class="yt-checkList-title" v-if="title">{{title}}</div>
     </slot>
     <div class="yt-checkList-wrapper">
-      <yt-checkBox v-model="currentValue" v-for="(option, index) in list"
-                   :disabled="option.disabled" :name="option | securityGetVal(val) || option"
-                   :pos="pos" :simple="simple" :inline="inline" :key="index">
+      <yt-checkBox v-model="currentValue" v-for="(option, index) in list" :pos="pos" :simple="simple" :inline="inline"
+                   :disabled="option.disabled" :name="option | securityGetVal(val) || option" :key="index">
+        <!-- @slot 自定义checkBox的label -->
         <slot v-bind="option">{{option | securityGetVal(label)}}</slot>
       </yt-checkBox>
     </div>

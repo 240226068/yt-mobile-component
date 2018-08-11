@@ -1,15 +1,15 @@
 <template>
   <yt-page title="评分组件" :leftData="[]" :rightData="[]">
-    <yt-cell title="默认不区分颜色">
+    <yt-cell label="默认不区分颜色">
       <yt-rate v-model="grade"></yt-rate>
     </yt-cell>
-    <yt-cell title="区分颜色">
+    <yt-cell label="区分颜色">
       <yt-rate v-model="grade2" :allow-half="true" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></yt-rate>
     </yt-cell>
-    <yt-cell title="辅助文字">
+    <yt-cell label="辅助文字">
       <yt-rate v-model="grade3" show-text></yt-rate>
     </yt-cell>
-    <yt-cell title="只读+半星">
+    <yt-cell label="只读+半星">
       <yt-rate v-model="grade4" disabled show-score text-color="#ff9900" score-template="{value}">
       </yt-rate>
     </yt-cell>

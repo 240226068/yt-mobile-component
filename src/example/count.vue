@@ -1,9 +1,8 @@
 <template>
-  <yt-page title="备件使用情况">
-    <div class="row" v-for="(item, index) in list" :key="index">
-      <span>{{item.label}}(剩余{{item.count}})</span>
+  <yt-page title="count计数器">
+    <yt-cell v-for="(item, index) in list" border="none" :key="index" :label="`${item.label}(剩余${item.count})`">
       <yt-count :max="item.count" v-model="item.useCount"></yt-count>
-    </div>
+    </yt-cell>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">

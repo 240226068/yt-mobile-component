@@ -8,6 +8,7 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
+    name: 'yt-tab-item',
     inject: {
       ytTabs: {
         default: () => {
@@ -17,12 +18,20 @@
     },
     props: {
       panel: {},
+      /**
+       * 当前item是否选中
+       */
       active: {
         type: Boolean
       }
     },
     methods: {
       handlerClick(e) {
+        /**
+         * @event click
+         * @description 点击事件
+         * @type {event}
+         */
         this.$emit('click', e)
       }
     },

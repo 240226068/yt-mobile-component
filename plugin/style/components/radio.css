@@ -23,6 +23,8 @@
     }
 
     @e label {
+      display: inline-block;
+      vertical-align: middle;
       flex: 1;
       line-height: 1.5;
       font-size: 14px;

@@ -8,6 +8,7 @@
       <span class="yt-checkBox-core" :class="simple ? 'is-simple' : ''"></span>
     </span>
     <span class="yt-checkBox-label" v-if="pos === 'left'">
+      <!-- @slot 自定义label-->
       <slot>{{label}}</slot>
     </span>
   </label>
@@ -25,7 +26,7 @@
         default: false
       },
       /**
-       * left  or  right
+       * 按钮的位置  取值 left || right
        */
       pos: {
         type: String,
@@ -45,11 +46,17 @@
       /**
        * checkbox的value
        */
-      name: {},
+      name: {
+        type: [String, Number, Object],
+        required: true
+      },
       /**
-       * checkbox绑定的值
+       * @model
+       * @description checkbox绑定的值
        */
-      value: {},
+      value: {
+        type: Array
+      },
       /**
        * checkbox的显示值
        */

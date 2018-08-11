@@ -1,5 +1,6 @@
 <template>
   <div class="yt-tabs-panel">
+    <!-- @slot 包裹具体的内容 -->
     <slot></slot>
   </div>
 </template>
@@ -15,12 +16,19 @@
       }
     },
     props: {
+      /**
+       * tabItem的文字
+       */
       text: {
         type: String,
         default: ''
       },
+      /**
+       * tabItem中的角标
+       */
       badge: {
-        type: Object
+        type: Object,
+        default: null
       }
     },
     mounted() {

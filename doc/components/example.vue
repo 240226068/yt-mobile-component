@@ -28,7 +28,7 @@
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .wrapper
     position relative
-    margin 50px
+    margin 20px 20px 50px 20px;
     height 200px
     padding-bottom 45px
     overflow hidden

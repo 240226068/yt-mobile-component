@@ -22,7 +22,7 @@
         default: false
       },
       /**
-       * 角标最大值，超过最大值一律为max+
+       * 角标最大值，超过最大值一律为max+ ， 当value为number时生效
        */
       max: {
         type: Number,

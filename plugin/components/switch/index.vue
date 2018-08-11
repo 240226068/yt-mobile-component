@@ -1,5 +1,5 @@
 <template>
-  <label class="yt-switch" :class="inline ? 'is-inline' : 'is-block'">
+  <label class="yt-switch" :class="{ 'is-closely': closely }">
     <span class="yt-switch-label">
       <!-- @slot switch描述文字-->
       <slot>{{label}}</slot>
@@ -21,9 +21,9 @@
     },
     props: {
       /**
-       * block or inline
+       * 是否紧挨着文字
        */
-      inline: {
+      closely: {
         type: Boolean,
         default: false
       },
@@ -58,7 +58,8 @@
           this.$emit('input', val)
           /**
            * @event change
-           * switch值改变的事件
+           * @description switch值改变的事件
+           * @type {Boolean}
            */
           this.$emit('change', val)
         }

@@ -16,9 +16,27 @@
   export default {
     name: 'yt-view',
     props: {
-      centerRipple: Boolean,
-      color: String,
-      opacity: Number,
+      /**
+       * 圆型
+       */
+      centerRipple: {
+        type: Boolean
+      },
+      /**
+       * 颜色
+       */
+      color: {
+        type: String
+      },
+      /**
+       * 透明度
+       */
+      opacity: {
+        type: Number
+      },
+      /**
+       * 是否显示波纹
+       */
       ripple: {
         type: Boolean,
         default: true

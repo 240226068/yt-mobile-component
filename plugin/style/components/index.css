@@ -21,11 +21,11 @@
 @import "./form.css";
 @import "./page.css";
 @import "./timeLine.css";
-@import "./popover.css";
+@import "./popup.css";
 @import "./screen.css";
 @import "./shopCart.css";
 @import "./inlineSelect.css";
-@import "./swipeCell.css";
+@import "./cellSwipe.css";
 @import "./tabbar.css";
 @import "./tabs.css";
 @import "./spinner.css";
@@ -34,3 +34,6 @@
 @import "./radioList.css";
 @import "./collapse.css";
 @import "./noInfo.css";
+@import "./toast.css";
+@import "./tag.css";
+@import "./pull.css";

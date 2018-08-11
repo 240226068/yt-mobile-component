@@ -47,7 +47,7 @@
         default: 'dark'
       },
       /**
-       *  是否x显示border
+       *  是否显示border
        */
       border: {
         type: Boolean,
@@ -75,13 +75,17 @@
     },
     methods: {
       /**
-       * input失去焦点
+       * @public
+       * @description 使input失去焦点
+       * @return {void}
        */
       blur() {
         this.$refs.input.blur()
       },
       /**
-       * input获取焦点
+       * @public
+       * @description 使input获取焦点
+       * @return {void}
        */
       focus() {
         this.$refs.input.focus()
@@ -90,14 +94,16 @@
     watch: {
       'key'(val) {
         /**
-         * 双向绑定
+         * 双向绑定 值改变实时派发
          * @event input
+         * @type {string}
          */
         this.$emit('input', val)
         const fn = (val) => {
           /**
-           * 搜索文字变化事件
+           * 值改变时，如果开启截流事件会截流派发
            * @event change
+           * @type {string}
            */
           this.$emit('change', val)
         }

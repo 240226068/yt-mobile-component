@@ -1,9 +1,9 @@
 <script type="text/ecmascript-6">
   import Vue from 'vue'
-  import { delayed, groupDataByTime } from '../../utils'
+  import { groupDataByTime } from '../../utils'
   export default {
-    name: 'yt-recyclerView',
-    render (h) {
+    name: 'yt-recycler',
+    render(h) {
       this.itemRender = this.$scopedSlots.default
       return h('yt-pull', {
         props: {
@@ -71,17 +71,23 @@
       }
     },
     methods: {
-      async pullDown(name) {
+      pullDown(loaded, name) {
         if (typeof this.topLoadMethod !== 'function') return
-        let list = await this.topLoadMethod(name, 0)
-        list = this.group ? groupDataByTime(list) : list
-        this.ReplaceList(list)
+        const callback = (list) => {
+          loaded()
+          list = this.group ? groupDataByTime(list) : list
+          this.ReplaceList(list)
+        }
+        this.topLoadMethod(callback, name, 0)
       },
-      async pullUp(name) {
+      pullUp(loaded, name) {
         if (typeof this.bottomLoadMethod !== 'function') return
-        let list = await this.bottomLoadMethod(name, this.dataList.length)
-        list = this.group ? groupDataByTime(list) : list
-        this.AddList(list)
+        const callback = (list) => {
+          loaded()
+          list = this.group ? groupDataByTime(list) : list
+          this.AddList(list)
+        }
+        this.bottomLoadMethod(callback, name, this.dataList.length)
       },
       handleScroll() {
         if (this._inPull) return
@@ -118,7 +124,7 @@
                 innerHTML: data._tag
               }
             }),
-            this.itemRender({data: data})
+            this.itemRender({ data: data })
           ])
         })
         return vm
@@ -220,18 +226,18 @@
               vm.$el.style = `position: absolute; transform: translate3d(0, ${top}px, 0)`
               this.scrollEl.appendChild(vm.$el)
               top += vm.$el.offsetHeight
-              results.push(Object.assign({}, item, {vm, top}))
+              results.push(Object.assign({}, item, { vm, top }))
               preloadCount++
               nextLastPreloadIndex = i
             } else {
-              results.push(Object.assign({}, item, {vm: null, top: 0}))
+              results.push(Object.assign({}, item, { vm: null, top: 0 }))
             }
           } else {
             let vm = this._getItemVm(item)
             vm.$el.style = `position: absolute; transform: translate3d(0, ${top}px, 0)`
             this.scrollEl.appendChild(vm.$el)
             top += vm.$el.offsetHeight
-            results.push(Object.assign({}, item, {vm, top}))
+            results.push(Object.assign({}, item, { vm, top }))
             this._lastIndex = i
           }
         }

@@ -1,18 +1,22 @@
 <template>
-  <yt-page title="Cell" scroll>
+  <yt-page theme="black" title="Cell" scroll>
+    <p class="title">基础用法</p>
+    <yt-cell label="巡检任务"/>
+    <yt-cell label="巡检任务" value="管廊日常巡检任务"/>
+    <p class="title">带右箭头</p>
+    <yt-cell label="待办事项" value="更多" isLink/>
+    <p class="title">border</p>
     <yt-cell border="half" label="有border-bottom(非全)" isLink/>
     <yt-cell border="all" label="有border-bottom" isLink/>
     <yt-cell border="none" label="没有border-bottom" isLink/>
-    <p class="title">左右文字</p>
+    <p class="title">角标</p>
+    <yt-cell label="风险评估项" :badge="{ value: 10 }" isLink></yt-cell>
+    <p class="title">左文字-右自定义</p>
     <yt-cell border="none" label="任务名称">
-      <yt-input></yt-input>
+      <yt-input v-model="input"></yt-input>
     </yt-cell>
-    <p class="title">左文字+右自定义</p>
-    <yt-cell border="none" label="巡检任务" value="管廊日常巡检任务"/>
-    <p class="title">左右文字+描述文字</p>
-    <yt-cell border="none" label="巡检任务" inline="李四,王五，张三，巡检员" value="管廊日常巡检任务"/>
-    <p class="title">左右文字+左图标+右角标+点击阴影</p>
-    <yt-cell border="none" :ripple="true" :icon="icon" label="专家列表" value="更多" isLink/>
+    <p class="title">左右文字+左图标+点击阴影</p>
+    <yt-cell border="none" :icon="icon" label="专家列表" value="更多" isLink ripple/>
     <p class="title">左图标自定义</p>
     <yt-cell border="none" label="检查通风扇是否打开" isLink>
       <span class="icon" success slot="icon"></span>
@@ -25,17 +29,19 @@
     </yt-cell>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'Cell-example',
     data() {
       return {
-        icon: require('../img/avatar.jpg'),
-        time: ''
+        input: '',
+        icon: require('../img/avatar.jpg')
       }
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .title
     line-height 30px

@@ -1,12 +1,13 @@
 <template>
-  <yt-page :more.sync="more" :leftData="leftData" :rightData="rightData">
+  <yt-page :more.sync="more" :leftData="leftData" :rightData="rightData" flex>
     <ul class="ul" slot="more">
       <li @click="handler(tab)" v-for="tab in TABS" :key="tab">{{tab}}</li>
     </ul>
     <yt-buttonTab :list="list" slot="title"></yt-buttonTab>
-    <yt-form>
-      <yt-btn slot="btn">提交</yt-btn>
-    </yt-form>
+    <div style="flex: 1;">
+      这里是具体内容
+    </div>
+    <yt-btn>提交</yt-btn>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">

@@ -3,11 +3,15 @@
     <div class="yt-collapse-item" :class="{'is-active': isActive(item, index)}" v-for="(item, index) in list" :key="index">
       <div class="yt-collapse-title yt-border-all" @click="handlerClickToggle(item, index)">
         <i class="yt-collapse-icon iconfont icon-right" :class="`is-${align}`"></i>
-        <div class="yt-collapse-text"><slot name="title" :data="item">{{item[label]}}</slot></div>
+        <div class="yt-collapse-text">
+          <!-- @slot 自定义title -->
+          <slot name="title" v-bind="item">{{item[label]}}</slot>
+        </div>
       </div>
       <yt-collapse-transition @transition="$emit('transition', $event)" v-show="isActive(item, index)">
         <div class="yt-collapse-content">
-          <slot :data="item"></slot>
+          <!-- @slot 自定义content -->
+          <slot v-bind="item"></slot>
         </div>
       </yt-collapse-transition>
     </div>
@@ -53,15 +57,15 @@
       /**
        *  打开的面板   为Array时 对应多个折叠面板  为boolean时  对应单个折叠面板
        */
-      active: [Array, Boolean]
+      value: [Array, Boolean]
     },
     computed: {
       _active: {
         get() {
-          return this.active
+          return this.value
         },
         set(active) {
-          this.$emit('update:active', active)
+          this.$emit('input', active)
         }
       }
     },

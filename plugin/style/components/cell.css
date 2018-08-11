@@ -18,12 +18,21 @@
     }
 
     @e label {
+      position: relative;
       display: inline-block;
       color: #303133;
       font-size: 14px;
       padding: 8px 0;
       line-height: 30px;
+      margin-right: 10px;
+    }
+
+    @e badge {
+      position: relative;
+      display: inline-block;
+      padding: 10px 6px;
       margin-right: 20px;
+      margin-top: 16px;
     }
 
     @e value {
@@ -32,6 +41,8 @@
       line-height: 25px;
       font-size: 14px;
       color: #666666;
+      display: flex;
+      justify-content: flex-end;
     }
 
     @e link {

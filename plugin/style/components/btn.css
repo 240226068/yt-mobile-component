@@ -20,10 +20,10 @@
     @m white {
       color: #333333;
       background-color: #ffffff;
-      border-color: #808080;
+      border-color: #eeeeee;
       @when plain {
-        background: #fbfbfb;
-        border-color: #aaaaaa;
+        background-color: #fbfbfb;
+        border-color: #dddddd;
       }
     }
 

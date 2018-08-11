@@ -1,10 +1,11 @@
 <template>
-  <div class="page" title="宫格">
+  <yt-page title="宫格">
     <yt-grid :x="3" :y="5" :list="menuList">
-      <yt-grid-item slot-scope="{data}" :data="data"></yt-grid-item>
+      <yt-grid-item slot-scope="data" v-bind="data"></yt-grid-item>
     </yt-grid>
-  </div>
+  </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'Grid-example',
@@ -109,9 +110,6 @@
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
-  .page
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
 </style>

@@ -1,10 +1,12 @@
 <template>
-  <div class="yt-popover">
+  <div class="yt-popup">
     <transition name="yt-fade">
-      <div :class="['yt-popover-mask', {'is-fixed': fixed}]" v-if="currentValue && mask" @click="currentValue = false"></div>
+      <div :class="['yt-popup-mask', {'is-fixed': fixed}]" v-if="currentValue && mask"
+           @click="currentValue = false"></div>
     </transition>
     <transition :name="transitionName">
-      <div class="yt-popover-body" :class="[`is-${pos}`, {'is-fixed': fixed}]" v-if="currentValue">
+      <div class="yt-popup-body" :class="[`is-${pos}`, {'is-fixed': fixed}]" v-if="currentValue">
+        <!-- @slot 弹出层的内容 -->
         <slot></slot>
       </div>
     </transition>
@@ -13,10 +15,11 @@
 
 <script type="text/ecmascript-6">
   export default {
-    name: 'yt-popover',
+    name: 'yt-popup',
     props: {
       /**
-       * 控制弹出的显示   例如 :visible="XXX"    如果需要点击 遮罩层自动关闭弹出层的话  采用 :visible.sync="XXX"
+       * @model
+       * @description 控制弹出的显示 使用v-model进行双向绑定
        */
       value: {
         type: Boolean,
@@ -37,7 +40,7 @@
         default: false
       },
       /**
-       * 异常mask
+       * 是否显示mask
        */
       mask: {
         type: Boolean,
@@ -54,7 +57,7 @@
         }
       },
       transitionName() {
-        return `yt-pop-slider-${this.pos}`
+        return `yt-popup-slider-${this.pos}`
       }
     }
   }

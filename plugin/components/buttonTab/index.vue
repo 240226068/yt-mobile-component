@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-buttonTab" :class="`yt-buttonTab__${Theme}`">
+  <div class="yt-buttonTab">
     <span @click="handlerClick(index)" class="yt-buttonTab-item" v-for="(bar, index) in renderList" :key="index" :class="{ 'is-active': active === index }">
       {{bar.text}}
       <yt-badge v-if="bar && bar.badge" v-bind="bar.badge"></yt-badge>
@@ -7,6 +7,7 @@
     <span class="yt-buttonTab-mask" :style="{transform: `translate3d(${this.active}00%, 0, 0)`}"></span>
   </div>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-buttonTab',

@@ -5,27 +5,32 @@
     </yt-pull>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
-  import {delayed} from 'yt'
+  import { delayed } from 'yt'
+
   export default {
     name: 'page-example',
-    data () {
+    data() {
       return {
         num: 5
       }
     },
     methods: {
-      async pullDown(name) {
-        await delayed(1500)
+      async pullDown(loaded) {
+        await delayed(1000)
+        loaded()
         this.num = 5
       },
-      async pullUp(name) {
-        await delayed(1500)
+      async pullUp(loaded) {
+        await delayed(1000)
+        loaded()
         this.num = this.num + 10
       }
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .row
     padding 0 10px

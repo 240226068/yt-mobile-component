@@ -1,8 +1,10 @@
 <template>
   <div class="yt-form">
-    <div class="yt-form-wrapper yt-scroll">
+    <div class="yt-form-wrapper">
+      <!--@slot 具体表单内容-->
       <slot></slot>
     </div>
+    <!--@slot 自定义btn-->
     <slot v-if="$slots.btn" name="btn"></slot>
   </div>
 </template>

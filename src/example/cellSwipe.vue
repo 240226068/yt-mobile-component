@@ -1,122 +1,85 @@
 <template>
-  <yt-page :leftData="[]" title="cellSwipe示例">
-    <yt-tabs pos="top">
-      <yt-tab-panel label="定制">
-        <yt-group split="none" :group="false" :list="list">
-          <yt-cell-swipe slot-scope="props" class="row">
-            这里是定制内容
-            <div @click="handlerClickCustom" class="custom" slot="left">
-              定制btn
-            </div>
-            <div @click="handlerClickCustom" class="custom" slot="right">
-              定制btn
-            </div>
-          </yt-cell-swipe>
-        </yt-group>
-      </yt-tab-panel>
-      <yt-tab-panel label="默认">
-        <yt-cell-swipe class="row" :items="item.items" v-for="(item, index) in list" :key="index">
-          {{item.content}}
-        </yt-cell-swipe>
-      </yt-tab-panel>
-    </yt-tabs>
+  <yt-page title="Swipe">
+    <yt-cell label="基础用法"></yt-cell>
+    <yt-cellSwipe :data="1" :items="items">
+      <p class="row">这是测试内容这是测试内容这是测试内容这是测试内容这是测试内容</p>
+    </yt-cellSwipe>
+    <yt-split></yt-split>
+    <yt-cell label="禁用状态"></yt-cell>
+    <yt-cellSwipe :data="2" :items="items" disabled>
+      <p class="row">这是测试内容这是测试内容这是测试内容这是测试内容这是测试内容</p>
+    </yt-cellSwipe>
+    <yt-split></yt-split>
+    <yt-cell label="点击确认"></yt-cell>
+    <yt-cellSwipe :data="3" :items="items2">
+      <p class="row">这是测试内容这是测试内容这是测试内容这是测试内容这是测试内容</p>
+    </yt-cellSwipe>
+    <yt-split></yt-split>
+    <yt-cell label="自定义右侧内容"></yt-cell>
+    <yt-cellSwipe>
+      <p class="row">这是测试内容这是测试内容这是测试内容这是测试内容这是测试内容</p>
+      <div class="custom" slot="right">
+        <div class="item" @click="handler">自定义</div>
+      </div>
+    </yt-cellSwipe>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
-    name: 'cell-swipe-example',
     data() {
       return {
-        list: [
+        items: [
           {
-            content: '这里是主要内容',
-            items: [
-              {
-                text: '删除',
-                type: 'danger',
-                click: () => {
-                  console.log('删除')
-                }
-              },
-              {
-                text: '取消',
-                type: 'warning',
-                click: () => {
-                  console.log('取消')
-                }
-              },
-              {
-                text: '断线',
-                type: 'info',
-                click: () => {
-                  console.log('断线')
-                }
-              }
-            ]
+            type: 'gray',
+            text: '关注',
+            click: (data) => {
+              console.log(data, '点击了关注')
+            }
           },
           {
-            content: '这里是主要内容',
-            items: [
-              {
-                text: '取消',
-                type: 'warning',
-                click: () => {
-                  console.log('取消')
-                }
-              }
-            ]
-          },
+            type: 'red',
+            text: '删除',
+            click: (data) => {
+              console.log(data, '点击了删除')
+            }
+          }
+        ],
+        items2: [
           {
-            content: '这里是主要内容',
-            items: [
-              {
-                text: '断线',
-                type: 'info',
-                click: () => {
-                  console.log('断线')
-                }
-              }
-            ]
-          },
-          {
-            content: '这里是主要内容',
-            items: [
-              {
-                text: '一般',
-                type: 'primary',
-                click: () => {
-                  console.log('一般')
-                }
-              }
-            ]
-          },
-          {
-            content: '这里是主要内容',
-            items: [
-              {
-                text: '正常',
-                type: 'success',
-                click: () => {
-                  console.log('正常')
-                }
-              }
-            ]
+            type: 'red',
+            text: '删除',
+            confirmText: '确定删除',
+            confirm: (data) => {
+              console.log(data, '点击了确定删除')
+            }
           }
         ]
       }
     },
     methods: {
-      handlerClickCustom() {
-        console.log('点击了定制btn')
+      handler() {
+        console.log('点击了自定义')
       }
     }
   }
 </script>
-<style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
-  .row
-    line-height 50px
-  .custom
-    color #ffffff
-    padding 0 30px
-    background-color #ff9c00
+
+<style scoped>
+  .row {
+    padding: 5px;
+    line-height: 22px;
+    font-size: 14px;
+  }
+
+  .custom {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: 100%;
+    padding: 0 20px;
+    color: #fff;
+    font-size: 14px;
+    background-color: red;
+  }
 </style>
