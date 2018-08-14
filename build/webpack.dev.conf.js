@@ -13,6 +13,33 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+let plugins = []
+if (process.env.TARGET === 'doc') {
+  plugins = [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true,
+      chunks: ['app']
+    }),
+    // https://github.com/ampedandwired/html-webpack-plugin
+    new HtmlWebpackPlugin({
+      filename: 'example.html',
+      template: 'example.html',
+      inject: true,
+      chunks: ['example']
+    })
+  ]
+} else {
+  plugins = [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    })
+  ]
+}
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
@@ -52,25 +79,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
-      inject: true
-    }),
+    ...plugins,
     // copy custom static assets
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
         to: config.dev.assetsSubDirectory,
-        ignore: [ '.*' ]
+        ignore: ['.*']
       }
     ])
   ]
 })
 
-module.exports = new Promise(( resolve, reject ) => {
+module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
-  portfinder.getPort(( err, port ) => {
+  portfinder.getPort((err, port) => {
     if (err) {
       reject(err)
     } else {
@@ -82,7 +105,7 @@ module.exports = new Promise(( resolve, reject ) => {
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [ `Your application is running here: http://${devWebpackConfig.devServer.host}:${port}` ]
+          messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`]
         },
         onErrors: config.dev.notifyOnErrors
           ? utils.createNotifierCallback()

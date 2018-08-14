@@ -44,7 +44,7 @@
 </script>
 
 <style type="text/css" lang="css">
-  @import "./css/markdown.css";
+  @import "css/markdown.css";
 
   .page {
     height: 100%;

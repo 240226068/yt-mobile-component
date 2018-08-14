@@ -7,8 +7,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { delayed } from 'yt'
-
   export default {
     name: 'page-example',
     data() {
@@ -17,15 +15,17 @@
       }
     },
     methods: {
-      async pullDown(loaded) {
-        await delayed(1000)
-        loaded()
-        this.num = 5
+      pullDown(loaded) {
+        setTimeout(() => {
+          loaded()
+          this.num = 5
+        }, 1000)
       },
-      async pullUp(loaded) {
-        await delayed(1000)
-        loaded()
-        this.num = this.num + 10
+      pullUp(loaded) {
+        setTimeout(() => {
+          loaded()
+          this.num = this.num + 10
+        }, 1000)
       }
     }
   }

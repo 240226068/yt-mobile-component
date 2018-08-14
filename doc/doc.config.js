@@ -1,153 +1,83 @@
 /**
  * Created by mas on 2018/4/29.
  */
-
 module.exports = {
   sections: [
     {
-      name: 'split',
-      path: '/split',
-      options: ['plugin/components/split/index.vue'],
-      contents: ['plugin/components/split/README.md'],
+      tag: '布局',
+      name: 'page',
+      path: '/page',
+      options: ['package/page/index.vue', 'package/header/index.vue', 'package/header/headerBtn.vue', 'package/buttonTab/index.vue'],
+      contents: ['package/page/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/split.vue' }
+        { text: 'demo源码', path: 'src/example/page.vue' }
       ]
     },
     {
-      name: 'cell',
-      path: '/cell',
-      options: ['plugin/components/cell/index.vue'],
-      contents: ['plugin/components/cell/README.md'],
+      name: 'pull',
+      path: '/pull',
+      options: ['package/pull/index.vue'],
+      contents: ['package/pull/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/cell.vue' }
+        { text: 'demo源码', path: 'src/example/pull.vue' }
       ]
     },
     {
-      name: 'cellSwipe',
-      path: '/cellSwipe',
-      options: ['plugin/components/cellSwipe/index.vue'],
-      contents: ['plugin/components/cellSwipe/README.md'],
+      name: 'form',
+      path: '/form',
+      options: ['package/form/index.vue'],
+      contents: ['package/form/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/cellSwipe.vue' }
-      ]
-    },
-    {
-      name: 'badge',
-      path: '/badge',
-      options: ['plugin/components/badge/index.vue'],
-      contents: ['plugin/components/badge/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/badge.vue' }
+        { text: 'demo源码', path: 'src/example/form.vue' }
       ]
     },
     {
       name: 'card',
       path: '/card',
-      options: ['plugin/components/card/index.vue'],
-      contents: ['plugin/components/card/README.md'],
+      options: ['package/card/index.vue'],
+      contents: ['package/card/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/card.vue' }
       ]
     },
     {
-      name: 'popup',
-      path: '/popup',
-      options: ['plugin/components/popup/index.vue'],
-      contents: ['plugin/components/popup/README.md'],
+      name: 'split',
+      path: '/split',
+      options: ['package/split/index.vue'],
+      contents: ['package/split/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/popup.vue' }
+        { text: 'demo源码', path: 'src/example/split.vue' }
       ]
     },
     {
-      name: 'grid',
-      path: '/grid',
-      options: ['plugin/components/grid/index.vue', 'plugin/components/grid/gridItem.vue'],
-      contents: ['plugin/components/grid/README.md'],
+      name: 'sticky',
+      path: '/sticky',
+      options: ['package/sticky/index.vue'],
+      contents: ['package/sticky/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/grid.vue' }
+        { text: 'demo源码', path: 'src/example/sticky.vue' }
       ]
     },
     {
-      name: 'checkBox',
-      path: '/checkBox',
-      options: ['plugin/components/checkBox/index.vue'],
-      contents: ['plugin/components/checkBox/README.md'],
+      name: 'view',
+      path: '/view',
+      options: ['package/view/index.vue'],
+      contents: ['package/view/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/checkBox.vue' }
+        { text: 'demo源码', path: 'src/example/view.vue' }
       ]
     },
     {
-      name: 'radio',
-      path: '/radio',
-      options: ['plugin/components/radio/index.vue'],
-      contents: ['plugin/components/radio/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/radio.vue' }
-      ]
-    },
-    {
-      name: 'switch',
-      path: '/switch',
-      options: ['plugin/components/switch/index.vue'],
-      contents: ['plugin/components/switch/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/switch.vue' }
-      ]
-    },
-    {
-      name: 'input',
-      path: '/input',
-      options: ['plugin/components/input/index.vue'],
-      contents: ['plugin/components/input/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/input.vue' }
-      ]
-    },
-    {
-      name: 'count',
-      path: '/count',
-      options: ['plugin/components/count/index.vue'],
-      contents: ['plugin/components/count/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/count.vue' }
-      ]
-    },
-    {
-      name: 'rate',
-      path: '/rate',
-      options: ['plugin/components/rate/index.vue'],
-      contents: ['plugin/components/rate/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/rate.vue' }
-      ]
-    },
-    {
-      name: 'page',
-      path: '/page',
-      options: ['plugin/components/page/index.vue', 'plugin/components/header/index.vue', 'plugin/components/header/headerBtn.vue'],
-      contents: ['plugin/components/page/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/page.vue' }
-      ]
-    },
-    {
-      name: 'header',
-      path: '/page',
-      options: ['plugin/components/header/index.vue', 'plugin/components/header/headerBtn.vue'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/page.vue' }
-      ]
-    },
-    {
+      tag: '导航',
       name: 'tabbar',
       path: '/tabbar',
       options: [
-        'plugin/components/tabbar/index.vue',
-        'plugin/components/tabbar/tabbarItem.vue',
-        'plugin/components/tabbar/tabbarPanel.vue',
-        'plugin/components/tabbar/tabbarQuick.vue'
+        'package/tabbar/index.vue',
+        'package/tabbar/tabbarItem.vue',
+        'package/tabbar/tabbarPanel.vue',
+        'package/tabbar/tabbarQuick.vue'
       ],
-      contents: ['plugin/components/tabbar/README.md'],
+      contents: ['package/tabbar/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/tabbar.vue' }
       ]
@@ -156,74 +86,201 @@ module.exports = {
       name: 'tabs',
       path: '/tabs',
       options: [
-        'plugin/components/tabs/index.vue',
-        'plugin/components/tabs/tabItem.vue',
-        'plugin/components/tabs/tabPanel.vue'
+        'package/tabs/index.vue',
+        'package/tabs/tabItem.vue',
+        'package/tabs/tabPanel.vue'
       ],
-      contents: ['plugin/components/tabs/README.md'],
+      contents: ['package/tabs/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/tabs.vue' }
       ]
     },
     {
-      name: 'view',
-      path: '/view',
-      options: ['plugin/components/view/index.vue'],
-      contents: ['plugin/components/view/README.md'],
+      name: 'header',
+      path: '/page',
+      options: ['package/header/index.vue', 'package/header/headerBtn.vue'],
       examples: [
-        { text: 'demo源码', path: 'src/example/view.vue' }
+        { text: 'demo源码', path: 'src/example/page.vue' }
+      ]
+    },
+    {
+      name: 'buttonTab',
+      path: '/buttonTab',
+      options: ['package/buttonTab/index.vue'],
+      contents: ['package/buttonTab/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/buttonTab.vue' }
+      ]
+    },
+    {
+      tag: '数据展示',
+      name: 'group',
+      path: '/group',
+      options: ['package/group/index.vue'],
+      contents: ['package/group/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/group.vue' }
+      ]
+    },
+    {
+      name: 'grid',
+      path: '/grid',
+      options: ['package/grid/index.vue', 'package/grid/gridItem.vue'],
+      contents: ['package/grid/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/grid.vue' }
       ]
     },
     {
       name: 'timeLine',
       path: '/timeLine',
-      options: ['plugin/components/timeLine/index.vue'],
-      contents: ['plugin/components/timeLine/README.md'],
+      options: ['package/timeLine/index.vue'],
+      contents: ['package/timeLine/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/timeLine.vue' }
       ]
     },
     {
-      name: 'form',
-      path: '/form',
-      options: ['plugin/components/form/index.vue'],
-      contents: ['plugin/components/form/README.md'],
+      name: 'slider',
+      path: '/slider',
+      options: ['package/slider/index.vue'],
+      contents: ['package/slider/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/form.vue' }
+        { text: 'demo源码', path: 'src/example/slider.vue' }
       ]
     },
     {
       name: 'collapse',
       path: '/collapse',
-      options: ['plugin/components/collapse/index.vue'],
-      contents: ['plugin/components/collapse/README.md'],
+      options: ['package/collapse/index.vue'],
+      contents: ['package/collapse/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/collapse.vue' }
       ]
     },
     {
-      name: 'sticky',
-      path: '/sticky',
-      options: ['plugin/components/sticky/index.vue'],
-      contents: ['plugin/components/sticky/README.md'],
+      name: 'cellSwipe',
+      path: '/cellSwipe',
+      options: ['package/cellSwipe/index.vue'],
+      contents: ['package/cellSwipe/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/sticky.vue' }
+        { text: 'demo源码', path: 'src/example/cellSwipe.vue' }
       ]
     },
     {
-      name: 'screen',
-      path: '/screen',
-      options: ['plugin/components/screen/index.vue', 'plugin/components/screen/screenPanel.vue'],
-      contents: ['plugin/components/screen/README.md'],
+      tag: '表单',
+      name: 'btn',
+      path: '/btn',
+      options: ['package/btn/index.vue'],
+      contents: ['package/btn/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/screen.vue' }
+        { text: 'demo源码', path: 'src/example/btn.vue' }
+      ]
+    },
+    {
+      name: 'cell',
+      path: '/cell',
+      options: ['package/cell/index.vue'],
+      contents: ['package/cell/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/cell.vue' }
+      ]
+    },
+    {
+      name: 'tag',
+      path: '/tag',
+      options: ['package/tag/index.vue'],
+      contents: ['package/tag/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/tag.vue' }
+      ]
+    },
+    {
+      name: 'checkBox',
+      path: '/checkBox',
+      options: ['package/checkBox/index.vue'],
+      contents: ['package/checkBox/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/checkBox.vue' }
+      ]
+    },
+    {
+      name: 'radio',
+      path: '/radio',
+      options: ['package/radio/index.vue'],
+      contents: ['package/radio/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/radio.vue' }
+      ]
+    },
+    {
+      name: 'switch',
+      path: '/switch',
+      options: ['package/switch/index.vue'],
+      contents: ['package/switch/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/switch.vue' }
+      ]
+    },
+    {
+      name: 'input',
+      path: '/input',
+      options: ['package/input/index.vue'],
+      contents: ['package/input/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/input.vue' }
+      ]
+    },
+    {
+      name: 'textarea',
+      path: '/textarea',
+      options: ['package/textarea/index.vue'],
+      contents: ['package/textarea/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/textarea.vue' }
+      ]
+    },
+    {
+      name: 'count',
+      path: '/count',
+      options: ['package/count/index.vue'],
+      contents: ['package/count/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/count.vue' }
+      ]
+    },
+    {
+      name: 'rate',
+      path: '/rate',
+      options: ['package/rate/index.vue'],
+      contents: ['package/rate/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/rate.vue' }
+      ]
+    },
+    {
+      name: 'badge',
+      path: '/badge',
+      options: ['package/badge/index.vue'],
+      contents: ['package/badge/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/badge.vue' }
+      ]
+    },
+    {
+      name: 'inlineSelect',
+      path: '/inlineSelect',
+      options: ['package/inlineSelect/index.vue'],
+      contents: ['package/inlineSelect/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/inlineSelect.vue' }
       ]
     },
     {
       name: 'checkList',
       path: '/checkList',
-      options: ['plugin/components/checkList/index.vue'],
-      contents: ['plugin/components/checkList/README.md'],
+      options: ['package/checkList/index.vue'],
+      contents: ['package/checkList/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/checkList.vue' }
       ]
@@ -231,62 +288,54 @@ module.exports = {
     {
       name: 'radioList',
       path: '/radioList',
-      options: ['plugin/components/radioList/index.vue'],
-      contents: ['plugin/components/radioList/README.md'],
+      options: ['package/radioList/index.vue'],
+      contents: ['package/radioList/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/radioList.vue' }
       ]
     },
     {
-      name: 'btn',
-      path: '/btn',
-      options: ['plugin/components/btn/index.vue'],
-      contents: ['plugin/components/btn/README.md'],
+      name: 'progress',
+      path: '/progress',
+      options: ['package/progress/index.vue'],
+      contents: ['package/progress/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/btn.vue' }
+        { text: 'demo源码', path: 'src/example/progress.vue' }
       ]
     },
     {
-      name: 'tag',
-      path: '/tag',
-      options: ['plugin/components/tag/index.vue'],
-      contents: ['plugin/components/tag/README.md'],
+      name: 'file',
+      path: '/file',
+      options: ['package/file/index.vue'],
+      contents: ['package/file/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/tag.vue' }
+        { text: 'demo源码', path: 'src/example/file.vue' }
       ]
     },
     {
-      name: 'pull',
-      path: '/pull',
-      options: ['plugin/components/pull/index.vue'],
-      contents: ['plugin/components/pull/README.md'],
+      tag: '弹窗展示',
+      name: 'popup',
+      path: '/popup',
+      options: ['package/popup/index.vue'],
+      contents: ['package/popup/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/pull.vue' }
+        { text: 'demo源码', path: 'src/example/popup.vue' }
       ]
     },
     {
-      name: 'group',
-      path: '/group',
-      options: ['plugin/components/group/index.vue'],
-      contents: ['plugin/components/group/README.md'],
+      name: 'screen',
+      path: '/screen',
+      options: ['package/screen/index.vue', 'package/screen/screenPanel.vue'],
+      contents: ['package/screen/README.md'],
       examples: [
-        { text: 'demo源码', path: 'src/example/group.vue' }
-      ]
-    },
-    {
-      name: 'recycler',
-      path: '/recycler',
-      options: ['plugin/components/recycler/index.vue'],
-      contents: ['plugin/components/recycler/README.md'],
-      examples: [
-        { text: 'demo源码', path: 'src/example/recycler.vue' }
+        { text: 'demo源码', path: 'src/example/screen.vue' }
       ]
     },
     {
       name: 'spinner',
       path: '/spinner',
-      options: ['plugin/components/spinner/index.vue'],
-      contents: ['plugin/components/spinner/README.md'],
+      options: ['package/spinner/index.vue'],
+      contents: ['package/spinner/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/spinner.vue' }
       ]

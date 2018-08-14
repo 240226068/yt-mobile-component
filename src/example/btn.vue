@@ -57,10 +57,18 @@
     <yt-split color="#fff"></yt-split>
     <yt-split></yt-split>
     <yt-btn size="block" theme="blue" :loading="submit">提交</yt-btn>
+    <yt-btn-group shadow>
+      <yt-btn theme="white">重置</yt-btn>
+      <yt-btn>确定</yt-btn>
+    </yt-btn-group>
+    <yt-btn-group shadow>
+      <yt-btn edge theme="white">重置</yt-btn>
+      <yt-btn edge theme="white">确定</yt-btn>
+    </yt-btn-group>
   </yt-page>
 </template>
 <script type="text/ecmascript-6">
-  import { delayed } from 'yt'
+  import { delayed } from '../../package/index'
 
   export default {
     name: 'btn-example',

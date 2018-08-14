@@ -1,0 +1,48 @@
+@name yt {
+  @b textArea {
+    display: flex;
+    background-color: #fff;
+
+    @when column {
+      flex-direction: column;
+    }
+
+    @e title {
+      padding: 0 10px;
+      line-height: 45px;
+      font-size: 14px;
+      color: #333333;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    @e body {
+      flex: 1;
+      padding: 10px 10px 0 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @e count {
+      color: #B2B2B2;
+      text-align: right;
+      height: 20px;
+    }
+
+    @e input {
+      width: 100%;
+      min-height: 80px;
+      resize: none;
+      border: none;
+      outline: none;
+      color: #808080;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
+      &:disabled {
+        background-color: transparent;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@name yt {
+  @b progressLine {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    @e content {
+      font-size: 14px;
+      color: #808080;
+      @when right {
+        width: 60px;
+      }
+      @when center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 100;
+        transform: translate3d(-50%, -50%, 0);
+      }
+    }
+
+    @e wrapper {
+      flex: 1;
+      position: relative;
+    }
+
+    @e cur {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    @e trail {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @b progressCircle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @e content {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

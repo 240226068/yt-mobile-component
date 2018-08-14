@@ -2,8 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import router from './example/router'
-import yt from 'yt'
-import 'yt/style/theme/LightBlue.css'
+import yt from '../package/index'
+import '../package/style/theme/LightBlue.css'
 import App from './App'
 
 Vue.use(yt)

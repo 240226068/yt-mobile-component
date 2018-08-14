@@ -1,0 +1,12 @@
+@name yt {
+  @b time {
+    font-size: 14px;
+    color: #808080;
+    @e right {
+      font-size: 12px;
+    }
+    @e tag {
+      font-size: 12px;
+    }
+  }
+}

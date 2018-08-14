@@ -1,0 +1,61 @@
+@define-mixin SwipeBaseColor {
+  @when blue {
+    background-color: #46BAFF;
+  }
+
+  @when red {
+    background-color: #FF0000;
+  }
+
+  @when green {
+    background-color: #29f090;
+  }
+
+  @when yellow {
+    background-color: #ff9d01;
+  }
+
+  @when gray {
+    background-color: #b3b3b3;
+  }
+}
+
+@name yt {
+  @b swipeCell {
+    position: relative;
+    @mixin SwipeBaseColor;
+
+    @e center {
+      background-color: #ffffff;
+    }
+
+    @e buttons {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      transform: translate3d(100%, 0, 0);
+    }
+
+    @e button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100%;
+      font-size: 14px;
+      min-width: 50px;
+      padding: 0 10px;
+      color: #ffffff;
+      @mixin SwipeBaseColor;
+      @when confirm {
+        min-width: 80px;
+      }
+      @when hide {
+        display: none;
+      }
+    }
+  }
+}

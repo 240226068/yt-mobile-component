@@ -1,0 +1,35 @@
+@name yt {
+  @b loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    background-color: var(--mask_fill_color);
+    transition: all .3s ease;
+
+    @e wrap {
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      width: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px 10px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      transform: translate3d(-50%, -50%, 0);
+      z-index: 9999;
+    }
+
+    @e text {
+      margin-left: 10px;
+      color: #f1f1f1;
+      font-size: 14px;
+    }
+  }
+}

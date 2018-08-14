@@ -1,0 +1,12 @@
+@name yt {
+  @b group {
+    background: transparent;
+    @e category {
+      line-height: 45px;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #000;
+      background-color: #f2f3f6;
+    }
+  }
+}

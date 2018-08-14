@@ -1,0 +1,34 @@
+@name yt {
+  @b shopCart {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    width: 100%;
+    height: 48px;
+
+    @e content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      display: flex;
+      background-color: #141d27;
+      color: rgba(255, 255, 255, .4);
+    }
+  }
+
+  @b shopCartBall {
+    position: fixed;
+    left: 32px;
+    bottom: 22px;
+    z-index: 200;
+    transition: all 0.4s cubic-bezier(0.49, -0.29, 0.75, 0.41);
+    @e inner {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      transition: all 0.4s linear;
+    }
+  }
+}

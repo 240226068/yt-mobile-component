@@ -1,0 +1,25 @@
+@name yt {
+  @b spinner {
+    vertical-align: middle;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    stroke: #333;
+    fill: #333;
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @m spiral {
+      .start {
+        stop-color: #fff;
+        stop-opacity: 0;
+      }
+
+      .stop {
+        stop-color: #333;
+      }
+    }
+  }
+}

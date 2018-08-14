@@ -1,23 +1,26 @@
 {
   "name": "yt-mobile",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "description": "yt mobile ui",
   "author": "ltt",
   "private": false,
   "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "cross-env NODE_ENV=development npm run dev",
-    "lint": "eslint --ext .js,.vue src",
     "build": "cross-env NODE_ENV=production node build/build.js",
-    "doc:dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.doc.dev.conf.js",
-    "doc:build": "cross-env NODE_ENV=production node build/build-doc.js"
+    "doc:dev": "cross-env NODE_ENV=development TARGET=doc webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "doc:build": "cross-env NODE_ENV=production TARGET=doc node build/build.js"
   },
   "dependencies": {
     "async-validator": "^1.8.2",
     "autosize": "^4.0.1",
     "better-scroll": "^1.5.5",
-    "vue": "^2.5.16",
+    "dsbridge": "^3.1.3",
+    "moment": "^2.22.2",
+    "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -81,7 +84,7 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-styleguide-generator": "^0.9.18",
-    "vue-template-compiler": "^2.5.16",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",

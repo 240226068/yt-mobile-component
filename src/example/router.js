@@ -124,16 +124,72 @@ const routes = [
     component: () => import('./group')
   },
   {
-    path: '/recycler',
-    component: () => import('./recycler')
-  },
-  {
     path: '/spinner',
     component: () => import('./spinner')
   },
   {
     path: '/buttonTab',
     component: () => import('./buttonTab.vue')
+  },
+  {
+    path: '/slider',
+    component: () => import('./slider.vue')
+  },
+  {
+    path: '/inlineSelect',
+    component: () => import('./inlineSelect.vue')
+  },
+  {
+    path: '/buttonTab',
+    component: () => import('./buttonTab.vue')
+  },
+  {
+    path: '/textarea',
+    component: () => import('./textarea.vue')
+  },
+  {
+    path: '/progress',
+    component: () => import('./progress.vue')
+  },
+  {
+    path: '/file',
+    component: () => import('./file.vue')
+  },
+  {
+    path: '/toast',
+    component: () => import('./toast.vue')
+  },
+  {
+    path: '/confirm',
+    component: () => import('./confirm.vue')
+  },
+  {
+    path: '/actionSheet',
+    component: () => import('./actionSheet.vue')
+  },
+  {
+    path: '/select',
+    component: () => import('./select.vue')
+  },
+  {
+    path: '/cascader',
+    component: () => import('./cascader.vue')
+  },
+  {
+    path: '/time',
+    component: () => import('./time.vue')
+  },
+  {
+    path: '/loading',
+    component: () => import('./loading.vue')
+  },
+  {
+    path: '/preview',
+    component: () => import('./preview.vue')
+  },
+  {
+    path: '/shopCart',
+    component: () => import('./shopCart.vue')
   }
 ]
 

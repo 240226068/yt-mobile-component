@@ -15,6 +15,14 @@ function getTheme(themePublicPath) {
   return theme
 }
 
+let assetsRoot = ''
+
+if (process.env.TARGET === 'doc') {
+  assetsRoot = '../dist/'
+} else {
+  assetsRoot = '../lib/'
+}
+
 module.exports = {
   dev: {
     // Paths
@@ -53,7 +61,7 @@ module.exports = {
 
   build: {
     // Paths
-    assetsRoot: path.resolve(__dirname, '../lib/'),
+    assetsRoot: path.resolve(__dirname, assetsRoot),
     assetsSubDirectory: '',
     assetsPublicPath: './',
     /**
@@ -75,6 +83,6 @@ module.exports = {
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report,
-    theme: getTheme(path.resolve(__dirname, '../plugin/style/theme/'))
+    theme: getTheme(path.resolve(__dirname, '../package/style/theme/'))
   }
 }

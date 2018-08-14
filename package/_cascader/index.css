@@ -1,0 +1,54 @@
+@name yt {
+  @b cellCascader {
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 15px;
+    font-size: 14px;
+    color: #606266;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    @e desc {
+      margin-right: 10px;
+      padding: 8px 0;
+      color: #333333;
+      line-height: 30px;
+    }
+    @e wrap {
+      text-align: right;
+      flex: 1;
+      overflow: hidden;
+    }
+    @e right {
+      margin: 0 4px;
+      color: #909399;
+      font-size: 12px;
+    }
+    @e tags {
+      width: 100%;
+      overflow: auto;
+      white-space: nowrap;
+      margin: 5px 0;
+      display: inline-block;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    @e tag {
+      margin: 3px 0;
+      display: inline-block;
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+
+      &::after {
+        content: '/';
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 2px;
+        color: var(--font_color);
+      }
+    }
+  }
+}
