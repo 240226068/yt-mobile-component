@@ -7,7 +7,12 @@ module.exports = {
       tag: '布局',
       name: 'page',
       path: '/page',
-      options: ['package/page/index.vue', 'package/header/index.vue', 'package/header/headerBtn.vue', 'package/buttonTab/index.vue'],
+      options: [
+        'package/page/index.vue',
+        'package/header/index.vue',
+        'package/header/headerBtn.vue',
+        'package/buttonTab/index.vue'
+      ],
       contents: ['package/page/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/page.vue' }
@@ -98,7 +103,10 @@ module.exports = {
     {
       name: 'header',
       path: '/page',
-      options: ['package/header/index.vue', 'package/header/headerBtn.vue'],
+      options: [
+        'package/header/index.vue',
+        'package/header/headerBtn.vue'
+      ],
       examples: [
         { text: 'demo源码', path: 'src/example/page.vue' }
       ]
@@ -125,7 +133,10 @@ module.exports = {
     {
       name: 'grid',
       path: '/grid',
-      options: ['package/grid/index.vue', 'package/grid/gridItem.vue'],
+      options: [
+        'package/grid/index.vue',
+        'package/grid/gridItem.vue'
+      ],
       contents: ['package/grid/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/grid.vue' }
@@ -325,7 +336,10 @@ module.exports = {
     {
       name: 'screen',
       path: '/screen',
-      options: ['package/screen/index.vue', 'package/screen/screenPanel.vue'],
+      options: [
+        'package/screen/index.vue',
+        'package/screen/screenPanel.vue'
+      ],
       contents: ['package/screen/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/screen.vue' }
@@ -338,6 +352,15 @@ module.exports = {
       contents: ['package/spinner/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/spinner.vue' }
+      ]
+    },
+    {
+      name: 'confirm',
+      path: '/confirm',
+      options: ['package/$confirm/index.vue'],
+      contents: ['package/$confirm/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/confirm.vue' }
       ]
     }
   ]

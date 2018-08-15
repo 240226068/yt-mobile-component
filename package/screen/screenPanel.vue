@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-screen-panel" v-show="show">
+  <div class="yt-screen-panel">
     <slot></slot>
   </div>
 </template>

@@ -7,7 +7,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import config from '!!./loader/config-loader!./doc.config.js'
+  import config from '!!!!./loader/config-loader!./doc.config.js'
   import 'highlight.js/styles/ocean.css'
   import vBar from './components/bar'
   import vSection from './components/section'

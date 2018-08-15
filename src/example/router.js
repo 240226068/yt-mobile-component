@@ -190,6 +190,10 @@ const routes = [
   {
     path: '/shopCart',
     component: () => import('./shopCart.vue')
+  },
+  {
+    path: '/cellRadio',
+    component: () => import('./cellRadio.vue')
   }
 ]
 

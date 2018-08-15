@@ -72,7 +72,9 @@
         if (this.quick === null) {
           return {
             name: 'tabbar-item',
-            panel: this.panels[index]
+            panel: this.panels[index],
+            tabIndex: index,
+            active: index === this.active
           }
         } else {
           let panel = null

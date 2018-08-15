@@ -16,6 +16,7 @@
     video: '视频学习库',
     statics: '知识库统计'
   }
+
   export default {
     data() {
       return {

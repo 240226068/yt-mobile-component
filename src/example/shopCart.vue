@@ -1,12 +1,23 @@
 <template>
-  <yt-page title="shopCart">
-    <yt-cell label="锚杆">
-      <yt-count v-model="use" @add="doAdd"></yt-count>
-    </yt-cell>
+  <yt-page title="shopCart" flex>
+    <yt-screen>
+      <yt-screen-panel label="区域">
+        区域
+      </yt-screen-panel>
+      <yt-screen-panel label="类型">
+        类型
+      </yt-screen-panel>
+    </yt-screen>
+    <yt-pull>
+      <yt-cell label="锚杆">
+        <yt-count v-model="use" @add="doAdd"></yt-count>
+      </yt-cell>
+    </yt-pull>
     <yt-shopCart ref="cart">
       <div class="icon"
            :class="getClass"
            :style="`background-image: url(${url})`"
+           @click="doShow"
            @animationend.self="doEnd"
            @mozAnimationend.self="doEnd"
            @msAnimationend.self="doEnd"
@@ -18,6 +29,9 @@
       </div>
       <div class="info"></div>
     </yt-shopCart>
+    <yt-popup v-model="show" slot="alert">
+      popup
+    </yt-popup>
   </yt-page>
 </template>
 
@@ -28,7 +42,8 @@
       return {
         use: 0,
         url: require('../img/box.png'),
-        play: false
+        play: false,
+        show: false
       }
     },
     computed: {
@@ -40,6 +55,9 @@
       }
     },
     methods: {
+      doShow() {
+        this.show = true
+      },
       doEnd() {
         this.play = false
       },

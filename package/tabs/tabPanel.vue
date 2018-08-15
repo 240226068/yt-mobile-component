@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-tabs-panel">
+  <div class="yt-tabs-panel" :class="{'is-scroll': scroll}">
     <!-- @slot 包裹具体的内容 -->
     <slot></slot>
   </div>
@@ -29,6 +29,13 @@
       badge: {
         type: Object,
         default: null
+      },
+      /**
+       * 是否超出滚动
+       */
+      scroll: {
+        type: Boolean,
+        default: false
       }
     },
     mounted() {

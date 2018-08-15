@@ -51,6 +51,7 @@ import CellCascader from './_cascader'
 import CellSelect from './_select'
 import CellTime from './_time'
 import CellOpenFile from './_openFile'
+import CellRadio from './_radio'
 
 const components = {
   View,
@@ -102,6 +103,7 @@ const components = {
   CellSelect,
   CellTime,
   CellOpenFile,
+  CellRadio,
   ShopCart
 }
 

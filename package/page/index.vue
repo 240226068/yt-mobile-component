@@ -1,16 +1,13 @@
 <template>
   <div class="yt-page" :style="pageStyle">
-    <!-- @slot page 的 header-->
-    <slot name="header">
-      <yt-header class="yt-page-header" :class="{'is-absolute': absolute}" @change="change" v-bind="$attrs" v-model="key">
-        <!-- @slot 自定义header标题位置的内容 -->
-        <slot name="title" v-if="$slots.title"></slot>
-        <!-- @slot 自定义header右侧的内容 -->
-        <slot name="right" v-if="$slots.right" slot="right"></slot>
-        <!-- @slot 自定义header左侧的内容 -->
-        <slot name="left" v-if="$slots.left" slot="left"></slot>
-      </yt-header>
-    </slot>
+    <yt-header v-if="header" class="yt-page-header" :class="{'is-absolute': absolute}" @change="change" v-bind="$attrs" v-model="key">
+      <!-- @slot 自定义header标题位置的内容 -->
+      <slot name="title" v-if="$slots.title"></slot>
+      <!-- @slot 自定义header右侧的内容 -->
+      <slot name="right" v-if="$slots.right" slot="right"></slot>
+      <!-- @slot 自定义header左侧的内容 -->
+      <slot name="left" v-if="$slots.left" slot="left"></slot>
+    </yt-header>
     <div class="yt-page-container" :class="{ 'is-scroll': scroll, 'is-flex': flex }">
       <!-- @slot 页面的内容层-->
       <slot></slot>
@@ -75,6 +72,13 @@
       absolute: {
         type: Boolean,
         default: false
+      },
+      /**
+       * 是否显示header
+       */
+      header: {
+        type: Boolean,
+        default: true
       }
     },
     computed: {

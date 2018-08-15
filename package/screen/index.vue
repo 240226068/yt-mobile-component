@@ -1,5 +1,5 @@
 <template>
-  <div class="yt-screen" :class="{'is-active': active > -1}">
+  <div class="yt-screen">
     <div class="yt-screen-header">
       <div class="yt-screen-item" :class="{'is-active': active === index}"
            v-for="(panel, index) in panels" :key="index" @click="doScreen(index)">

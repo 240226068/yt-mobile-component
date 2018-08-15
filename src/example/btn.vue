@@ -61,12 +61,14 @@
       <yt-btn theme="white">重置</yt-btn>
       <yt-btn>确定</yt-btn>
     </yt-btn-group>
-    <yt-btn-group shadow>
-      <yt-btn edge theme="white">重置</yt-btn>
-      <yt-btn edge theme="white">确定</yt-btn>
+    <yt-btn-group shadow edge>
+      <yt-btn theme="white">取消</yt-btn>
+      <yt-btn theme="white">重置</yt-btn>
+      <yt-btn theme="white">确定</yt-btn>
     </yt-btn-group>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   import { delayed } from '../../package/index'
 
@@ -80,4 +82,6 @@
   }
 </script>
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
+  .box
+    background-color #fff
 </style>
