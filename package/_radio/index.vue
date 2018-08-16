@@ -44,7 +44,7 @@
         required: true
       },
       /**
-       *  没有选中时候的默认文字
+       *  在禁用状态下，没有选中时候的默认文字
        */
       defaultText: {
         type: String,

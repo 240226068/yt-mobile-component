@@ -225,6 +225,15 @@ module.exports = {
       ]
     },
     {
+      name: 'cellRadio',
+      path: '/cellRadio',
+      options: ['package/_radio/index.vue'],
+      contents: ['package/_radio/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/cellRadio.vue' }
+      ]
+    },
+    {
       name: 'switch',
       path: '/switch',
       options: ['package/switch/index.vue'],
@@ -276,6 +285,15 @@ module.exports = {
       contents: ['package/badge/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/badge.vue' }
+      ]
+    },
+    {
+      name: 'cellSelect',
+      path: '/cellSelect',
+      options: ['package/_select/index.vue'],
+      contents: ['package/_select/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/cellSelect.vue' }
       ]
     },
     {
@@ -357,10 +375,46 @@ module.exports = {
     {
       name: 'confirm',
       path: '/confirm',
-      options: ['package/$confirm/index.vue'],
+      options: [],
       contents: ['package/$confirm/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/confirm.vue' }
+      ]
+    },
+    {
+      name: 'toast',
+      path: '/toast',
+      options: [],
+      contents: ['package/$toast/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/toast.vue' }
+      ]
+    },
+    {
+      name: 'actionSheet',
+      path: '/actionSheet',
+      options: [],
+      contents: ['package/$actionSheet/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/actionSheet.vue' }
+      ]
+    },
+    {
+      name: 'cellCascader',
+      path: '/cellCascader',
+      options: ['package/_cascader/index.vue'],
+      contents: ['package/_cascader/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/cellCascader.vue' }
+      ]
+    },
+    {
+      name: 'shopCart',
+      path: '/shopCart',
+      options: ['package/shopCart/index.vue'],
+      contents: ['package/shopCart/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/shopCart.vue' }
       ]
     }
   ]

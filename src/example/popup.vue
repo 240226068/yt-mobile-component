@@ -4,6 +4,7 @@
     <yt-cell label="从下面出来" @click="handlerClick('bottom')" isLink></yt-cell>
     <yt-cell label="从左面出来" @click="handlerClick('left')" isLink></yt-cell>
     <yt-cell label="从右面出来" @click="handlerClick('right')" isLink></yt-cell>
+    <yt-cell label="从中间出来" @click="handlerClick('center')" isLink></yt-cell>
     <yt-popup pos="top" v-model="top">
       <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
     </yt-popup>
@@ -21,6 +22,9 @@
         <yt-btn @click="right = false" edge>关闭</yt-btn>
       </yt-page>
     </yt-popup>
+    <yt-popup pos="center" v-model="center" fixed>
+      <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
+    </yt-popup>
   </yt-page>
 </template>
 
@@ -33,6 +37,7 @@
         bottom: false,
         left: false,
         right: false,
+        center: false,
         select: [],
         list: [
           {

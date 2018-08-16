@@ -14,9 +14,10 @@
 </template>
 
 <script>
-  import { Toast } from '../../package'
+  import { Toast } from '../../package/index.js'
+
   export default {
-    name: 'service',
+    name: 'Toast-service',
     methods: {
       doTool() {
         Toast('这是一条提醒信息', 'tool')

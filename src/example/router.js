@@ -168,12 +168,12 @@ const routes = [
     component: () => import('./actionSheet.vue')
   },
   {
-    path: '/select',
-    component: () => import('./select.vue')
+    path: '/cellSelect',
+    component: () => import('./cellSelect.vue')
   },
   {
-    path: '/cascader',
-    component: () => import('./cascader.vue')
+    path: '/cellCascader',
+    component: () => import('./cellCascader.vue')
   },
   {
     path: '/time',

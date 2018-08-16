@@ -26,7 +26,7 @@
         default: false
       },
       /**
-       * 弹出层的位置   具体的取值有 'top' || 'bottom' || 'left' : 'right'
+       * 弹出层的位置   具体的取值有 'top' || 'bottom' || 'left' || 'right' || 'center'
        */
       pos: {
         type: String,

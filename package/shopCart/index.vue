@@ -1,6 +1,7 @@
 <template>
   <div class="yt-shopCart">
     <div class="yt-shopCart-content">
+      <!-- @slot 自定义内容层-->
       <slot></slot>
     </div>
     <div>
@@ -13,6 +14,8 @@
   import ball from './ball'
 
   export default {
+    name: 'yt-shopCart',
+
     props: {
       /**
        * 小球的颜色
@@ -55,7 +58,13 @@
         ]
       }
     },
+
     methods: {
+      /**
+       * @public
+       * @description 开始小球动画
+       * @param dom节点 在点击事件中通过e.target获取
+       */
       start(el) {
         for (let i = 0; i < this.balls.length; i++) {
           let ball = this.balls[i]

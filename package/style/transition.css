@@ -127,6 +127,15 @@
     }
   }
 
+  @b popup-slider-center {
+    @e enter {
+      transform: translate3d(-50%, -50%, 0) scale(1.185);
+    }
+    @e leave-active {
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
   @b badge-scale {
     animation: yt-badge-scale 0.3s ease 0.3s;
   }

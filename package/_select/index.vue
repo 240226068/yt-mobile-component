@@ -4,6 +4,7 @@
       {{text}}<i class="yt-select-right iconfont icon-right"></i>
     </span>
     <span class="yt-select-tags" v-else>
+      <!-- @slot 自定义tag的内容 -->
       <slot name="tag" :data="selectList">
         <yt-tag class="yt-select-tag" v-for="(tag, index) in selectList" :key="index">{{tag[label]}}</yt-tag>
       </slot>
@@ -15,7 +16,7 @@
   import { Select } from '../$select'
 
   export default {
-    name: 'yt-cell-select',
+    name: 'yt-cellSelect',
     inject: {
       ytForm: {
         default: () => ({})
@@ -38,26 +39,44 @@
           return []
         }
       },
+      /**
+       * 未选中时候显示的文字
+       */
       text: {
         type: String,
         default: '请选择'
       },
+      /**
+       * 弹出框显示的标题
+       */
       title: {
         type: String,
         default: '请选择'
       },
+      /**
+       * 最小选择多少个
+       */
       min: {
         type: Number,
         default: 1
       },
+      /**
+       * 最大选择多少个
+       */
       max: {
         type: Number,
         default: 1
       },
+      /**
+       * 列表显示的value所对应的字段
+       */
       val: {
         type: String,
         default: 'D_code'
       },
+      /**
+       * 列表显示的label所对应的字段
+       */
       label: {
         type: String,
         default: 'D_text'
