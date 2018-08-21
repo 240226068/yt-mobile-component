@@ -23,14 +23,6 @@
     background-color: rgba(0, 0, 0, 0.75);
     background-clip: padding-box;
     opacity: 0.1;
-    @e enter-active, leave-active {
-      transition: opacity .8s ease, transform .3s ease;
-    }
-    @e enter {
-      transform: scale(0);
-    }
-    @e leave-active {
-      opacity: 0 !important;
-    }
+    transition: opacity .8s ease, transform .3s ease;
   }
 }

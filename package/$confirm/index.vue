@@ -1,20 +1,14 @@
 <template>
-  <div>
-    <transition name="yt-fade">
-      <div class="yt-confirm-mask" @click="hide" v-if="showFlag"></div>
-    </transition>
-    <!--<yt-mask :fixed="true" bgc="rgba(0, 0, 0, 0.5)" @update:visible="hide" :visible="showFlag"/>-->
-    <transition name="yt-confirm-zoom">
-      <div class="yt-confirm" v-if="showFlag">
-        <p class="yt-confirm-title">{{title}}</p>
-        <p class="yt-confirm-desc yt-scroll">{{desc}}</p>
-        <div class="yt-confirm-btn">
-          <span class="yt-confirm-cancel" @click="hide">{{cancelText}}</span>
-          <span class="yt-confirm-confirm" @click="handlerConfirm">{{confirmText}}</span>
-        </div>
-      </div>
-    </transition>
-  </div>
+  <yt-popup :value="showFlag" @input="hide" pos="center">
+    <div class="yt-confirm">
+      <p class="yt-confirm-title">{{title}}</p>
+      <p class="yt-confirm-desc">{{desc}}</p>
+      <yt-btnGroup edge border :shadow="false">
+        <yt-btn theme="white" @click="hide">{{cancelText}}</yt-btn>
+        <yt-btn @click="handlerConfirm">{{confirmText}}</yt-btn>
+      </yt-btnGroup>
+    </div>
+  </yt-popup>
 </template>
 
 <script type="text/ecmascript-6">

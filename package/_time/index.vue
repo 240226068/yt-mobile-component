@@ -28,10 +28,11 @@
        * @model
        */
       value: {
-        type: [String, Date, Number]
+        type: [String, Date, Number],
+        required: true
       },
       /**
-       * 时间格式  YYYY-MM-DD HH:mm
+       * 时间格式  YYYY-MM-DD hh:mm
        */
       format: {
         type: String,
@@ -43,6 +44,13 @@
        */
       outType: {
         type: String
+      },
+      /**
+       * 显示文字
+       */
+      showTemplate: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -55,7 +63,7 @@
         if (this._disabled) return
         Picker({
           title: '请选择时间',
-          showTemplate: false,
+          showTemplate: this.showTemplate,
           format: this.format,
           current: this.value,
           confirm: (res) => {

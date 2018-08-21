@@ -23,9 +23,7 @@
            @msAnimationend.self="doEnd"
            @oAnimationend.self="doEnd"
            @webkitAnimationend.self="doEnd">
-          <span class="num">
-            <yt-badge class="badge" :class="{'yt-badge-scale': play}" v-if="use" :value="use"></yt-badge>
-          </span>
+        <yt-badge class="badge" :class="{'badge-scale': play}" v-if="use" :value="use"></yt-badge>
       </div>
       <div class="info"></div>
     </yt-shopCart>
@@ -99,6 +97,16 @@
   .info {
     margin-left: 100px;
     flex: 1;
+  }
+
+  .badge {
+    position: absolute;
+    top: 35px;
+    left: 75px;
+    transform: translate3d(0, 0, 0);
+    &-scale {
+      animation: yt-shake 0.3s ease 0.3s;
+    }
   }
 
   @keyframes cart-play {

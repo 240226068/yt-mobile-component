@@ -35,10 +35,5 @@
       font-size: 14px;
       color: #606266;
     }
-    @e anim-enter, anim-leave-active {
-      opacity: 0.1;
-      left: 100%;
-      transform: translate3d(-100%, -50%, 0) rotate(180deg);
-    }
   }
 }

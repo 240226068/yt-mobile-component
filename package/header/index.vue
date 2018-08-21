@@ -16,7 +16,7 @@
             <slot></slot>
           </div>
         </transition>
-        <transition name="yt-header-input">
+        <transition name="yt-input-scale">
           <yt-input @change="change" class="yt-header-input" :class="`is-origin-${origin}`" v-if="input" v-model="key" ref="input"
                     :placeholder="placeholder" :fillColor="fillColor" :theme="inputTheme" :border="border" :throttle="throttle">
           </yt-input>

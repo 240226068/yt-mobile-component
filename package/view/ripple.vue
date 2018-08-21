@@ -1,5 +1,5 @@
 <template>
-  <transition name="yt-ripple">
+  <transition name="yt-ripple-fade">
     <div class="yt-ripple" :style="styles"></div>
   </transition>
 </template>

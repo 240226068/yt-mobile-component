@@ -150,55 +150,18 @@
       }
     }
 
-    @e loading {
+    @e loading, text {
       display: inline-block;
-      font-size: 16px;
-      animation: rotation 2s linear infinite;
+      vertical-align: middle;
+    }
+
+    @e text {
+      line-height: 20px;
     }
 
     @e icon {
       display: inline-block;
       vertical-align: middle;
     }
-  }
-
-  @b buttonGroup {
-    position: relative;
-    display: flex;
-    padding: 10px 5px;
-    z-index: 10;
-    @when shadow {
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
-    @when edge {
-      padding: 0;
-      .yt-button {
-        flex: 1;
-        margin: 0;
-        border: 0;
-        border-radius: 0;
-        border-left: 1px solid var(--border_color);
-        border-right: 1px solid var(--border_color);
-        &:first-child {
-          border-left: 0;
-        }
-        &:last-child {
-          border-right: 0;
-        }
-      }
-    }
-    .yt-button {
-      flex: 1;
-      margin: 0 5px;
-    }
-  }
-}
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }

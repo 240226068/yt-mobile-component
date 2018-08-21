@@ -63,7 +63,8 @@
       /**
        * @public
        * @description 开始小球动画
-       * @param dom节点 在点击事件中通过e.target获取
+       * @param {el} dom节点
+       * @return {void}
        */
       start(el) {
         for (let i = 0; i < this.balls.length; i++) {

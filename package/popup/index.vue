@@ -57,7 +57,7 @@
         }
       },
       transitionName() {
-        return `yt-popup-slider-${this.pos}`
+        return `yt-popup-${this.pos}`
       }
     }
   }

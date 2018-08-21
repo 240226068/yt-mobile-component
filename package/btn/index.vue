@@ -1,6 +1,6 @@
 <template>
   <yt-view
-    class="yt-button" @click="handlerClick" :ripple="ripple"
+    class="yt-button" @click="handlerClick" :ripple="ripple" :style="btnStyle"
     :class="[
       theme ? 'yt-button__' + theme : '',
       size ? 'yt-button__' + size : '',
@@ -14,9 +14,9 @@
       }
     ]">
     <i v-if="icon" class="yt-button-icon" :class="icon"></i>
-    <i v-if="loading && InLoading" class="yt-button-loading iconfont icon-loader"></i>
+    <yt-spinner class="yt-button-loading" color="#fff" size="20px" type="ios-small" v-if="loading && InLoading"></yt-spinner>
     <!-- @slot 自定义 -->
-    <span v-if="$slots.default"><slot></slot></span>
+    <span class="yt-button-text" v-if="$slots.default"><slot></slot></span>
   </yt-view>
 </template>
 
@@ -27,6 +27,9 @@
     name: 'yt-btn',
     inject: {
       ytForm: {
+        default: null
+      },
+      ytBtnGroup: {
         default: null
       }
     },
@@ -106,6 +109,13 @@
       ripple: {
         type: Boolean,
         default: true
+      }
+    },
+    computed: {
+      btnStyle() {
+        return {
+          borderColor: (this.ytBtnGroup && this.ytBtnGroup.edge) ? this.ytBtnGroup.edgeBorderColor : ''
+        }
       }
     },
     data() {

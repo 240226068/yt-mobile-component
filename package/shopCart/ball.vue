@@ -1,5 +1,7 @@
 <template>
-  <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
+  <transition @before-enter="beforeDrop"
+               @enter="dropping"
+               @after-enter="afterDrop">
     <div class="yt-shopCartBall" v-show="ball.show">
       <div class="yt-shopCartBall-inner" :style="innerStyle" ref="inner"></div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <yt-page title="输入框">
+  <yt-page title="输入框" :input="input" :rightData="rightData">
     <yt-split></yt-split>
     <yt-cell label="任务名称">
       <yt-input @change="change" v-model="Name"></yt-input>
@@ -12,7 +12,14 @@
     name: 'textarea-example',
     data() {
       return {
-        Name: '管廊日常巡检任务'
+        input: false,
+        Name: '管廊日常巡检任务',
+        rightData: [{
+          font: 'iconfont icon-search',
+          click: () => {
+            this.input = !this.input
+          }
+        }]
       }
     },
     methods: {

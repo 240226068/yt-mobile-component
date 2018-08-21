@@ -1,0 +1,36 @@
+@name yt {
+  @b buttonGroup {
+    position: relative;
+    display: flex;
+    padding: 10px 5px;
+    z-index: 10;
+    @when shadow {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    @when border {
+      border-top: 1px solid #f2f4f6;
+    }
+    @when edge {
+      padding: 0;
+      .yt-button {
+        flex: 1;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        border-left: 1px solid var(--border_color);
+        border-right: 1px solid var(--border_color);
+        &:first-child {
+          border-left: 0;
+        }
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    .yt-button {
+      flex: 1;
+      margin: 0 5px;
+    }
+  }
+}
+

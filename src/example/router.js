@@ -112,6 +112,10 @@ const routes = [
     component: () => import('./btn')
   },
   {
+    path: '/btnGroup',
+    component: () => import('./btnGroup')
+  },
+  {
     path: '/tag',
     component: () => import('./tag')
   },
@@ -176,8 +180,8 @@ const routes = [
     component: () => import('./cellCascader.vue')
   },
   {
-    path: '/time',
-    component: () => import('./time.vue')
+    path: '/cellTime',
+    component: () => import('./cellTime.vue')
   },
   {
     path: '/loading',
@@ -194,6 +198,10 @@ const routes = [
   {
     path: '/cellRadio',
     component: () => import('./cellRadio.vue')
+  },
+  {
+    path: '/cellCall',
+    component: () => import('./cellCall.vue')
   }
 ]
 

@@ -57,15 +57,6 @@
     <yt-split color="#fff"></yt-split>
     <yt-split></yt-split>
     <yt-btn size="block" theme="blue" :loading="submit">提交</yt-btn>
-    <yt-btn-group shadow>
-      <yt-btn theme="white">重置</yt-btn>
-      <yt-btn>确定</yt-btn>
-    </yt-btn-group>
-    <yt-btn-group shadow edge>
-      <yt-btn theme="white">取消</yt-btn>
-      <yt-btn theme="white">重置</yt-btn>
-      <yt-btn theme="white">确定</yt-btn>
-    </yt-btn-group>
   </yt-page>
 </template>
 
@@ -75,12 +66,14 @@
   export default {
     name: 'btn-example',
     methods: {
-      async submit() {
+      async submit(loaded) {
         await delayed(4000)
+        loaded()
       }
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .box
     background-color #fff

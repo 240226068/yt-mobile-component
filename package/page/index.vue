@@ -1,6 +1,7 @@
 <template>
   <div class="yt-page" :style="pageStyle">
-    <yt-header v-if="header" class="yt-page-header" :class="{'is-absolute': absolute}" @change="change" v-bind="$attrs" v-model="key">
+    <yt-header v-if="header" class="yt-page-header" :class="{'is-absolute': absolute}" @change="change" v-bind="$attrs"
+               v-model="key">
       <!-- @slot 自定义header标题位置的内容 -->
       <slot name="title" v-if="$slots.title"></slot>
       <!-- @slot 自定义header右侧的内容 -->
@@ -17,8 +18,8 @@
     <transition name="yt-fade">
       <div class="yt-page-mask" @click="_more = false" v-if="_more"></div>
     </transition>
-    <transition name="yt-page-more">
-      <div class="yt-page-more" v-if="_more">
+    <transition name="yt-popup-scale">
+      <div class="yt-page-more" :style="moreStyle" v-if="_more">
         <!-- @slot 页面中more层  与more属性配合使用-->
         <slot name="more"></slot>
       </div>
@@ -79,6 +80,20 @@
       header: {
         type: Boolean,
         default: true
+      },
+      /**
+       * 弹出层more的top
+       */
+      moreTop: {
+        type: String,
+        default: null
+      },
+      /**
+       * 弹出层more的right
+       */
+      moreRight: {
+        type: String,
+        default: null
       }
     },
     computed: {
@@ -87,15 +102,20 @@
           backgroundColor: this.fillColor
         }
       },
+      moreStyle() {
+        return {
+          top: this.moreTop,
+          right: this.moreRight
+        }
+      },
       key: {
         get() {
           return this.value
         },
         set(val) {
           /**
-           * 搜索文字变化事件
-           *
            * @event input
+           * @description 搜索文字变化事件
            * @type {string} 关键字
            */
           this.$emit('input', val)
@@ -107,9 +127,8 @@
         },
         set(val) {
           /**
-           * 关闭more层
-           *
            * @event update:more
+           * @description关闭more层
            * @type {string} 关键字
            */
           this.$emit('update:more', val)
@@ -119,9 +138,8 @@
     methods: {
       change(key) {
         /**
-         * 搜索文字变化事件 当截流开启时，该事件将截流派发
-         *
          * @event change
+         * @description 搜索文字变化事件 当截流开启时，该事件将截流派发
          * @type {string} 关键字
          */
         this.$emit('change', key)

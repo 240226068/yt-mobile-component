@@ -51,7 +51,8 @@
        *  上传文件的函数   函数接受一个参数 为file对象 目前只能上传单个文件
        */
       uploadFile: {
-        type: Function
+        type: Function,
+        required: true
       }
     },
     computed: {
@@ -96,7 +97,7 @@
         let files = e.target.files
         if (files && files.length && this.uploadFile) {
           try {
-            let { name, url } = await this.uploadFile(file[0])
+            let { name, url } = await this.uploadFile(files[0])
             this.fileList.push({ name, url })
           } catch (e) {
             Toast('上传文件失败！', 'error')

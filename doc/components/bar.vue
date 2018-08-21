@@ -5,10 +5,10 @@
       <input class="input" v-model="key" placeholder="搜索..." type="text">
     </div>
     <ul class="list">
-      <template v-for="(section, key) in _sections">
+      <template v-for="section in _sections">
         <li class="tag" v-if="section.tag">{{section.tag}}</li>
-        <li @click="handler(section)">
-          <a class="item" :class="{ 'is-active': section.name === current.name }" :href="'#/' + section.name">{{section.name}}</a>
+        <li @click="handler(section)" :class="{ 'is-active': section.name === current.name }">
+          <a class="item" :href="'#/' + section.name">{{section.name}}</a>
         </li>
       </template>
     </ul>
@@ -92,10 +92,18 @@
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    padding-left: 20px;
+    padding-left: 0;
     li {
+      padding-left: 20px;
       line-height: 40px;
       list-style: none;
+      &.is-active {
+        background-color: #212121;
+        .item {
+          font-size: 1.2em;
+          color: #ffffff;
+        }
+      }
     }
   }
 
@@ -105,16 +113,15 @@
 
   .tag {
     font-weight: bold;
-    color: #ffffff;
+    color: #fff;
   }
 
   .item {
     color: #999999;
+    text-decoration: none;
     &:hover {
       color: #ffffff;
-    }
-    &.is-active {
-      color: #ffffff;
+      text-decoration: underline;
     }
   }
 </style>

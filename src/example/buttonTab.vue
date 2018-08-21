@@ -4,7 +4,7 @@
     <p class="title">自定义颜色</p>
     <div class="wrap">
       <yt-buttonTab defaultFillColor="#fff" activeFillColor="#ffe26d"
-                    defaultColor="#666" activeColor="#333"
+                    defaultColor="#666" activeColor="#000"
                     borderColor="#e5e5e5" :list="list">
       </yt-buttonTab>
     </div>

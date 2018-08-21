@@ -1,10 +1,11 @@
 <template>
   <yt-page title="count计数器">
-    <yt-cell v-for="(item, index) in list" border="none" :key="index" :label="`${item.label}(剩余${item.count})`">
+    <yt-cell labelWidth="100px" v-for="(item, index) in list" border="none" :key="index" :label="`${item.label}(剩余${item.count})`">
       <yt-count :max="item.count" v-model="item.useCount"></yt-count>
     </yt-cell>
   </yt-page>
 </template>
+
 <script type="text/ecmascript-6">
   export default {
     name: 'count-example',
@@ -31,6 +32,7 @@
     }
   }
 </script>
+
 <style scoped type="text/stylus" lang="stylus" rel="stylesheet/stylus">
   .row
     display flex
