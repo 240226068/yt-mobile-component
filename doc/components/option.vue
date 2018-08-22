@@ -3,43 +3,44 @@
     <h3 class="title" v-if="canShow(data.props)">props属性</h3>
     <table v-if="canShow(data.props)">
       <thead>
-        <tr>
-          <th>字段名</th>
-          <th>类型</th>
-          <th>必须</th>
-          <th>描述</th>
-          <th>默认值</th>
-        </tr>
+      <tr>
+        <th>字段名</th>
+        <th>类型</th>
+        <th>必须</th>
+        <th>描述</th>
+        <th>默认值</th>
+      </tr>
       </thead>
       <tbody>
-        <tr v-for="(prop, key) in data.props" :key="key">
-          <td align="center">{{key}}</td>
-          <td align="center">{{prop.type && prop.type.name}}</td>
-          <td align="center" width="40px">{{prop.required ? '是' : '否'}}</td>
-          <td>{{prop.description}}</td>
-          <td align="center">{{prop.defaultValue ? prop.defaultValue.value : prop.defaultValue}}</td>
-        </tr>
+      <tr v-for="(prop, key) in data.props" :key="key">
+        <td align="center">{{key}}</td>
+        <td align="center">{{prop.type && prop.type.name}}</td>
+        <td align="center" width="40px"><span class="tag" :class="{'is-need': prop.required}">{{prop.required ? '是' : '否'}}</span>
+        </td>
+        <td>{{prop.description}}</td>
+        <td align="center">{{prop.defaultValue ? prop.defaultValue.value : prop.defaultValue}}</td>
+      </tr>
       </tbody>
     </table>
     <h3 class="title" v-if="canShow(data.methods)">methods方法</h3>
     <table v-if="canShow(data.methods)">
       <thead>
-        <tr>
-          <th>函数名</th>
-          <th>描述</th>
-          <th>参数</th>
-          <th>返回</th>
-        </tr>
+      <tr>
+        <th>函数名</th>
+        <th>描述</th>
+        <th>参数</th>
+        <th>返回</th>
+      </tr>
       </thead>
       <tbody>
-        <tr v-for="(method, key) in data.methods" :key="key">
-          <td>{{method.name}}</td>
-          <td>{{method.description}}</td>
-          <td>
-            <p v-for="param in method.params">({{param.name}})<span>{{param.description}}</span></p>
-          </td>
-          <td>({{method.returns && method.returns.type.name}}) {{method.returns && method.returns.description}}</td>
-        </tr>
+      <tr v-for="(method, key) in data.methods" :key="key">
+        <td>{{method.name}}</td>
+        <td>{{method.description}}</td>
+        <td>
+          <p v-for="param in method.params">({{param.name}})<span>{{param.description}}</span></p>
+        </td>
+        <td>({{method.returns && method.returns.type.name}}) {{method.returns && method.returns.description}}</td>
+      </tr>
       </tbody>
     </table>
     <h3 class="title" v-if="canShow(data.slots)">slots插槽</h3>
@@ -98,5 +99,19 @@
 
   table {
     margin: 10px 0;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 12px;
+    font-size: 14px;
+    color: #909399;
+    border: 1px solid #d3d4d6;
+    background-color: #f4f4f5;
+    &.is-need {
+      color: #ffffff;
+      border: 1px solid #f56c6c;
+      background-color: #f56c6c;
+    }
   }
 </style>

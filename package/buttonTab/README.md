@@ -16,7 +16,18 @@
 </yt-buttonTab>
 ```
 ###
+#### 自定义大小
+###
+```html
+<yt-buttonTab tabHeight="36px" tabWidth="90px" tabSize="16px"
+              defaultFillColor="#fff" activeFillColor="#ffe26d"
+              defaultColor="#666" activeColor="#000"
+              borderColor="#e5e5e5" :list="list2">
+</yt-buttonTab>
+```
+###
 #### 数据
+###
 ```js
 const list = [
   {

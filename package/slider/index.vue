@@ -38,6 +38,7 @@
         default: false
       },
       /**
+       * @model
        * 默认在第一页
        */
       value: {
@@ -59,8 +60,9 @@
     },
     methods: {
       /**
-       * 刷新scroll
        * @public
+       * @description 刷新scroll
+       * @return {void}
        */
       initScroll() {
         if (this.scroll) {

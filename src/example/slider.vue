@@ -1,7 +1,7 @@
 <template>
   <yt-page title="slider">
     <yt-slider class="list" v-model="page" :list="list" dots>
-      <div class="item" slot-scope="item">{{item.text}}</div>
+      <div class="item" slot-scope="item">{{item.data.text}}</div>
     </yt-slider>
   </yt-page>
 </template>

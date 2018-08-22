@@ -1,6 +1,6 @@
 <template>
   <yt-page title="评分组件" :leftData="[]" :rightData="[]">
-    <yt-cell label="默认不区分颜色">
+    <yt-cell labelWidth="200px" label="默认不区分颜色">
       <yt-rate v-model="grade"></yt-rate>
     </yt-cell>
     <yt-cell label="区分颜色">

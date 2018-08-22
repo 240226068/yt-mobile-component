@@ -1,27 +1,18 @@
 <template>
   <yt-view @click="doClick" class="yt-tabbar-quick">
-    <i class="yt-tabbar-quickAdd iconfont icon-increase"></i>
+    <!--@slot 自定义内容-->
+    <slot>
+      <i class="yt-tabbar-quickAdd iconfont icon-increase"></i>
+    </slot>
   </yt-view>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-tabbar-quick',
-    inject: {
-      ytTabbar: {
-        default: () => {
-          return {}
-        }
-      }
-    },
     methods: {
       doClick(e) {
-        /**
-         * @event quick-click
-         * @description 点击快捷按钮的事件
-         * @type {event}
-         */
-        !this.ytTabbar || this.ytTabbar.$emit('quick-click', e)
+        this.$emit('click', e)
       }
     }
   }

@@ -8,6 +8,14 @@
                     borderColor="#e5e5e5" :list="list">
       </yt-buttonTab>
     </div>
+    <p class="title">自定义大小</p>
+    <div class="wrap">
+      <yt-buttonTab tabHeight="36px" tabWidth="90px" tabSize="16px"
+                    defaultFillColor="#fff" activeFillColor="#ffe26d"
+                    defaultColor="#666" activeColor="#000"
+                    borderColor="#e5e5e5" :list="list2">
+      </yt-buttonTab>
+    </div>
   </yt-page>
 </template>
 
@@ -28,6 +36,14 @@
             text: '推荐',
             badge: { value: 20 }
           }
+        ],
+        list2: [
+          {
+            text: '限制'
+          },
+          {
+            text: '预约'
+          }
         ]
       }
     }
@@ -40,6 +56,7 @@
     padding: 0 10px;
     font-size: 14px;
   }
+
   .wrap {
     display: flex;
     align-items: center;

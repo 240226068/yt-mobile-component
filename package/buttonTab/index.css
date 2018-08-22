@@ -4,17 +4,14 @@
     display: inline-block;
     text-align: center;
     white-space: nowrap;
-    height: 30px;
+    z-index: 1000;
     @e mask {
       position: absolute;
       top: 0;
       left: 0;
       z-index: -1;
       content: " ";
-      width: 70px;
-      height: 30px;
-      line-height: 30px;
-      border-radius: 30px;
+      height: 100%;
       background-color: #fff;
       transition: all .3s cubic-bezier(.645, .045, .355, 1);
     }
@@ -22,11 +19,6 @@
     @e item {
       position: relative;
       display: inline-block;
-      width: 70px;
-      height: 30px;
-      line-height: 30px;
-      border-radius: 30px;
-      font-size: 14px;
       transition: all .3s cubic-bezier(.645, .045, .355, 1);
       color: #fff;
       @when active {
@@ -47,10 +39,7 @@
       left: 0;
       bottom: 0;
       z-index: -2;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 30px;
-      box-sizing: border-box;
+      border: 1px solid #fff;
     }
   }
 }

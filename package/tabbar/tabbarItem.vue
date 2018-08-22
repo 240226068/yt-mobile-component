@@ -12,31 +12,15 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-tabbar-item',
-    inject: {
-      ytTabbar: {
-        default: () => {
-          return {}
-        }
-      }
-    },
     props: {
       panel: {},
-      /**
-       * 是否激活
-       */
       active: {
         type: Boolean
-      },
-      /**
-       * 当前tab的索引
-       */
-      tabIndex: {
-        type: Number
       }
     },
     methods: {
       handlerClick(e) {
-        !this.ytTabbar || (this.ytTabbar.active = this.tabIndex)
+        this.$emit('click', e)
       }
     }
   }

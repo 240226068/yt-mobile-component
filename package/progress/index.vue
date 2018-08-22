@@ -26,6 +26,14 @@
     name: 'yt-progress',
     props: {
       /**
+       * 进度百分比
+       */
+      percent: {
+        required: true,
+        type: Number,
+        default: 0
+      },
+      /**
        *  progress的样式类型 取值有  circle || line
        */
       type: {
@@ -66,13 +74,6 @@
       trailColor: {
         type: String,
         default: '#D9D9D9'
-      },
-      /**
-       * 进度百分比
-       */
-      percent: {
-        type: Number,
-        default: 0
       },
       /**
        * type=line时 线的高度

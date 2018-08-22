@@ -231,7 +231,6 @@ module.exports = {
       path: '/tabbar',
       options: [
         'package/tabbar/index.vue',
-        'package/tabbar/tabbarItem.vue',
         'package/tabbar/tabbarPanel.vue',
         'package/tabbar/tabbarQuick.vue'
       ],
@@ -411,6 +410,15 @@ module.exports = {
       contents: ['package/$toast/README.md'],
       examples: [
         { text: 'demo源码', path: 'src/example/toast.vue' }
+      ]
+    },
+    {
+      name: 'loading',
+      path: '/loading',
+      options: [],
+      contents: ['package/$loading/README.md'],
+      examples: [
+        { text: 'demo源码', path: 'src/example/loading.vue' }
       ]
     },
     {

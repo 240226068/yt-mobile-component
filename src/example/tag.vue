@@ -13,7 +13,7 @@
     <yt-cell label="小尺寸">
       <yt-tag size="mini">mini</yt-tag>
     </yt-cell>
-    <yt-cell label="可关闭的标签">
+    <yt-cell labelWidth="200px" label="可关闭的标签">
       <yt-tag size="mini" closable>喜欢</yt-tag>
     </yt-cell>
   </yt-page>

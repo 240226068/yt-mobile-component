@@ -10,7 +10,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { bridge } from '../utils/bridge'
+  import { bridge } from '../bridge'
 
   export default {
     name: 'previewImg',

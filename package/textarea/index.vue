@@ -1,11 +1,14 @@
 <template>
-  <div class="yt-textArea" :class="[`is-${type}`, type === 'row' ? `yt-border-${border}` : '']">
-    <div class="yt-textArea-title"><slot>{{title}}</slot></div>
-    <div class="yt-textArea-body">
+  <div class="yt-textarea" :class="[`is-${type}`, type === 'row' ? `yt-border-${border}` : '']">
+    <div class="yt-textarea-title">
+      <!--@slot title-->
+      <slot>{{title}}</slot>
+    </div>
+    <div class="yt-textarea-body">
       <textarea v-model="currentValue" :placeholder="_disabled ? disabledPlaceholder : placeholder"
-                class="yt-textArea-input" @click="doScrollParent" :disabled="_disabled" ref="input">
+                class="yt-textarea-input" @click="doScrollParent" :disabled="_disabled" ref="input">
       </textarea>
-      <div class="yt-textArea-count" v-if="showCount && !_disabled" @click="focus">
+      <div class="yt-textarea-count" v-if="showCount && !_disabled" @click="focus">
         <span>{{currentValue.length}} / {{max}}</span>
       </div>
     </div>
@@ -45,6 +48,9 @@
         type: String,
         default: '请输入...'
       },
+      /**
+       *  禁用状态时候placeholder的文字
+       */
       disabledPlaceholder: {
         type: String,
         default: '暂无内容'
@@ -84,13 +90,6 @@
       max: {
         type: Number,
         default: 1000
-      },
-      /**
-       * 显示speech
-       */
-      speech: {
-        type: Boolean,
-        default: true
       },
       /**
        * 禁用输入框

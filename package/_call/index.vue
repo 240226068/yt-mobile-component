@@ -4,7 +4,7 @@
 
 <script type="text/ecmascript-6">
   import { ActionSheet } from '../service'
-  import { bridge } from '../utils/bridge'
+  import { bridge } from '../utils'
 
   export default {
     name: 'yt-call',

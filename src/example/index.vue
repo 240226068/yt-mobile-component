@@ -1,12 +1,16 @@
 <template>
   <yt-page title="组件列表" :leftData="[]">
     <yt-card title="基础组件">
-      <yt-cell @click="handler(item)" v-for="(item, index) in list" :border="index + 1 === list.length ? 'none' : 'half'" :label="item.label" :key="index" isLink ripple></yt-cell>
+      <yt-cell @click="handler(item)" v-for="(item, index) in list"
+               :border="index + 1 === list.length ? 'none' : 'half'" :label="item.label" :key="index" isLink
+               ripple></yt-cell>
     </yt-card>
   </yt-page>
 </template>
 
 <script type="text/ecmascript-6">
+  import { bridge2 } from '../../package/index'
+
   export default {
     name: 'example',
     data() {
@@ -31,6 +35,9 @@
       handler(item) {
         this.$router.$push(item.path)
       }
+    },
+    created() {
+      console.log(bridge2)
     }
   }
 </script>

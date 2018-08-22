@@ -7,7 +7,7 @@
   import { isImg, isVideo } from '../utils'
   import { Toast } from '../$toast'
   import { PreviewImg } from '../$previewImg'
-  import { bridge } from '../utils/bridge'
+  import { bridge } from '../utils'
 
   export default {
     name: 'yt-openFile',

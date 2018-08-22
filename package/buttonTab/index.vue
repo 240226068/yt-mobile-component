@@ -73,19 +73,43 @@
       activeColor: {
         type: String,
         default: null
+      },
+      /**
+       * tab的宽度
+       */
+      tabWidth: {
+        type: String,
+        default: '70px'
+      },
+      /**
+       * tab的高度
+       */
+      tabHeight: {
+        type: String,
+        default: '30px'
+      },
+      /**
+       * tab的字体大小
+       */
+      tabSize: {
+        type: String,
+        default: '14px'
       }
     },
     computed: {
       maskStyle() {
         return {
           backgroundColor: this.activeFillColor,
-          transform: `translate3d(${this.active}00%, 0, 0)`
+          transform: `translate3d(${this.active}00%, 0, 0)`,
+          width: this.tabWidth,
+          borderRadius: parseInt(this.tabHeight) / 2 + 'px'
         }
       },
       fakeStyle() {
         return {
           borderColor: this.borderColor,
-          backgroundColor: this.defaultFillColor
+          backgroundColor: this.defaultFillColor,
+          borderRadius: parseInt(this.tabHeight) / 2 + 'px'
         }
       }
     },
@@ -101,7 +125,11 @@
     methods: {
       itemStyle(index) {
         return {
-          color: this.active === index ? this.activeColor : this.defaultColor
+          color: this.active === index ? this.activeColor : this.defaultColor,
+          width: this.tabWidth,
+          height: this.tabHeight,
+          lineHeight: this.tabHeight,
+          fontSize: this.tabSize
         }
       },
       getRenderList(list) {

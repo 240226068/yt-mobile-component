@@ -6,13 +6,9 @@ import loading from './index.vue'
 
 let loadingPool = []
 let getAnInstance = () => {
-  if (loadingPool.length > 0) {
-    return loadingPool[0]
-  }
+  if (loadingPool.length > 0) return loadingPool[0]
   const LoadingConstructor = Vue.extend(loading)
-  let instance = new LoadingConstructor({
-    el: document.createElement('div')
-  })
+  let instance = new LoadingConstructor({ el: document.createElement('div') })
   document.body.appendChild(instance.$el)
   loadingPool.push(instance)
   return instance

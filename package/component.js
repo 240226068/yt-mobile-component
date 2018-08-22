@@ -28,6 +28,7 @@ import ScreenPanel from './screen/screenPanel'
 import CellSwipe from './cellSwipe/index'
 import Tabbar from './tabbar/index'
 import TabbarPanel from './tabbar/tabbarPanel'
+import TabbarQuick from './tabbar/tabbarQuick'
 import TabPanles from './tabPanles/index'
 import Tabs from './tabs/index'
 import TabPanel from './tabs/tabPanel'
@@ -84,6 +85,7 @@ const components = {
   CellSwipe,
   Tabbar,
   TabbarPanel,
+  TabbarQuick,
   TabPanles,
   Tabs,
   TabPanel,

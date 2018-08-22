@@ -1,7 +1,7 @@
 import { bus } from './index'
 import dsBridge from 'dsbridge'
 
-export const bridge = {
+export default {
   scannerCode(callback) {
     dsBridge.call('scannerCode', null, callback)
   },

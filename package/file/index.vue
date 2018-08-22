@@ -16,10 +16,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { isImg, isVideo } from '../utils'
+  import { isImg, isVideo, bridge } from '../utils'
   import { Toast } from '../$toast'
   import { PreviewImg } from '../$previewImg'
-  import { bridge } from '../utils/bridge'
 
   export default {
     name: 'yt-file',
