@@ -1,17 +1,18 @@
 <template>
-  <yt-page :title="title" :leftData="[]" :rightData="[]">
+  <yt-page :title="title">
     <yt-cell label="从上面出来" @click="handlerClick('top')" isLink></yt-cell>
     <yt-cell label="从下面出来" @click="handlerClick('bottom')" isLink></yt-cell>
     <yt-cell label="从左面出来" @click="handlerClick('left')" isLink></yt-cell>
     <yt-cell label="从右面出来" @click="handlerClick('right')" isLink></yt-cell>
     <yt-cell label="从中间出来" @click="handlerClick('center')" isLink></yt-cell>
-    <yt-popup pos="top" v-model="top">
+    <yt-popup pos="top" height="200px" appendToBody v-model="top" scroll>
+      <yt-btn>测试</yt-btn>
       <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
     </yt-popup>
     <yt-popup pos="bottom" v-model="bottom" fixed>
       <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
     </yt-popup>
-    <yt-popup pos="left" v-model="left" slot="alert">
+    <yt-popup width="90%" pos="left" v-model="left" slot="alert">
       <yt-page class="page" :flex="true" :leftData="[]" title="选择分区">
         <yt-checkList style="flex: 1;" v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
       </yt-page>

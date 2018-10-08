@@ -28,6 +28,13 @@
         position: fixed;
       }
 
+      @when scroll {
+        overflow: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
       @when bottom {
         left: 0;
         right: 0;

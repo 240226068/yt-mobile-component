@@ -38,3 +38,11 @@
   }
 </script>
 ```
+###
+#### 默认情况下，在activated钩子函数进来自动调用searchApi函数获取数据。也可以选择禁用该选项
+###
+```html
+<yt-group :autoRefresh="false" :searchApi="searchApi">
+  <div class="row" slot-scope="scope">{{scope.name}}</div>
+</yt-group>
+```

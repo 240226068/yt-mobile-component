@@ -4,6 +4,7 @@
 import View from './view/index'
 import Split from './split/index'
 import Cell from './cell/index'
+import Copy from './copy/index'
 import CheckBox from './checkBox/index'
 import Switch from './switch/index'
 import Radio from './radio/index'
@@ -57,6 +58,7 @@ import CellRadio from './_radio'
 const components = {
   View,
   Cell,
+  Copy,
   Split,
   CheckBox,
   Switch,

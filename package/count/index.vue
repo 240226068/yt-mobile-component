@@ -1,15 +1,15 @@
 <template>
   <div class="yt-count">
     <transition name="yt-count-anim">
-      <span class="yt-count-reduce" @click="doReduce" v-if="num !== min">
-        <yt-view class="yt-count-icon" centerRipple>
+      <span class="yt-count-reduce" @click="doReduce" v-if="alwaysShowReduce || num !== min">
+        <yt-view class="yt-count-icon" :class="{'is-disabled': num === min}" :ripple="num !== min" centerRipple>
           <i class="iconfont icon-reduce"></i>
         </yt-view>
       </span>
     </transition>
-    <span class="yt-count-num">{{num === min ? '' : num}}</span>
+    <span class="yt-count-num">{{alwaysShowNum ? num : num === min ? '' : num}}</span>
     <span class="yt-count-add" @click="doAdd">
-      <yt-view class="yt-count-icon" centerRipple>
+      <yt-view class="yt-count-icon" :class="{'is-disabled': num === max}" :ripple="num !== max" centerRipple>
         <i class="iconfont icon-plus"></i>
       </yt-view>
     </span>
@@ -48,6 +48,20 @@
       step: {
         type: Number,
         default: 1
+      },
+      /**
+       * 总是显示数字
+       */
+      alwaysShowNum: {
+        type: Boolean,
+        default: false
+      },
+      /**
+       * 总是显示减号
+       */
+      alwaysShowReduce: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {

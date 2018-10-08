@@ -1,43 +1,23 @@
 <template>
-  <yt-page title="组件列表" :leftData="[]">
-    <yt-card title="基础组件">
-      <yt-cell @click="handler(item)" v-for="(item, index) in list"
-               :border="index + 1 === list.length ? 'none' : 'half'" :label="item.label" :key="index" isLink
-               ripple></yt-cell>
-    </yt-card>
+  <yt-page title="组件列表" :leftData="[]" scroll>
+    <yt-cell @click="handler(item)" v-for="(item, index) in list" :border="index + 1 === list.length ? 'none' : 'half'" :label="item.name" :key="index" isLink ripple></yt-cell>
   </yt-page>
 </template>
 
 <script type="text/ecmascript-6">
-  import { bridge2 } from '../../package/index'
+  import { routes } from './router'
 
   export default {
     name: 'example',
     data() {
       return {
-        list: [
-          {
-            label: 'cell',
-            path: './cell'
-          },
-          {
-            label: 'swipeCell',
-            path: './swipeCell'
-          },
-          {
-            label: 'badge',
-            path: './badge'
-          }
-        ]
+        list: routes
       }
     },
     methods: {
       handler(item) {
         this.$router.$push(item.path)
       }
-    },
-    created() {
-      console.log(bridge2)
     }
   }
 </script>

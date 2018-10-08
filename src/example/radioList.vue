@@ -1,5 +1,5 @@
 <template>
-  <yt-page title="radioList" :leftData="[]" scroll>
+  <yt-page title="radioList" scroll>
     <yt-cell label="隐患等级">
       <yt-radioList :list="list4" label="label" val="id" v-model="selectList4"/>
     </yt-cell>

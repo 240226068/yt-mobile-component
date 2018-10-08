@@ -1,8 +1,8 @@
 <template>
   <div class="page">
-    <v-bar @click="handler" :current="current" :sections="sections"></v-bar>
+    <v-bar @click="handler" :version="version" :current="current" :sections="sections"></v-bar>
     <v-section :current="current"></v-section>
-    <v-phone :src="src"></v-phone>
+    <v-phone :src="src" v-if="src"></v-phone>
   </div>
 </template>
 
@@ -12,6 +12,8 @@
   import vBar from './components/bar'
   import vSection from './components/section'
   import vPhone from './components/phone'
+
+  const PACKAGE = require('../package.json')
 
   export default {
     name: 'App',
@@ -24,7 +26,8 @@
       return {
         sections: [],
         current: {},
-        src: './example.html'
+        src: './example.html',
+        version: PACKAGE.version
       }
     },
     created() {
@@ -37,7 +40,7 @@
     methods: {
       handler(section) {
         this.current = section
-        this.src = './example.html#' + section.path
+        this.src = section.path ? ('./example.html#' + section.path) : null
       }
     }
   }

@@ -5,7 +5,7 @@ module.exports = {
     'postcss-import': {},
     'postcss-url': {},
     // to edit target browsers: use "browserslist" field in package.json
-    "postcss-mixins": {},
+    'postcss-mixins': {},
     'saladcss-bem': {
       'style': 'suit', // suit or bem, suit by default,
       'separators': {
@@ -22,6 +22,6 @@ module.exports = {
       }
     },
     'postcss-nested': {},
-    'postcss-cssnext': {},
+    'postcss-cssnext': {}
   }
 }

@@ -1,7 +1,11 @@
 <template>
   <yt-page title="count计数器">
     <yt-cell labelWidth="100px" v-for="(item, index) in list" border="none" :key="index" :label="`${item.label}(剩余${item.count})`">
-      <yt-count :max="item.count" v-model="item.useCount"></yt-count>
+      <yt-count v-model="item.useCount"></yt-count>
+    </yt-cell>
+    <yt-split></yt-split>
+    <yt-cell label="润滑油">
+      <yt-count alwaysShowNum alwaysShowReduce :min="1" :max="5" v-model="use"></yt-count>
     </yt-cell>
   </yt-page>
 </template>
@@ -11,6 +15,7 @@
     name: 'count-example',
     data() {
       return {
+        use: 5,
         list: [
           {
             label: '润滑油',

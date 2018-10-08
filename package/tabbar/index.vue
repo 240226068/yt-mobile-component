@@ -1,7 +1,8 @@
 <script type="text/ecmascript-6">
   import tabbarItem from './tabbarItem'
-  import tabbarQuick from './tabbarQuick'
 
+  const TabbarQuick = 'yt-tabbar-quick'
+  const TabbarPanel = 'yt-tabbar-panel'
   export default {
     name: 'yt-tabbar',
     provide() {
@@ -19,13 +20,6 @@
         default: 0
       },
       /**
-       * 使用含有快捷键
-       */
-      quick: {
-        type: [Number, Boolean],
-        default: null
-      },
-      /**
        * 是否可以左右滑动
        */
       slider: {
@@ -41,24 +35,9 @@
         set(val) {
           this.$emit('input', val)
         }
-      },
-      quickPos() {
-        switch (this.quick) {
-          case false:
-          case null:
-            return -1
-          case true:
-            let len = this.panels.length
-            return len ? Math.floor(len / 2) : -1
-          default:
-            return this.quick
-        }
       }
     },
-    components: {
-      tabbarItem,
-      tabbarQuick
-    },
+    components: { tabbarItem },
     data() {
       return {
         panels: []
@@ -70,6 +49,10 @@
       return h('div', { attrs: { class: 'yt-tabbar' } }, [panels, header])
     },
     methods: {
+      getNodesByTag(tag) {
+        if (!this.$slots.default) return []
+        return this.$slots.default.filter(item => item.componentOptions && item.componentOptions.tag === tag)
+      },
       /**
        * 新增tab
        * @param child  tabbar-panel组件的this
@@ -100,7 +83,7 @@
           attrs: { class: 'yt-tabbar-container' },
           props: { value: this.active, panels: this.panels, slider: this.slider },
           on: { input: val => (this.active = val) }
-        }, [this.$slots.default])
+        }, this.getNodesByTag(TabbarPanel))
       },
       /**
        * 获取header的node
@@ -111,25 +94,36 @@
         let children = this.panels.map((panel, index) => {
           return h('tabbar-item', {
             props: { panel, active: index === this.active },
-            on: { click: () => (this.active = index) }
-          })
-        })
-        if (this.quickPos > -1) {
-          let quick = this.$slots.quick || h('tabbar-quick', {
             on: {
-              click: (e) => {
+              click: () => {
+                this.active = index
                 /**
-                 * @event quick-click
-                 * @description 点击快捷按钮的事件
-                 * @type {event}
+                 * @event tab-click
+                 * @description tab的点击事件
+                 * @type {active}
                  */
-                this.$emit('quick-click', e)
+                this.$emit('tab-click', index)
               }
             }
           })
-          children.splice(this.quickPos, 0, quick)
+        })
+        let quick = this.getNodesByTag(TabbarQuick)
+        if (quick && quick.length) {
+          quick = quick[0]
+          let index = quick.componentOptions.propsData.index || Math.floor(children.length / 2)
+          children.splice(index, 0, quick)
         }
         return h('div', { attrs: { class: 'yt-tabbar-header' } }, children)
+      }
+    },
+    watch: {
+      'active'(val, oldVal) {
+        /**
+         * @event change
+         * @description tab页改变时
+         * @type {val}
+         */
+        this.$emit('change', val, oldVal)
       }
     }
   }

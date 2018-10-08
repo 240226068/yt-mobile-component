@@ -1,6 +1,6 @@
 <template>
-  <yt-page :title="title" :leftData="[]">
-    <yt-group name="待巡检" :searchApi="searchApi">
+  <yt-page :title="title">
+    <yt-group name="待巡检" :group="false" :searchApi="searchApi">
       <div class="row" slot-scope="scope">{{scope.name}}</div>
     </yt-group>
   </yt-page>

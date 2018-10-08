@@ -22,6 +22,27 @@
   </script>
 ```
 ###
+#### 插入到body下面 appendToBody
+###
+```html
+<template>
+  <yt-page>
+    <yt-cell label="打开弹出层" @click="bottom = true"></yt-cell>
+    <yt-popup appendToBody pos="center" v-model="bottom">
+      <div> 这里是自定义内容 </div>
+    </yt-popup>
+  </yt-page>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        bottom: false
+      }
+    }
+  }
+</script>
+```
 #### 结合page组件的slot="alert"使用
 ```html
   <template>

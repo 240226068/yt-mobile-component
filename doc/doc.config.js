@@ -4,6 +4,21 @@
 module.exports = {
   sections: [
     {
+      tag: '全局',
+      name: '指南',
+      path: '/main',
+      options: [],
+      contents: ['README.md'],
+      examples: []
+    },
+    {
+      name: '日志',
+      path: '',
+      contents: ['changeLog.md'],
+      options: [],
+      examples: []
+    },
+    {
       tag: '表单',
       name: 'btn',
       path: '/btn',

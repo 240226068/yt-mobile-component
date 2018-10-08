@@ -26,6 +26,9 @@
       i {
         font-size: 24px;
       }
+      @when disabled {
+        color: var(--disabled_color);
+      }
     }
     @e num {
       display: inline-block;

@@ -1,5 +1,5 @@
 <template>
-  <yt-page title="下拉刷新+上啦加载" :rightData="[]">
+  <yt-page title="下拉刷新+上啦加载">
     <yt-pull name="pull" :top-load-method="pullDown" :bottom-load-method="pullUp">
       <div class="row" v-for="i in num" :key="i">这是第{{i}}条数据</div>
     </yt-pull>

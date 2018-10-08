@@ -10,8 +10,21 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'yt-tabbar-quick',
+    props: {
+      /**
+       * 快捷键插入的位置
+       */
+      index: {
+        type: Number
+      }
+    },
     methods: {
       doClick(e) {
+        /**
+         * @event click
+         * @description 点击事件
+         * @type {event}
+         */
         this.$emit('click', e)
       }
     }

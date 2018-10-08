@@ -1,6 +1,7 @@
 <template>
   <div class="bar">
     <div class="title">YT.MOBILE.DOC</div>
+    <div class="version">v.{{version}}</div>
     <div class="search">
       <input class="input" v-model="key" placeholder="搜索..." type="text">
     </div>
@@ -23,6 +24,9 @@
       },
       current: {
         type: Object
+      },
+      version: {
+        type: String
       }
     },
     computed: {
@@ -51,16 +55,22 @@
     width: 250px;
     height: 100%;
     overflow-y: auto;
-    border-right: 1px solid #f1f1f1;
     background-color: #292929;
   }
 
   .title {
     text-align: center;
     color: #ffffff;
-    margin: 30px 5px;
+    margin: 30px 5px 10px 5px;
     font-size: 25px;
     font-weight: bold;
+  }
+
+  .version {
+    text-align: center;
+    color: #eee;
+    font-size: 16px;
+    margin: 10px 0 15px 0;
   }
 
   .search {
@@ -94,26 +104,27 @@
     overflow-y: auto;
     padding-left: 0;
     li {
+      font-size: 14px;
       padding-left: 20px;
       line-height: 40px;
       list-style: none;
       &.is-active {
-        background-color: #212121;
+        background-color: #ffffff;
         .item {
-          font-size: 1.2em;
-          color: #ffffff;
+          font-size: 1.1em;
+          color: #666666;
         }
       }
+    }
+    .tag {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
     }
   }
 
   .list::-webkit-scrollbar {
     display: none;
-  }
-
-  .tag {
-    font-weight: bold;
-    color: #fff;
   }
 
   .item {

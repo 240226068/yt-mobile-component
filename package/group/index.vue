@@ -1,12 +1,15 @@
 <template>
-  <yt-pull class="yt-group" :top-load-method="down ? pullDown : null" :bottom-load-method="up ? pullUp : null"
-           ref="pull">
+  <yt-pull class="yt-group" :top-load-method="down ? pullDown : null" :bottom-load-method="up ? pullUp : null" ref="pull">
     <!-- @slot 自定义header内容-->
     <slot name="header"></slot>
-    <template v-for="(val, key) in data">
+    <template v-for="(val, key) in data" v-if="group">
       <yt-sticky class="yt-group-category" top="0px" :key="key">{{key | calendarTime}}</yt-sticky>
       <!-- @slot 模块内容-->
       <slot v-for="(item, index) in val" :_index="index" v-bind="item"></slot>
+    </template>
+    <template v-if="!group">
+      <!-- @slot 模块内容-->
+      <slot v-for="(item, index) in array" :_index="index" v-bind="item"></slot>
     </template>
     <!-- @slot 自定义footer内容-->
     <slot name="footer"></slot>
@@ -61,20 +64,38 @@
       up: {
         type: Boolean,
         default: true
+      },
+      /**
+       * 默认在activated钩子函数里面，自动调取searchAp函数，实现自动刷新
+       */
+      autoRefresh: {
+        type: Boolean,
+        default: true
+      },
+      /**
+       * 默认情况下会进行分组展示，当然你可以选择关闭该选项
+       */
+      group: {
+        type: Boolean,
+        default: true
       }
     },
 
     data() {
       return {
-        data: {}
+        data: {},
+        array: []
       }
     },
 
     computed: {
       list() {
-        let results = []
-        Object.values(this.data).forEach(v => (results = results.concat(v)))
-        return results
+        if (this.group) {
+          let results = []
+          Object.values(this.data).forEach(v => (results = results.concat(v)))
+          return results
+        }
+        return this.array
       }
     },
 
@@ -92,13 +113,26 @@
         if (!this.searchApi) return
         let array = await this.searchApi({ skip, limit }, this.name)
         !loaded || loaded()
-        if (skip === 0) this.data = {}
-        this.data = groupDataByTime(array, this.data, this.field)
+        if (this.group) {
+          if (skip === 0) this.data = {}
+          this.data = groupDataByTime(array, this.data, this.field)
+        } else {
+          this.array = skip === 0 ? array : this.array.concat(array)
+        }
+      },
+
+      /**
+       * @public
+       * @description 强制开启下拉刷新
+       * @return {void}
+       */
+      startPull() {
+        this.$refs.pull.startPull()
       }
     },
 
     activated() {
-      this.$refs.pull.startPull()
+      if (this.autoRefresh) this.startPull()
     }
   }
 </script>
