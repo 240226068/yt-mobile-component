@@ -8,6 +8,11 @@ Vue.use(Router)
 
 export const routes = [
   {
+    name: 'index',
+    path: '/',
+    redirect: 'main'
+  },
+  {
     name: '首页',
     path: '/main',
     component: () => import('./index')
