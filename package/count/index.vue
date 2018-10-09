@@ -3,14 +3,14 @@
     <transition name="yt-count-anim">
       <span class="yt-count-reduce" @click="doReduce" v-if="alwaysShowReduce || num !== min">
         <yt-view class="yt-count-icon" :class="{'is-disabled': num === min}" :ripple="num !== min" centerRipple>
-          <i class="iconfont icon-reduce"></i>
+          <i class="yt-icon icon-reduce"></i>
         </yt-view>
       </span>
     </transition>
     <span class="yt-count-num">{{alwaysShowNum ? num : num === min ? '' : num}}</span>
     <span class="yt-count-add" @click="doAdd">
       <yt-view class="yt-count-icon" :class="{'is-disabled': num === max}" :ripple="num !== max" centerRipple>
-        <i class="iconfont icon-plus"></i>
+        <i class="yt-icon icon-plus"></i>
       </yt-view>
     </span>
   </div>

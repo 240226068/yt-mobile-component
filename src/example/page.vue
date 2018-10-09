@@ -46,7 +46,7 @@
         ],
         rightData: [
           {
-            font: 'iconfont icon-more',
+            font: 'yt-icon icon-more',
             click: () => {
               this.more = !this.more
             }

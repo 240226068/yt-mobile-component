@@ -10,7 +10,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { bridge } from '../bridge'
+  import { bridge } from '../utils'
 
   export default {
     name: 'previewImg',
@@ -23,7 +23,7 @@
       return {
         list: [],
         leftData: [{
-          font: 'iconfont icon-back',
+          font: 'yt-icon icon-back',
           click: () => {
             this.hide()
           }

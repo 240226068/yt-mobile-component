@@ -1,27 +1,27 @@
 <template>
   <yt-page title="tabbar" flex>
     <yt-tabbar v-model="page" @change="change" @tab-click="tabClick">
-      <yt-tabbar-panel text="首页" font="iconfont icon-main">这里是首页</yt-tabbar-panel>
-      <yt-tabbar-panel text="个人" font="iconfont icon-person">这里是个人</yt-tabbar-panel>
-      <yt-tabbar-panel text="好友" font="iconfont icon-main">这里是好友</yt-tabbar-panel>
-      <yt-tabbar-panel text="功能菜单" font="iconfont icon-menu">这里是功能菜单</yt-tabbar-panel>
+      <yt-tabbar-panel text="首页" font="yt-icon icon-main">这里是首页</yt-tabbar-panel>
+      <yt-tabbar-panel text="个人" font="yt-icon icon-person">这里是个人</yt-tabbar-panel>
+      <yt-tabbar-panel text="好友" font="yt-icon icon-main">这里是好友</yt-tabbar-panel>
+      <yt-tabbar-panel text="功能菜单" font="yt-icon icon-menu">这里是功能菜单</yt-tabbar-panel>
     </yt-tabbar>
     <yt-tabbar v-model="page1">
       <yt-tabbar-quick @click="doQuick"></yt-tabbar-quick>
-      <yt-tabbar-panel text="首页" font="iconfont icon-main">这里是首页</yt-tabbar-panel>
-      <yt-tabbar-panel text="个人" font="iconfont icon-person">这里是个人</yt-tabbar-panel>
-      <yt-tabbar-panel text="好友" font="iconfont icon-main">这里是好友</yt-tabbar-panel>
-      <yt-tabbar-panel text="功能菜单" font="iconfont icon-menu">这里是功能菜单</yt-tabbar-panel>
+      <yt-tabbar-panel text="首页" font="yt-icon icon-main">这里是首页</yt-tabbar-panel>
+      <yt-tabbar-panel text="个人" font="yt-icon icon-person">这里是个人</yt-tabbar-panel>
+      <yt-tabbar-panel text="好友" font="yt-icon icon-main">这里是好友</yt-tabbar-panel>
+      <yt-tabbar-panel text="功能菜单" font="yt-icon icon-menu">这里是功能菜单</yt-tabbar-panel>
     </yt-tabbar>
     <yt-tabbar v-model="page2">
-      <yt-tabbar-quick @click="doQuick"><i style="color: #fff;font-size: 22px;" class="iconfont icon-main"></i></yt-tabbar-quick>
-      <yt-tabbar-panel text="个人" font="iconfont icon-person">
+      <yt-tabbar-quick @click="doQuick"><i style="color: #fff;font-size: 22px;" class="yt-icon icon-main"></i></yt-tabbar-quick>
+      <yt-tabbar-panel text="个人" font="yt-icon icon-person">
         <yt-btn @click="show = !show">打开弹出</yt-btn>
         <yt-popup appendToBody pos="center" v-model="show">
           <yt-checkList v-model="select" :max="1" val="id" label="label" :list="list"></yt-checkList>
         </yt-popup>
       </yt-tabbar-panel>
-      <yt-tabbar-panel text="好友" font="iconfont icon-main">这里是好友</yt-tabbar-panel>
+      <yt-tabbar-panel text="好友" font="yt-icon icon-main">这里是好友</yt-tabbar-panel>
     </yt-tabbar>
   </yt-page>
 </template>

@@ -16,7 +16,7 @@
         return {
           list: [
             {
-              font: 'iconfont icon-message',
+              font: 'yt-icon icon-message',
               badge: { isDot: true },
               text: '待办事项'
             },

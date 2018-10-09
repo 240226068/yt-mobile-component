@@ -3,12 +3,12 @@
     <div class="yt-file-item" @click="handlerTap(file)" v-for="(file, index) in fileList" :key="index">
       <img class="yt-file-img" :src="file.url">
       <span class="yt-file-remove" @click="handlerRemove(index)" v-if="!disabled"><i
-        class="iconfont icon-close"></i></span>
+        class="yt-icon icon-close"></i></span>
     </div>
     <div class="yt-file-upload" v-if="!disabled">
       <input class="yt-file-input" type="file" @change="handlerChange" v-if="fileList.length < max" ref="input">
       <div class="yt-file-btn" @click="handlerToast">
-        <i class="yt-file-camera iconfont icon-camera"></i>
+        <i class="yt-file-camera yt-icon icon-camera"></i>
         <p class="yt-file-text">{{btnText}}</p>
       </div>
     </div>

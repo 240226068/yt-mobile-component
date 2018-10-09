@@ -2,7 +2,7 @@
   <yt-view @click="doClick" class="yt-tabbar-quick">
     <!--@slot 自定义内容-->
     <slot>
-      <i class="yt-tabbar-quickAdd iconfont icon-increase"></i>
+      <i class="yt-tabbar-quickAdd yt-icon icon-increase"></i>
     </slot>
   </yt-view>
 </template>

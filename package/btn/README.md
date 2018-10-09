@@ -55,19 +55,19 @@
 #### 圆型按钮
 ###
 ```html
-<yt-btn size="normal" circle icon="iconfont icon-search" theme="blue"></yt-btn>
-<yt-btn size="normal" circle icon="iconfont icon-search" theme="black"></yt-btn>
-<yt-btn size="normal" circle icon="iconfont icon-search" theme="red"></yt-btn>
-<yt-btn size="normal" circle icon="iconfont icon-search" theme="green"></yt-btn>
-<yt-btn size="normal" circle icon="iconfont icon-search" theme="white"></yt-btn>
+<yt-btn size="normal" circle icon="yt-icon icon-search" theme="blue"></yt-btn>
+<yt-btn size="normal" circle icon="yt-icon icon-search" theme="black"></yt-btn>
+<yt-btn size="normal" circle icon="yt-icon icon-search" theme="red"></yt-btn>
+<yt-btn size="normal" circle icon="yt-icon icon-search" theme="green"></yt-btn>
+<yt-btn size="normal" circle icon="yt-icon icon-search" theme="white"></yt-btn>
 ```
 ###
 #### 使用icon  自定义内容
 ###
 ```html
-<yt-btn size="normal" icon="iconfont icon-search" theme="blue"></yt-btn>
-<yt-btn size="normal" icon="iconfont icon-search" theme="blue">搜索</yt-btn>
-<yt-btn size="normal" theme="blue">搜索 <i class="iconfont icon-search"></i></yt-btn>
+<yt-btn size="normal" icon="yt-icon icon-search" theme="blue"></yt-btn>
+<yt-btn size="normal" icon="yt-icon icon-search" theme="blue">搜索</yt-btn>
+<yt-btn size="normal" theme="blue">搜索 <i class="yt-icon icon-search"></i></yt-btn>
 ```
 ###
 #### 使用loading 防重复点击  

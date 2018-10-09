@@ -1,9 +1,10 @@
 <template>
-  <div class="yt-input" :class="[`yt-input__${theme}`, {'is-noBorder': !border}]" :style="inputStyle">
-    <input :type="type" :placeholder="placeholder" :disabled="disabled" v-model="key" ref="input"/>
-    <i class="yt-input-clear iconfont icon-input-close" v-if="key" @click="key = ''"></i>
+  <div class="yt-input" :class="[`yt-input__${theme}`, {'is-noBorder': !border}, `is-${align}`]" :style="inputStyle">
+    <input :class="{'is-noIcon': !clearable}" :type="type" :placeholder="placeholder" :disabled="disabled" v-model="key" ref="input"/>
+    <i class="yt-input-clear yt-icon icon-input-close" v-if="clearable && key" @click="key = ''"></i>
   </div>
 </template>
+
 <script type="text/ecmascript-6">
   import { throttle } from '../utils'
 
@@ -66,6 +67,20 @@
       type: {
         type: String,
         default: 'text'
+      },
+      /**
+       * 是否可以清理输入值
+       */
+      clearable: {
+        type: Boolean,
+        default: true
+      },
+      /**
+       * 输入的位置
+       */
+      align: {
+        type: String,
+        default: 'right'
       }
     },
     data() {

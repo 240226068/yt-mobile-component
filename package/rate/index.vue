@@ -10,13 +10,13 @@
       :key="index">
       <i
         :class="[classes[item - 1], { 'hover': hoverIndex === item }]"
-        class="iconfont yt-rate-icon"
+        class="yt-icon yt-rate-icon"
         :style="getIconStyle(item)">
         <i
           v-if="showDecimalIcon(item)"
           :class="decimalIconClass"
           :style="decimalStyle"
-          class="iconfont yt-rate-decimal">
+          class="yt-icon yt-rate-decimal">
         </i>
       </i>
     </span>

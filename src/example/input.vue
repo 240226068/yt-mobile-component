@@ -2,6 +2,14 @@
   <yt-page title="输入框" :input="input" :rightData="rightData">
     <yt-split></yt-split>
     <yt-cell label="任务名称">
+      <yt-input align="left" @change="change" v-model="Name"></yt-input>
+    </yt-cell>
+    <yt-split></yt-split>
+    <yt-cell label="任务名称">
+      <yt-input :clearable="false" @change="change" v-model="Name"></yt-input>
+    </yt-cell>
+    <yt-split></yt-split>
+    <yt-cell label="任务名称">
       <yt-input @change="change" v-model="Name"></yt-input>
     </yt-cell>
   </yt-page>
@@ -15,7 +23,7 @@
         input: false,
         Name: '管廊日常巡检任务',
         rightData: [{
-          font: 'iconfont icon-search',
+          font: 'yt-icon icon-search',
           click: () => {
             this.input = !this.input
           }

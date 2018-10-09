@@ -2,7 +2,7 @@
   <yt-btn @click="handlerClick" class="yt-tag" :ripple="false" :size="size" plain>
     <!--@slot 自定义标签内容-->
     <slot></slot>
-    <i v-if="closable" @click.stop.prevent="handlerClickClose" class="yt-tag-close iconfont icon-input-close"></i>
+    <i v-if="closable" @click.stop.prevent="handlerClickClose" class="yt-tag-close yt-icon icon-input-close"></i>
   </yt-btn>
 </template>
 

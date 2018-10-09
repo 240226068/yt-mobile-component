@@ -3,6 +3,7 @@
     font-size: 14px;
     color: #808080;
     @e right {
+      margin-right: 4px;
       font-size: 12px;
     }
     @e tag {

@@ -1,7 +1,7 @@
 <template>
   <span @click="handlerSelect" class="yt-select">
     <span v-if="text && !selectList.length">
-      {{text}}<i class="yt-select-right iconfont icon-right"></i>
+      {{text}}<i class="yt-select-right yt-icon icon-right"></i>
     </span>
     <span class="yt-select-tags" v-else>
       <!-- @slot 自定义tag的内容 -->

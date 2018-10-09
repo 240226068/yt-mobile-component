@@ -20,13 +20,13 @@
       font() {
         switch (this.type) {
           case TYPE.SUCCESS:
-            return 'iconfont icon-success'
+            return 'yt-icon icon-success'
           case TYPE.ERROR:
-            return 'iconfont icon-error'
+            return 'yt-icon icon-error'
           case TYPE.TOOL:
-            return 'iconfont icon-tool'
+            return 'yt-icon icon-tool'
           default:
-            return 'iconfont icon-tool'
+            return 'yt-icon icon-tool'
         }
       }
     },

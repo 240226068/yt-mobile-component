@@ -24,7 +24,7 @@
           ],
           rightData: [
             {
-              font: 'iconfont icon-more',
+              font: 'yt-icon icon-more',
               click: () => {
                 this.input = !this.input
               }
@@ -77,7 +77,7 @@ const TABS = {
         more: false,
         rightData: [
           {
-            font: 'iconfont icon-more',
+            font: 'yt-icon icon-more',
             click: () => {
               this.more = !this.more
             }

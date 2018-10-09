@@ -3,7 +3,7 @@
     <div class="yt-screen-header">
       <div class="yt-screen-item" :class="{'is-active': active === index}"
            v-for="(panel, index) in panels" :key="index" @click="doScreen(index)">
-        {{panel.label}}<i class="yt-screen-icon iconfont icon-down" :class="{'is-active': active === index}"></i>
+        {{panel.label}}<i class="yt-screen-icon yt-icon icon-down" :class="{'is-active': active === index}"></i>
       </div>
     </div>
     <transition name="yt-fade">

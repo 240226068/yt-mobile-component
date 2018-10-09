@@ -14,7 +14,7 @@
       <!-- @slot 自定义cell的右侧的内容-->
       <slot>{{value}}</slot>
     </span>
-    <i class="yt-cell-link iconfont icon-right" v-if="isLink"></i>
+    <i class="yt-cell-link yt-icon icon-right" v-if="isLink"></i>
   </yt-view>
 </template>
 

@@ -2,7 +2,7 @@
   <div class="yt-cellCascader">
     <span class="yt-cellCascader-desc">{{desc}}</span>
     <span class="yt-cellCascader-wrap" @click="handlerSelect">
-      <span v-if="text && !selectList.length">{{text}}<i class="yt-cellCascader-right iconfont icon-right"></i></span>
+      <span v-if="text && !selectList.length">{{text}}<i class="yt-cellCascader-right yt-icon icon-right"></i></span>
       <span class="yt-cellCascader-tags" v-else>
         <!-- @slot 自定义slot的内容 -->
         <slot name="tag" :data="selectList">

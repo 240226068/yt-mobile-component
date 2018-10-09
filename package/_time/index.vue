@@ -1,6 +1,6 @@
 <template>
   <span class="yt-time" @click="pickTime">
-    <span v-if="!value">请选择 <i class="yt-time-right iconfont icon-right"></i></span>
+    <span v-if="!value">请选择 <i class="yt-time-right yt-icon icon-right"></i></span>
     <yt-tag class="yt-time-tag" v-else>{{value | formatTime(format)}}</yt-tag>
   </span>
 </template>

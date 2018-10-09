@@ -40,13 +40,13 @@
     props: {
       /**
        * 导航左侧的按钮 数据类型为headerBtn的参数
-       * 例如 [{ font: 'iconfont icon-back', text: '返回',  click: () => {}}]
+       * 例如 [{ font: 'yt-icon icon-back', text: '返回',  click: () => {}}]
        */
       leftData: {
         type: Array,
         default() {
           return [{
-            font: 'iconfont icon-back',
+            font: 'yt-icon icon-back',
             click: () => {
               this.$router.$back()
             }
@@ -55,7 +55,7 @@
       },
       /**
        * 导航左侧的按钮 数据类型为headerBtn的参数
-       * 例如 [{ font: 'iconfont icon-search',  click: () => {}}]
+       * 例如 [{ font: 'yt-icon icon-search',  click: () => {}}]
        */
       rightData: {
         type: Array,

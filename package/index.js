@@ -8,7 +8,6 @@ import module from './module.js'
 
 export * from './service'
 export * from './utils/index'
-export { default as bridge2 } from './bridge'
 
 export default {
   install(Vue) {

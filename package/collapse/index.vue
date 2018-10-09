@@ -2,7 +2,7 @@
   <div class="yt-collapse">
     <div class="yt-collapse-item" :class="{'is-active': isActive(item, index)}" v-for="(item, index) in list" :key="index">
       <div class="yt-collapse-title yt-border-all" @click="handlerClickToggle(item, index)">
-        <i class="yt-collapse-icon iconfont icon-right" :class="`is-${align}`"></i>
+        <i class="yt-collapse-icon yt-icon icon-right" :class="`is-${align}`"></i>
         <div class="yt-collapse-text">
           <!-- @slot 自定义title -->
           <slot name="title" v-bind="item">{{item[label]}}</slot>
